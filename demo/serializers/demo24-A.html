@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body id="demo">
+  <h1>Event Decorator</h1>
+  <h2>Description</h2>
+  <p>This demo demonstrate the api of the event decorator.</p>
+  
+  <h2>Demo</h2>
+
+  <div id="domElement"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) + 1) + '.html' });
+    var coriolis = Coriolis.createIframe(
+      document.querySelector('#domElement'),
+      'http://' + window.location.hostname + ':8081' + path
+    );
+
+    // fetch('https://pbs.twimg.com/media/Dls_4lxU4AABoKQ.jpg')
+    // fetch('https://pbs.twimg.com/profile_banners/71342078/1399152994/1500x500')
+    // fetch('https://pbs.twimg.com/profile_images/723556258800914432/nGRaYKen_400x400.jpg')
+    new Promise(function (resolve, reject) {
+      let xhr = new XMLHttpRequest();
+
+      // When the upload is finished
+      xhr.addEventListener('load', function(e) {
+        resolve(xhr.response);
+      });
+
+      // Handle XHR errors (client browser errors)
+      xhr.addEventListener('error', function(e) {reject(e)});
+      xhr.addEventListener('timeout', function(e) {reject(e)});
+      xhr.addEventListener('abort', function(e) {reject(e)});
+
+      // start the request
+      xhr.open('GET', 'https://pbs.twimg.com/profile_images/1266036708295864320/mpGrRK6a_400x400.png', true);
+      xhr.responseType = 'arraybuffer';
+
+      // Send the request
+      xhr.send();
+    })
+    .then(function(r) {return new Blob([r])})
+    .then(function(b) {
+      var href = URL.createObjectURL(b);
+
+      return new Promise(function(resolve, reject) {
+        let xhr = new XMLHttpRequest();
+
+        // When the upload is finished
+        xhr.addEventListener('load', function(e) {
+          resolve(xhr.response);
+        });
+
+        // Handle XHR errors (client browser errors)
+        xhr.addEventListener('error', function(e) {reject(e)});
+        xhr.addEventListener('timeout', function(e) {reject(e)});
+        xhr.addEventListener('abort', function(e) {reject(e)});
+
+        // start the request
+        xhr.open('GET', href, true);
+        xhr.responseType = 'arraybuffer';
+
+        // Send the request
+        xhr.send();
+      });
+
+      // return fetch(href);
+    })
+    // .then(res => res.arrayBuffer())
+    .then(function(buffer) {
+      console.log(buffer);
+      coriolis.event.emit('imageBuffer', buffer);
+    })
+    .catch(function(e) { console.error(e) });
+
+  </script>
+</body>
+</html>

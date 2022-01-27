@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Coriolis Demo</title>
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.3/dist/interact.min.js"></script>
+  <style type="text/css">
+    html {
+      position: relative;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    #editor iframe {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      height: 50%;
+      width: 50%;
+    }
+    #corners{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: green;
+    }
+
+    /* body {
+  background: -webkit-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -webkit-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: -moz-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -moz-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background-position: 0 2px, 0 0, 0 1px, 0 1px;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    } */
+  </style>
+</head>
+<body>
+  
+  
+  <div style="position: absolute; top: 0px; left: 0px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 10px; left: 10px; width: 10px; height: 10px; background-color: transparent;"></div>
+  
+  <div style="position: absolute; top: 80px; left: 80px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 90px; left: 90px; width: 10px; height: 10px; background-color: transparent;"></div>
+  
+
+
+  <div id="corners"></div>
+
+  <p>The red cross is inside the iframe, the green box is outside of the iframe. When you are on the iframe, the iframe tracks mouse moves, when you are outside, the parent tracks the mouse moves</p>
+
+
+  <div id="editor"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    window.coriolis = Coriolis.createIframe(document.querySelector('#editor'), 'http://' + window.location.hostname + ':8081/demo07-B.html', '<html><head></head><body><div id="cross"></div></body></html>');
+
+    function moveCorners(e) {
+      // console.log('draggable onmove interactjs', e)
+      var offset = document.body.getBoundingClientRect();
+      var corners = document.getElementById('corners');
+      var cornersSize = corners.getBoundingClientRect();
+      corners.style.top = (e.pageY - (cornersSize.height / 2) - offset.top) + 'px';
+      corners.style.left = (e.pageX - (cornersSize.width / 2) - offset.left) + 'px';
+    }
+
+
+    document.addEventListener('mousemove', function(e) {
+      moveCorners(e);
+    });
+    // interact.on('mousemove', moveCorners, {});
+
+    coriolis.event.on('mousemove', function(e) {
+      if (!e.isTrusted) {
+        var corners = document.getElementById('corners');
+        try {
+          var eDrag = new PointerEvent('pointermove', {
+            target: corners,
+            pointerType: "mouse",
+            bubbles: e.bubbles,
+            cancelable: e.cancelable,
+            view: window,
+            detail: e.detail,
+            dataTransfert: {},
+            currentTarget: corners,
+            relatedTarget: corners, // null
+            screenX: e.screenX,
+            screenY: e.screenY,
+            clientX: e.clientX,
+            clientY: e.clientY,
+            button: e.button,
+            buttons: e.buttons,
+            ctrlKey: e.ctrlKey,
+            shiftKey: e.shiftKey,
+            altKey: e.altKey,
+            metaKey: e.metaKey,
+          });
+        } catch(devNull) {
+          try {
+            var eDrag = document.createEvent('PointerEvent');
+            var mouse = 'mouse';
+          } catch (devNull) {
+            var eDrag = document.createEvent('MSPointerEvent');
+            var mouse = 4;
+          }
+          eDrag.initPointerEvent('pointermove',
+            e.bubbles, e.cancelable, window, e.detail,
+            e.screenX, e.screenY, e.clientX, e.clientY,
+            e.ctrlKey, e.altKey, e.shiftKey, e.metaKey,
+            e.button, corners, e.screenX, e.screenY,
+            1, 1, 1, 0, 0, 0, 0, mouse, e.timeStamp, true
+          );
+        }
+        coriolis.targetIframe.dispatchEvent(eDrag);
+        coriolis.targetIframe.dispatchEvent(e);
+      }
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (e.isTrusted) {
+        coriolis.event.emit('mousemove', e);
+      }
+    });
+
+
+  // interact.on('mousemove', (e) => console.log('on mousemove interactjs', e), {});
+  // interact.on('dragmove', function(e){ console.log('on dragmove interactjs', e.interaction.pointers[0]), {}});
+
+
+  // interact('#corners')
+  // .draggable({
+  //   onmove: moveCorners
+  // })
+
+  </script>
+</body>
+</html>

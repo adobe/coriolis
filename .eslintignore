@@ -1,0 +1,5 @@
+build/
+dist/
+reporting/
+node_modules/
+docs/

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+    <style type="text/css">
+    html {
+      position: relative;
+      height: 100%;
+      margin: 35px;
+      padding: 40px;
+    }
+    body, body#demo {
+      position: relative;
+      height: 3000px;
+      width: 3000px;
+      margin: 45px;
+      padding: 50px;
+      border: 10px dotted transparent;
+    }
+
+    /* body {
+  background: -webkit-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -webkit-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: -moz-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -moz-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background-position: 0 2px, 0 0, 0 1px, 0 1px;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    } */
+
+    #demo #domElement iframe {
+      margin-left: 100px;
+      width: 500px;
+      height: 500px;
+      flex-grow: 0;
+    }
+
+    #demo #domElement iframe {
+      border-width: 10px;
+    }
+
+    #cross, #cross2 {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+    }
+
+    #cross2 {
+      position: fixed;
+    }
+
+    #cross:before , #cross2:before {
+      content: "";
+      background-color: red;
+      width: 1000px;
+      height: 2px;
+      display: block;
+      top: 2px;
+      left: -500px;
+      position: absolute;
+    }
+    #cross:after, #cross2:after {
+      content: "";
+      background-color: red;
+      width: 2px;
+      height: 1000px;
+      display: block;
+      left: 2px;
+      top: -500px;
+      position: absolute;
+    }
+
+    #cross2:before, #cross2:after {
+      background-color: yellow;
+    }
+
+  </style>
+</head>
+<body id="demo">
+
+  <div style="position: absolute; top: 0px; left: 0px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 10px; left: 10px; width: 10px; height: 10px; background-color: transparent;"></div>
+  
+  <div style="position: absolute; top: 80px; left: 80px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 90px; left: 90px; width: 10px; height: 10px; background-color: transparent;"></div>
+  
+  <h1>MouseEvent Serializer</h1>
+  <h2>Description</h2>
+  <p>This demo demonstrate the MouseEvent Serializer. padding, margin, scrool and border usually affect positionning but coriolis handle that.</p>
+  
+  <h2>Demo</h2>
+
+  <div id="cross"></div>
+  <div id="cross2"></div>
+
+  <div id="domElement"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) + 1) + '.html' });
+    var coriolis = Coriolis.createIframe(
+      document.querySelector('#domElement'),
+      'http://' + window.location.hostname + ':8081' + path
+    );
+
+    function movecross(e) {
+      var offset = document.body.getBoundingClientRect();
+
+      const style = window.getComputedStyle(document.body);
+      const borderLeft = parseFloat(style.getPropertyValue('border-left-width').replace('px', ''));
+      const borderTop = parseFloat(style.getPropertyValue('border-top-width').replace('px', ''));
+
+      var cross = document.getElementById('cross');
+      cross.style.top = (-20 + e.clientY - offset.top - borderTop) + 'px';
+      cross.style.left = (-20 + e.clientX - offset.left - borderLeft) + 'px';
+
+      var cross = document.getElementById('cross2');
+      cross.style.top = (20 + e.clientY) + 'px';
+      cross.style.left = (20 + e.clientX) + 'px';
+    }
+
+    document.addEventListener('mousemove', function(e) {
+      movecross(e);
+      if (e.isTrusted) {
+        coriolis.event.emit('mousemove', e);
+      }
+    });
+
+    coriolis.event.on('mousemove', function(e) {
+      if (!e.isTrusted) {
+        var cross = document.getElementById('cross');
+        coriolis.targetIframe.dispatchEvent(e);
+      }
+    });
+
+  </script>
+</body>
+</html>

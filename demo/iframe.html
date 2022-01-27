@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Coriolis Demo</title>
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+  <h1>Loading</h1>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    window.coriolis = new Coriolis(window.parent, 'http://' + window.location.hostname + ':8080/');
+    coriolis.on('connected', function() { console.log('iframe: connected Promise')});
+    coriolis.on('connected', function() { console.log('iframe: connected callback')});
+    coriolis.on('reconnected', function() { console.log('iframe: reconnected callback')});
+    // document.addEventListener('mousemove', function(e) {
+    //   coriolis.event.emit('mousemove', {event: e});
+    // });
+    // document.addEventListener('keyup', function(e) {
+    //   coriolis.event.emit('keyup', {event: e});
+    // })
+    // coriolis.event.emit('mousemove', {rect: document.querySelector('h1').getBoundingClientRect()});
+    coriolis.event.on('nameEvent', function(args, arg2) {
+      console.log('iframe', args, arg2)
+    });
+    coriolis.store.on('data1', function(arg1, arg2) {
+      console.log('iframe-dataon', arg1, arg2);
+      console.log('iframe-dataget', coriolis.store.get('data1'));
+    });
+
+    coriolis.query.register('query1', function(args) {
+      // return new Promise(function(resolve) {
+      //   setTimeout(function(){
+      //     resolve(args[0] + args[1]);
+      //   }, 1000);
+      // })
+      return Promise.resolve(args[0] + args[1])
+    })
+
+    coriolis.query.register('add', function(a,b) {
+      return Promise.resolve(a + b);
+    });
+    document.addEventListener('keyup', function(e) {
+      coriolis.event.emit('keyup', {event: e});
+    })
+    // coriolis.event.emit('mousemove', {rect: document.querySelector('h1').getBoundingClientRect()});
+
+  </script>
+</body>
+</html>
