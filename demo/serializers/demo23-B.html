@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <style type="text/css">
+    html {
+      position: relative;
+      height: 100%;
+      margin: 10px;
+      padding: 10px;
+    }
+    body {
+      position: relative;
+      height: 3000px;
+      width: 3000px;
+
+      margin: 30px;
+      padding: 20px;
+      border: 20px dotted transparent;
+    }
+
+    /* body {
+  background: -webkit-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -webkit-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -webkit-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: -moz-linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), -moz-linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), -moz-linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background: linear-gradient(0deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(90deg, #FFFFFF 2px, rgba(0,0,0,0) 2px), linear-gradient(0deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), linear-gradient(90deg, rgba(255,255,255,0.298039) 1px, rgba(0,0,0,0) 1px), rgb(34, 102, 153);
+  background-position: 0 2px, 0 0, 0 1px, 0 1px;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    } */
+
+    #corner, #corner2 {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+    }
+    #corner2 {
+      position: fixed;
+    }
+
+    #corner:before , #corner2:before {
+      content: "";
+      background-color: green;
+      width: 1000px;
+      height: 2px;
+      display: block;
+      top: -3px;
+      left: -500px;
+      position: absolute;
+    }
+    #corner:after, #corner2:after {
+      content: "";
+      background-color: green;
+      width: 2px;
+      height: 1000px;
+      display: block;
+      left: -3px;
+      top: -500px;
+      position: absolute;
+    }
+
+    #corner2:before, #corner2:after {
+      background-color: cyan;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="corner"></div>
+  <div id="corner2"></div>
+  
+  <div style="position: absolute; top: 0px; left: 0px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 10px; left: 10px; width: 10px; height: 10px; background-color: transparent;"></div>
+  
+  <div style="position: absolute; top: 80px; left: 80px; width: 10px; height: 10px; background-color: transparent;"></div>
+  <div style="position: absolute; top: 90px; left: 90px; width: 10px; height: 10px; background-color: transparent;"></div>
+
+
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) - 1) + '.html' });
+    var coriolis = new Coriolis(
+      window.parent,
+      'http://' + window.location.hostname + ':8080' + path
+    );
+
+    function movecorner(e) {
+      var offset = document.body.getBoundingClientRect();
+
+      const style = window.getComputedStyle(document.body);
+      const borderLeft = parseFloat(style.getPropertyValue('border-left-width').replace('px', ''));
+      const borderTop = parseFloat(style.getPropertyValue('border-top-width').replace('px', ''));
+
+
+      var corner = document.getElementById('corner');
+      corner.style.top = (-20 + e.pageY - offset.top - borderTop - window.pageYOffset) + 'px';
+      corner.style.left = (-20 + e.pageX - offset.left - borderLeft - window.pageXOffset) + 'px';
+
+      var corner = document.getElementById('corner2');
+      corner.style.top = (20 + e.pageY - window.pageYOffset) + 'px';
+      corner.style.left = (20 + e.pageX - window.pageXOffset) + 'px';
+
+    }
+
+    coriolis.event.on('mousemove', function(e) {
+      if (!e.isTrusted) {
+        document.dispatchEvent(e);
+      }
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      movecorner(e);
+      if (e.isTrusted) {
+        coriolis.event.emit('mousemove', e);
+      }
+    });
+
+  </script>
+</body>
+</html>

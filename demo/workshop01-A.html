@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body id="demo">
+  <h1>InitialContent Param</h1>
+  <h2>Description</h2>
+  <p>Follow the different steps and use API.</p>
+  
+  <h2>Demo</h2>
+
+  <div id="domElement"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) + 1) + '.html' });
+    var coriolis = Coriolis.createIframe(
+      document.querySelector('#domElement'),
+      'http://' + window.location.hostname + ':8081' + path
+    );
+
+    coriolis.content.loadScript('http://localhost:8080/workshop01-plugin.js');
+
+  </script>
+</body>
+</html>

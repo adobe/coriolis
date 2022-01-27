@@ -1,0 +1,11 @@
+reporting
+tool
+demo
+node_modules
+test
+.scannerwork
+.gitattributes
+.gitignore
+.package-lock.json
+.babelrc
+Jenkinsfile

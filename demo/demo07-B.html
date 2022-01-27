@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Coriolis Demo</title>
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.3/dist/interact.min.js"></script>
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+    #cross{
+      position: relative;
+      width: 20px;
+      height: 20px;
+    }
+    #cross:before{
+      content: "";
+      background-color: red;
+      width: 20px;
+      height: 6px;
+      display: block;
+      top: 7px;
+      position: absolute;
+    }
+    #cross:after{
+      content: "";
+      background-color: red;
+      width: 6px;
+      height: 20px;
+      display: block;
+      left: 7px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Loading</h1>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    window.coriolis = new Coriolis(window.parent, 'http://' + window.location.hostname + ':8080/demo07-A.html');
+
+    function moveCross(e) {
+      var offset = document.body.getBoundingClientRect();
+      var cross = document.getElementById('cross');
+      if (cross) {
+        var crossSize = cross.getBoundingClientRect();
+        cross.style.top = (e.pageY - (crossSize.height / 2) - offset.top) + 'px';
+        cross.style.left = (e.pageX - (crossSize.width / 2) - offset.left) + 'px';
+      }
+    }
+
+    // document.addEventListener('mousemove', function(e) {
+    //   moveCross(e);
+    // });
+    interact.on('mousemove', moveCross, {});
+
+    coriolis.event.on('mousemove', function(e) {
+      if (!e.isTrusted) {
+        document.dispatchEvent(e);
+      }
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (e.isTrusted) {
+        coriolis.event.emit('mousemove', e);
+      }
+    });
+
+  </script>
+</body>
+</html>

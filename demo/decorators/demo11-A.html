@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body id="demo">
+  <h1>Event Decorator</h1>
+  <h2>Description</h2>
+  <p>This demo demonstrate the api of the event decorator.</p>
+  <h2>Code</h2>
+  <pre class="code">
+    var coriolis = Coriolis.createIframe(
+      <span class="param">domElement</span>,
+      <span class="param">iframeUrl</span>,
+      <span class="param">initialContent</span>
+    );
+    coriolis.event.on(<span class="high">eventName</span>, <span class="high">callback</span>);
+    coriolis.event.once(<span class="high">eventName</span>, <span class="high">callback</span>);
+    coriolis.event.emit(<span class="high">eventName</span>);
+
+  </pre>
+
+  <h2>Demo <div class="pass" style="color: orange;">WAIT</div></h2>
+
+  <div id="domElement"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) + 1) + '.html' });
+    var coriolis = Coriolis.createIframe(
+      document.querySelector('#domElement'),
+      'http://' + window.location.hostname + ':8081' + path,
+      '<html><head></head><body>Initial Coriolis Content</div><h1 style="color: orange;">WAIT</h1></body></html>'
+    );
+
+    coriolis.event.emit('ping');
+
+    var pass = false;
+    coriolis.event.once('pong', function() {
+      pass = true;
+      document.querySelector('.pass').style.color = 'green';
+      document.querySelector('.pass').textContent = 'PASS';
+    });
+    setTimeout(function() {
+      if (!pass) {
+        document.querySelector('.pass').style.color = 'red';
+        document.querySelector('.pass').textContent = 'FAILLED';
+      }
+    }, 1000);
+
+  </script>
+</body>
+</html>

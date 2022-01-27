@@ -1,0 +1,165 @@
+
+html {
+  height: 100%;
+}
+
+/*=============================================================================
+                              INDEX PAGE
+=============================================================================*/
+
+#index {
+  margin: 0;
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#index a {
+  text-decoration: none;
+}
+
+/*===================================================
+               INDEX PAGE - HEADER
+===================================================*/
+
+#index #header {
+  margin: 0;
+  background: #555d62;
+  text-align: left;
+  padding: 0 1rem;
+  height: 50px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#index #header > a {
+  color: #fff;
+  font-size: 1.6875rem;
+  font-weight: 100;
+}
+
+#index #header .github {
+  height: 32px;
+  cursor: pointer;
+}
+
+/*===================================================
+               INDEX PAGE - LISTING
+===================================================*/
+
+#index #page {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#index #page ul {
+  list-style: none;
+  list-style-type: none;
+  color: navy;
+  margin-left: 20px;
+  margin-bottom: 14px;
+  padding: 0;
+}
+
+#index #page li {
+  width: 300px;
+  height: 20px;
+  margin: 0 0 5px 0;
+  border-left: 5px solid #555d62;
+}
+
+#index #page li.todo {
+  text-decoration: line-through;
+}
+
+#index #page li.hr {
+  border: 0;
+  height: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed grey;
+}
+
+#index #page li > a {
+  display: block;
+  height: 20px;
+  margin: 0 0 5px 0;
+  background: #f5f5f5;
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0 0 0 20px;
+}
+
+#index #page li > a:hover, #index #page li > a.selected {
+  background-color: #555d62;
+  color: #fff;
+}
+
+/*===================================================
+               INDEX PAGE - CONTENT
+===================================================*/
+
+#index #content {
+  flex-grow: 1;
+  border-top: 0;
+  border-right: 0;
+  min-height: calc( 100% - 2px );
+}
+
+/*=============================================================================
+                              DEMO PAGE
+=============================================================================*/
+
+#demo {
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*===================================================
+               DEMO PAGE - CODE
+===================================================*/
+
+#demo .code {
+  align-self: flex-start;
+  background-color: lightgrey;
+  display: inline-block;
+  padding: 2em 2em 0 0;
+  margin: 0;
+}
+
+#demo .code .param {
+  color: grey;
+}
+
+#demo .code .high {
+  color: blue;
+}
+
+/*===================================================
+               DEMO PAGE - IFRAME
+===================================================*/
+
+#demo #domElement {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em; /* Often the last item of the page */
+}
+
+#demo #domElement iframe {
+  flex-grow: 1;
+  border: 1px solid red;
+}
+
+#demo .pass {
+  display: inline-block;
+}
+
+

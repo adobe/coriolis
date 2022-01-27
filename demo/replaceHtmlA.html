@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Coriolis Demo</title>
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <p>The red cross is inside the iframe, the green box is outside of the iframe. When you are on the iframe, the iframe tracks mouse moves, when you are outside, the parent tracks the mouse moves</p>
+
+  <div id="corners"></div>
+
+  <div id="editor"></div>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    window.coriolis = Coriolis.createIframe(
+      document.querySelector('#editor'),
+      'http://' + window.location.hostname + ':8081/' + window.location.pathname.replace('A.', 'B.'),
+      '<html><head></head><body>in itContent</div></body></html>'
+    );
+
+    window.coriolis.event.on('initialContentLoaded', function() {
+      window.coriolis.socketSend('replaceHTML', {
+        html: "<html><head></head><body>Content replace <script>console.log('TOTO'); alert('TOTO')<\/script><script test='titi'>console.log('TOTO'); alert('TOTO')<\/script></div></body></html>",
+        executeScript: true
+      });
+    });
+
+
+  </script>
+</body>
+</html>

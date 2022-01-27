@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/polyfill.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+  <script src="/coriolis.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var path = window.location.pathname.replace(/-([A-Z])\.html/, function(all, m1) { return '-' + String.fromCharCode(m1.charCodeAt(0) - 1) + '.html' });
+    var coriolis = new Coriolis(
+      window.parent,
+      'http://' + window.location.hostname + ':8080' + path
+    );
+
+
+    coriolis.event.on('imageBuffer', function(buffer) {
+      console.dir(buffer);
+      let blob = new Blob([buffer], {type: 'image/jpeg'});
+      let href = URL.createObjectURL(blob);
+      let img = document.createElement('img');
+      img.src = href;
+      document.body.appendChild(img);
+    });
+
+  </script>
+</body>
+</html>
