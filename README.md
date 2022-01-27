@@ -21,7 +21,7 @@
 
 ## Useful Links
 
-* [Documentation](https://github.com/pages/adobe/coriolis/index.html)
+* [Documentation](https://opensource.adobe.com/coriolis/)
 
 ## Key Features
 
