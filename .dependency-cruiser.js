@@ -243,7 +243,7 @@ module.exports = {
     // moduleSystems: ['amd', 'cjs', 'es6', 'tsd'],
 
     /* prefix for links in html and svg output (e.g. 'https://github.com/you/yourrepo/blob/develop/'
-       to open it on your online repo or `vscode://file/${process.cwd()}/` to 
+       to open it on your online repo or `vscode://file/${process.cwd()}/` to
        open it in visual studio code),
      */
     // prefix: '',
@@ -294,7 +294,7 @@ module.exports = {
     /* Babel config ('.babelrc', '.babelrc.json', '.babelrc.json5', ...) to use
       for compilation (and whatever other naughty things babel plugins do to
       source code). This feature is well tested and usable, but might change
-      behavior a bit over time (e.g. more precise results for used module 
+      behavior a bit over time (e.g. more precise results for used module
       systems) without dependency-cruiser getting a major version bump.
      */
     babelConfig: {
@@ -321,7 +321,7 @@ module.exports = {
 
         If you have an `exportsFields` attribute in your webpack config, that one
          will have precedence over the one specified here.
-      */ 
+      */
       exportsFields: ["exports"],
       /* List of conditions to check for in the exports field. e.g. use ['imports']
          if you're only interested in exposed es6 modules, ['require'] for commonjs,
