@@ -21,11 +21,7 @@
 
 ## Useful Links
 
-* [Documentation](https://git.corp.adobe.com/pages/zolesio/coriolis/index.html)
-* [Jenkins](https://sky-kraken.ci.corp.adobe.com/job/zolesio-coriolis/)
-* [SonarQube](https://sky-kraken.cq.corp.adobe.com/dashboard?id=zolesio%3Acoriolis__development)
-* [Presentation support](docs/presentation%20support)
-* [Version 1.x](https://git.corp.adobe.com/zolesio/coriolis/tree/version-1.x)
+* [Documentation](https://github.com/pages/adobe/coriolis/index.html)
 
 ## Key Features
 
