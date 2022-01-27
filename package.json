@@ -1,6 +1,6 @@
 {
   "name": "@adobe/coriolis",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "A library for cross iframe communication with high level API and features.",
   "main": "dist/umd/coriolis.js",
   "module": "dist/cjs/coriolis.js",
