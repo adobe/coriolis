@@ -66,7 +66,7 @@ export class LoaderUtilModule extends ModuleBase {
     if (this._moduleLoader.list().size !== this._remoteModule.size) {
       return false;
     }
-    for (const [name] of this._moduleLoader.list()) {
+    for (const name of this._moduleLoader.list()) {
       if (!this._remoteModule.has(name)) {
         return false;
       }

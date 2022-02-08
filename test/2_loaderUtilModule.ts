@@ -67,6 +67,7 @@ describe('test LoaderUtilModule class', () => {
 
     Util.nextTick()
       .then(() => {
+        // Step 1, both frame are unhappy, 2 errors
         assert.deepEqual(consoleStub.callCount, 2);
 
         assert.deepEqual(Array.from(obj2.loaded().local), []);
@@ -77,6 +78,7 @@ describe('test LoaderUtilModule class', () => {
         return Util.nextTick();
       })
       .then(() => {
+        // Step 2, one frame receive the update and still is unhappy, we jump from 2 errors to 3 errors
         assert.deepEqual(consoleStub.callCount, 3);
 
         assert.deepEqual(Array.from(obj1.loaded().local), ['test']);
@@ -92,6 +94,7 @@ describe('test LoaderUtilModule class', () => {
         return Util.nextTick();
       })
       .then(() => {
+        // Step 3, we disconnect the socket, no no check is done, we stay at 3 errors
         assert.deepEqual(consoleStub.callCount, 3);
 
         assert.deepEqual(Array.from(obj2.loaded().local).sort(), [
@@ -109,7 +112,8 @@ describe('test LoaderUtilModule class', () => {
         return Util.nextTick();
       })
       .then(() => {
-        assert.deepEqual(consoleStub.callCount, 5);
+        // Step 4, we reconnect the socket, both side are now in sync, we stay at 3 errors
+        assert.deepEqual(consoleStub.callCount, 3);
 
         assert.deepEqual(Array.from(obj2.loaded().local).sort(), [
           'test',
