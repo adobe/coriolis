@@ -15,19 +15,21 @@ jobs:
     name: checkout
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.ADOBE_BOT_GITHUB_TOKEN }}
       - name: Configure CI Git User
         run: |
           git config user.name adobe-bot
           git config user.email grp-opensourceoffice@adobe.com
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: 10
+          node-version: 14
+          cache: 'yarn'
       - run: |
-          npm install
-          npm test
+          yarn install
+          yarn run build
+          yarn run test -- --headless
       - name: bump and pub
         if: ${{ github.event.inputs.level != '' }}
         run: |
