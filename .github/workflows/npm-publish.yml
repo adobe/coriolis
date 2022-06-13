@@ -9,13 +9,14 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
+        cache: 'yarn'
       - name: install
         run: yarn install
-      - run: npm test -- --headless
+      - run: yarn run test -- --headless
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
