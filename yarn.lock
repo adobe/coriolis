@@ -2402,9 +2402,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^11.10.0:
-  version "11.14.2"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-11.14.2.tgz#53434415d4ac329a9f1e857685a01b4d2ed8d410"
-  integrity sha512-g34G0KJR8m6oLNEmU5fAXwOlsCxcKSpgdaL0qo6UoWRBvoK6i8nJzPM55XkazdiGqdCBhb+++Jgp6GoYeaKcDw==
+  version "11.15.0"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-11.15.0.tgz#694b083029491091a610665a6fc077673797ce6e"
+  integrity sha512-mNK0LXOzPh1Qu9OVBhgPN9sLn4IiZ3x4FoQ2OjWSe7EDGvLGsubJVarSPCbxGQdIHC/TObws4cEjdBgRTQoAdQ==
   dependencies:
     acorn "8.8.0"
     acorn-jsx "5.3.2"
@@ -2420,9 +2420,11 @@ dependency-cruiser@^11.10.0:
     glob "7.2.0"
     handlebars "4.7.7"
     indent-string "^4.0.0"
+    interpret "^2.2.0"
     json5 "2.2.1"
     lodash "4.17.21"
     prompts "2.4.2"
+    rechoir "^0.8.0"
     safe-regex "2.1.1"
     semver "^7.3.7"
     semver-try-require "^5.0.2"
@@ -3406,6 +3408,13 @@ is-core-module@^2.5.0, is-core-module@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.8.1.tgz#f59fdfca701d5879d0a6b100a40aa1560ce27211"
   integrity sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==
+  dependencies:
+    has "^1.0.3"
+
+is-core-module@^2.9.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.10.0.tgz#9012ede0a91c69587e647514e1d5277019e728ed"
+  integrity sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==
   dependencies:
     has "^1.0.3"
 
@@ -4569,6 +4578,13 @@ rechoir@^0.7.0:
   dependencies:
     resolve "^1.9.0"
 
+rechoir@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.8.0.tgz#49f866e0d32146142da3ad8f0eff352b3215ff22"
+  integrity sha512-/vxpCXddiX8NGfGO/mTafwjq4aFa/71pvamip0++IQk3zG8cbCj0fifNPrjjF1XMXUne91jL9OoxmdykoEtifQ==
+  dependencies:
+    resolve "^1.20.0"
+
 redent@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-3.0.0.tgz#e557b7998316bb53c9f1f56fa626352c6963059f"
@@ -4690,6 +4706,15 @@ resolve@^1.10.0, resolve@^1.10.1, resolve@^1.14.2, resolve@^1.9.0:
   integrity sha512-Hhtrw0nLeSrFQ7phPp4OOcVjLPIeMnRlr5mcnVuMe7M/7eBn98A3hmFRLoFo3DLZkivSYwhRUJTyPyWAk56WLw==
   dependencies:
     is-core-module "^2.8.1"
+    path-parse "^1.0.7"
+    supports-preserve-symlinks-flag "^1.0.0"
+
+resolve@^1.20.0:
+  version "1.22.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.1.tgz#27cb2ebb53f91abb49470a928bba7558066ac177"
+  integrity sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==
+  dependencies:
+    is-core-module "^2.9.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
