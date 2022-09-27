@@ -1305,9 +1305,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*", "@types/node@>=10.0.0", "@types/node@^18.0.0":
-  version "18.7.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.19.tgz#ad83aa9b7af470fab7e0f562be87e97dc8ffe08e"
-  integrity sha512-Sq1itGUKUX1ap7GgZlrzdBydjbsJL/NSQt/4wkAxUJ7/OS5c2WkoN6WSpWc2Yc5wtKMZOUA0VCs/j2XJadN3HA==
+  version "18.7.23"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.23.tgz#75c580983846181ebe5f4abc40fe9dfb2d65665f"
+  integrity sha512-DWNcCHolDq0ZKGizjx2DZjR/PqsYwAcYUJmfMWqtVU2MBMG5Mo+xFZrhGId5r/O5HOuMPyQEcM6KUBp5lBZZBg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -2404,9 +2404,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^11.10.0:
-  version "11.16.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-11.16.0.tgz#e5e2afaf74d4a8b701c3a93a61fec18608c2d75d"
-  integrity sha512-ssSje23aCrY7/4VMauwPzLaLJSyuP1+Xlp8DxlERtTjGt2tBnFoTIsiVxo2fi5XIZY4zq+gBvSET5MgF7ab5Yg==
+  version "11.16.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-11.16.1.tgz#94904235cc8887b3992770b228b899a54437cdb3"
+  integrity sha512-AXuToOa7Zll++BB338xXdp7EGDiJk/qiFcSJrqaSpQRC5VeJbkS1jHq4P4hobCVZ+cETsyAxh/jaeFl9OdfnNg==
   dependencies:
     acorn "8.8.0"
     acorn-jsx "5.3.2"
