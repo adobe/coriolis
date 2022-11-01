@@ -62,7 +62,7 @@
     "@types/webpack-env": "^1.17.0",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.10.1",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.1",
     "babel-plugin-istanbul": "^6.1.1",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
