@@ -60,7 +60,7 @@ describe('test queryDecorator class', () => {
     const obj1 = new QueryModule(Util.createModuleBaseArg(pmc1));
     const obj2 = new QueryModule(Util.createModuleBaseArg(pmc2));
 
-    obj2.register('query1', arg => {
+    const f1 = (arg: string): Promise<string> => {
       assert.deepEqual(arg, 'arg1'); // check argument of query are correct.
       return new Promise(resolve => {
         // test async response
@@ -68,8 +68,9 @@ describe('test queryDecorator class', () => {
           resolve('arg2'); // return arg2 value
         }, 1);
       });
-    });
-    const p1 = obj1.call('query1', 'arg1');
+    };
+    obj2.register('query1', f1);
+    const p1 = obj1.call<typeof f1>('query1', 'arg1');
     assert.instanceOf(p1, Promise); // check the result is a Promise
     p1.then(d => {
       assert.deepEqual(d, 'arg2');
@@ -140,7 +141,7 @@ describe('test queryDecorator class', () => {
     const obj2 = new QueryModule(Util.createModuleBaseArg(pmc2));
 
     obj2.register('query1', () => {
-      return 'test';
+      return 'test' as unknown as Promise<string>;
     });
 
     const consoleStub = sinon.stub(console, 'error');

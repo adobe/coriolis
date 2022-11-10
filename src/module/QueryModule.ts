@@ -16,10 +16,15 @@
 
 import {ModuleBase} from '../ModuleBase';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type QueryFunction<Parameters extends Array<any> = Array<any>, Return = any> = (
+  ...data: Parameters
+) => Promise<Return>;
+
 export class QueryModule extends ModuleBase {
-  private _query = new Map<string, Function>();
+  private _query = new Map<string, QueryFunction>();
   protected _seqId = 0;
-  private _catchUnregisterCall: Function | false = false;
+  private _catchUnregisterCall: QueryFunction | false = false;
 
   constructor(baseArgs: ConstructorParameters<typeof ModuleBase>[0]) {
     super(baseArgs);
@@ -31,7 +36,7 @@ export class QueryModule extends ModuleBase {
     );
   }
 
-  register(name: string, callback: Function) {
+  register(name: string, callback: QueryFunction) {
     this._query.set(name, callback);
   }
 
@@ -49,11 +54,14 @@ export class QueryModule extends ModuleBase {
     return this._query.has(name);
   }
 
-  setCatchUnregisterCall(callback: Function) {
+  setCatchUnregisterCall(callback: QueryFunction) {
     this._catchUnregisterCall = callback;
   }
 
-  call(queryName: string, ...data: unknown[]) {
+  call<T1 extends QueryFunction>(
+    queryName: string,
+    ...data: Parameters<T1>
+  ): Promise<Awaited<ReturnType<T1>>> {
     this._seqId++;
     if (this._seqId === Number.MAX_VALUE) {
       this._seqId = Number.MIN_VALUE;
