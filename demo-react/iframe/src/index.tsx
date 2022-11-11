@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Coriolis } from '@adobe/coriolis';
 
 const coriolis = new Coriolis(window.parent, 'http://localhost:8080');
+(window as any).coriolis = coriolis;
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

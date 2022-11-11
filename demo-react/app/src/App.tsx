@@ -14,6 +14,20 @@ h1.addEventListener("click", () => {
 });
 </script>`;
 
+const demo2 = `<div>This is some HTML <div>content</div> ABC</div>
+<script>
+addEventListener('mouseover', (e) => {
+  // console.log('mouseover')
+  console.log(e.target.getBoundingClientRect());
+  coriolis.event.emit('toolbar', e.target.getBoundingClientRect());
+  e.target.style.color = 'red';
+});
+addEventListener('mouseout', (e) => {
+  // console.log('mouseout')
+  e.target.style.color = '';
+});
+</script>`;
+
 const App = () => {
   const [value, setValue] = useState('<h1>This is some HTML content</h1>');
   const [liveUpdate, setLiveUpdate] = useState(true);
@@ -22,6 +36,7 @@ const App = () => {
   const coriolisPlugin = useRef<Coriolis>();
 
   const [selection, setSelection] = useState('dogs');
+  const [toolbar, setToolbar] = useState<DOMRect>();
 
   useEffect(() => {
     if (liveUpdate) {
@@ -43,17 +58,20 @@ const App = () => {
             setPreview(value);
           }}>Update preview</ActionButton>
           <ActionButton onPress={() => {
-            setValue(demo1)
-          }}>Example 1</ActionButton>
+            setValue(demo1);
+          }}>Demo 1</ActionButton>
+          <ActionButton onPress={() => {
+            setValue(demo2);
+          }}>Demo 2</ActionButton>
           <Switch isSelected={liveUpdate} onChange={setLiveUpdate}>Live update</Switch>
-          <RadioGroup orientation='horizontal' value={selection} onChange={(v) => {
+          {/* <RadioGroup orientation='horizontal' value={selection} onChange={(v) => {
             coriolisPlugin.current?.store.set('selection', v);
           }} label="Favorite pet">
             <Radio value="dogs">Dogs</Radio>
             <Radio value="cats">Cats</Radio>
-          </RadioGroup>
+          </RadioGroup> */}
         </Flex>
-        <Heading level={1}>Plugin</Heading>
+        {/* <Heading level={1}>Plugin</Heading>
         <CoriolisIframe coriolisUrl='http://localhost:8081/' setRef={(coriolis) => {
           // PLUGIN
           coriolisPlugin.current = coriolis;
@@ -66,13 +84,24 @@ const App = () => {
           });
           coriolis.store.set('selection', selection);
 
-        }}/>
+        }}/> */}
       </Flex>
       <Flex direction='column' width='50%'>
         <Heading level={1}>Preview</Heading>
+        {/* {toolbar && <div style={{
+          position: 'fixed',
+          top: `${toolbar.top - 30}px`,
+          left: toolbar.left,
+          color: 'white',
+          backgroundColor: 'black',
+          padding: '5px',
+        }}>Toolbar</div>} */}
         <CoriolisIframe html={preview} coriolisUrl='http://localhost:8081/' setRef={(coriolis) => {
           // PREVIEW
           coriolisPreview.current = coriolis;
+          coriolis.event.on('toolbar', (v) => {
+            setToolbar(v);
+          })
         }}/>
       </Flex>
     </Provider>
