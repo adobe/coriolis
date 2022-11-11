@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './coriolis-logo.svg';
 import './App.css';
+import CoriolisIframe from './CoriolisIframe';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <textarea id="html-input"></textarea>
+        <CoriolisIframe html='ABCD' coriolisUrl='http://localhost:3000/' />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -17,7 +20,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a> */}
       </header>
     </div>
   );

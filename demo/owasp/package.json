@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "owasp-coriolis-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@adobe/coriolis": "file:../..",
     "@babel/core": "^7.16.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
