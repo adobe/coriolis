@@ -64,14 +64,14 @@ const App = () => {
             setValue(demo2);
           }}>Demo 2</ActionButton>
           <Switch isSelected={liveUpdate} onChange={setLiveUpdate}>Live update</Switch>
-          {/* <RadioGroup orientation='horizontal' value={selection} onChange={(v) => {
+          <RadioGroup orientation='horizontal' value={selection} onChange={(v) => {
             coriolisPlugin.current?.store.set('selection', v);
           }} label="Favorite pet">
             <Radio value="dogs">Dogs</Radio>
             <Radio value="cats">Cats</Radio>
-          </RadioGroup> */}
+          </RadioGroup>
         </Flex>
-        {/* <Heading level={1}>Plugin</Heading>
+        <Heading level={1}>Plugin</Heading>
         <CoriolisIframe coriolisUrl='http://localhost:8081/' setRef={(coriolis) => {
           // PLUGIN
           coriolisPlugin.current = coriolis;
@@ -84,18 +84,18 @@ const App = () => {
           });
           coriolis.store.set('selection', selection);
 
-        }}/> */}
+        }}/>
       </Flex>
       <Flex direction='column' width='50%'>
         <Heading level={1}>Preview</Heading>
-        {/* {toolbar && <div style={{
+        {toolbar && <div style={{
           position: 'fixed',
           top: `${toolbar.top - 30}px`,
           left: toolbar.left,
           color: 'white',
           backgroundColor: 'black',
           padding: '5px',
-        }}>Toolbar</div>} */}
+        }}>Toolbar</div>}
         <CoriolisIframe html={preview} coriolisUrl='http://localhost:8081/' setRef={(coriolis) => {
           // PREVIEW
           coriolisPreview.current = coriolis;
