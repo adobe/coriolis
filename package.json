@@ -89,7 +89,7 @@
     "mocha": "^10.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.6.2",
-    "sinon": "^14.0.0",
+    "sinon": "^15.0.1",
     "ts-loader": "^9.3.0",
     "typedoc": "^0.23.11",
     "typedoc-plugin-merge-modules": "^4.0.1",
