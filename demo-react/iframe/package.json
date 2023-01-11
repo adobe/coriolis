@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@adobe/coriolis": "^2.0.0-rc.4",
+    "@adobe/coriolis": "file:../../",
     "@adobe/react-spectrum": "^3.22.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
