@@ -16,6 +16,8 @@ jobs:
           cache: 'yarn'
       - name: install
         run: yarn install
+      - run: (cd demo-react/app; yarn install)
+      - run: (cd demo-react/iframe; yarn install)
       - run: yarn run test -- --headless
       - uses: JS-DevTools/npm-publish@v1
         with:

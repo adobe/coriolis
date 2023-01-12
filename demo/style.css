@@ -163,3 +163,30 @@ html {
 }
 
 
+/*===================================================
+               OWASP
+===================================================*/
+
+
+#owasp {
+  display: flex;
+  flex-direction: row;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 0;
+  height: 100%;
+}
+#right, #left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+#preview  {
+  flex-grow: 1;
+}
+#preview iframe {
+  width: 100%;
+  height: calc(100% - 50px);
+
+}
