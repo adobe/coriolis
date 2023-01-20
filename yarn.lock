@@ -2495,9 +2495,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^12.1.0:
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.5.0.tgz#5e2c7095ca9544c5805471a8d4e1f9975f411f87"
-  integrity sha512-8EILrV965yiKCdoOf9yNoTwwGANe+K9N9GplFP6H5gQUpFLyfUKD3EAFzMVlKn07odCiQ9PA9xX9ZrJiX1+DAg==
+  version "12.5.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.5.1.tgz#19ba6f9b1db9f9860301258f5ae097ac27ac69c2"
+  integrity sha512-jU7uI2coWjd1+mPQw/wQqVe/2FIKcePCqiTsUwwgzvPGL0LnBjyD75YwNkYP+T7eYYdZeBi8THe1I8W1s4Dbfg==
   dependencies:
     acorn "8.8.1"
     acorn-jsx "5.3.2"
