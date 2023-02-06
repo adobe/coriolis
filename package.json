@@ -84,7 +84,7 @@
     "karma-mocha": "^2.0.1",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sinon": "^1.0.5",
-    "karma-sourcemap-loader": "^0.3.8",
+    "karma-sourcemap-loader": "^0.4.0",
     "karma-webpack": "^5.0.0",
     "mocha": "^10.2.0",
     "pre-commit": "^1.2.2",
