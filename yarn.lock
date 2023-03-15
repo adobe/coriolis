@@ -2448,9 +2448,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^12.1.0:
-  version "12.10.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.10.0.tgz#688c57f69314c647239c592c7ea72c51948860fe"
-  integrity sha512-eRaqlAdE7/QAD1up/ju1N8quo+W3Ow4vIzzeqn1/WflxYIakN/dzJXzHZYSyWC+1Fw9T3F5YbXdLhXuRGb9R/A==
+  version "12.10.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.10.1.tgz#407f64aff22a236ca930749899da1c8e1dec0ec0"
+  integrity sha512-yncDduwTNqnpL9y2D0OX334mUoERxtemTdPdaPDSoopxGFfitKPPfI2FTS92hJogxH8HGGE55zPkJoGnm8hEIQ==
   dependencies:
     acorn "8.8.2"
     acorn-jsx "5.3.2"
@@ -2475,9 +2475,9 @@ dependency-cruiser@^12.1.0:
     rechoir "^0.8.0"
     safe-regex "2.1.1"
     semver "^7.3.7"
-    semver-try-require "6.0.0"
+    semver-try-require "6.1.0"
     teamcity-service-messages "0.1.14"
-    tsconfig-paths-webpack-plugin "4.0.0"
+    tsconfig-paths-webpack-plugin "4.0.1"
     watskeburt "0.10.0"
     wrap-ansi "^7.0.0"
 
@@ -3716,7 +3716,7 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
-json5@2.2.3, json5@^2.1.3, json5@^2.2.1, json5@^2.2.2:
+json5@2.2.3, json5@^2.1.3, json5@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
@@ -4845,10 +4845,10 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
-semver-try-require@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.0.0.tgz#10e4a25b7780062add0e1239e4f115680000b274"
-  integrity sha512-C3RwXtL5VHhGcUeH+t/Gybit9XGHutb1fX8mp2L2v6rrD1GPC9FLQuYN/RoZAedmoWKmuWWDGbfej1LpJOcJxA==
+semver-try-require@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.1.0.tgz#6306379901c3b14127249aa83333f2c8ad037ec2"
+  integrity sha512-nfdWsBkR2n0J2+0I8JfGklh/KRVpAimPc73OlEcOpaElTVEHPx5WpINSaHdsM6vzzbWisSeL4bWyi0uyuricFQ==
   dependencies:
     semver "^7.3.8"
 
@@ -5328,21 +5328,21 @@ ts-loader@^9.4.2:
     micromatch "^4.0.0"
     semver "^7.3.4"
 
-tsconfig-paths-webpack-plugin@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-4.0.0.tgz#84008fc3e3e0658fdb0262758b07b4da6265ff1a"
-  integrity sha512-fw/7265mIWukrSHd0i+wSwx64kYUSAKPfxRDksjKIYTxSAp9W9/xcZVBF4Kl0eqQd5eBpAQ/oQrc5RyM/0c1GQ==
+tsconfig-paths-webpack-plugin@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths-webpack-plugin/-/tsconfig-paths-webpack-plugin-4.0.1.tgz#a24651d0f69668a1abad38d3c2489855c257460d"
+  integrity sha512-m5//KzLoKmqu2MVix+dgLKq70MnFi8YL8sdzQZ6DblmCdfuq/y3OqvJd5vMndg2KEVCOeNz8Es4WVZhYInteLw==
   dependencies:
     chalk "^4.1.0"
     enhanced-resolve "^5.7.0"
-    tsconfig-paths "^4.0.0"
+    tsconfig-paths "^4.1.2"
 
-tsconfig-paths@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-4.0.0.tgz#1082f5d99fd127b72397eef4809e4dd06d229b64"
-  integrity sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==
+tsconfig-paths@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-4.1.2.tgz#4819f861eef82e6da52fb4af1e8c930a39ed979a"
+  integrity sha512-uhxiMgnXQp1IR622dUXI+9Ehnws7i/y6xvpZB9IbUVOPy0muvdvgXeZOn88UcGPiT98Vp3rJPTa8bFoalZ3Qhw==
   dependencies:
-    json5 "^2.2.1"
+    json5 "^2.2.2"
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
