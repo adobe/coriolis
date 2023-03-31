@@ -3158,9 +3158,9 @@ grapheme-splitter@^1.0.4:
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
 gts@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/gts/-/gts-4.0.0.tgz#1ea9b440200e6c1b82f12b4ee75c0b3fe1bdb81d"
-  integrity sha512-DTyK7X2PLkv9D5/ttQJvxHqdzDXfbB3Am+O2NVzMcxNq5WJDgCZfjxDjI1NxxQLALBYuraxMtJzdyjxZ5sfzwA==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/gts/-/gts-4.0.1.tgz#eac84db9692271e4266da2afd52190678c050a51"
+  integrity sha512-BeFQLqra3HH5/MHuog+uOpn/h6qVMLeBB0WZ4bgal7CbqbvfaCxCYA7vlfaMAANhgw1Ko2HFZA4iuOJqOBW5lg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.0.0"
     "@typescript-eslint/parser" "^5.0.0"
