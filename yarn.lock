@@ -2406,9 +2406,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^12.1.0:
-  version "12.11.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.11.0.tgz#b5fdc3592938c7949c3667ab7758646964732bc4"
-  integrity sha512-hl68UaC8ctMGebKtF0mR/W6DFIUNpOpV4vCifIXGo8Tqa/43vpgjj2sc11zcE2YtqzjD9DSW761IwcoSPxgWZA==
+  version "12.11.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.11.1.tgz#5ea774872831267c6870dc0d8472455c714ff098"
+  integrity sha512-AP2ob+0oFJNGoh3QwrmqMxlmey/XjP/g/YJ1USUq6JotmAKlTGwUzRYvbHdFIdQT7IkyQI4D21hCZpU36oL8/Q==
   dependencies:
     acorn "8.8.2"
     acorn-jsx "5.3.2"
@@ -2425,7 +2425,7 @@ dependency-cruiser@^12.1.0:
     handlebars "4.7.7"
     ignore "5.2.4"
     indent-string "^4.0.0"
-    interpret "^3.1.0"
+    interpret "^3.1.1"
     is-installed-globally "0.4.0"
     json5 "2.2.3"
     lodash "4.17.21"
@@ -2433,7 +2433,7 @@ dependency-cruiser@^12.1.0:
     rechoir "^0.8.0"
     safe-regex "2.1.1"
     semver "^7.3.7"
-    semver-try-require "6.1.0"
+    semver-try-require "6.2.0"
     teamcity-service-messages "0.1.14"
     tsconfig-paths-webpack-plugin "4.0.1"
     watskeburt "0.10.1"
@@ -3371,7 +3371,7 @@ inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-interpret@^3.1.0, interpret@^3.1.1:
+interpret@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-3.1.1.tgz#5be0ceed67ca79c6c4bc5cf0d7ee843dcea110c4"
   integrity sha512-6xwYfHbajpoF0xLW+iwLkhwgvLoZDfjYfoFNu8ftMoXINzwuymNLd9u/KmwtdT2GbR+/Cz66otEGEVVUHX9QLQ==
@@ -4829,10 +4829,10 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
-semver-try-require@6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.1.0.tgz#6306379901c3b14127249aa83333f2c8ad037ec2"
-  integrity sha512-nfdWsBkR2n0J2+0I8JfGklh/KRVpAimPc73OlEcOpaElTVEHPx5WpINSaHdsM6vzzbWisSeL4bWyi0uyuricFQ==
+semver-try-require@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.2.0.tgz#46f5a55cb25ad9a022dc6c8696d16b2cc1e7ff0b"
+  integrity sha512-Aa6Hl6yxXc9Xf8fUhMJW4IRWrBx/yXHUE/ge59anZqdRteub1iljCCkKee9pkXakHXUsUNlz518iQpjF5ovlKA==
   dependencies:
     semver "^7.3.8"
 
