@@ -5408,9 +5408,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typedoc-plugin-merge-modules@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/typedoc-plugin-merge-modules/-/typedoc-plugin-merge-modules-4.0.1.tgz#e690a404979cb289bc97e9575f678293293b48f9"
-  integrity sha512-peuoWT/xcpEO71kNuaTBAS2IVwc8qm5tiIXnJc0vW/Cy9HHoVGkYecarkwtLBl5VmrhZjZN6LQNriqYfgHA1+A==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-merge-modules/-/typedoc-plugin-merge-modules-4.1.0.tgz#4b125e3d2b195ff544bee7eafa393cd5ccc3cc03"
+  integrity sha512-0Qax5eSaiP86zX9LlQQWANjtgkMfSHt6/LRDsWXfK45Ifc3lrgjZG4ieE87BMi3p12r/F0qW9sHQRB18tIs0fg==
 
 typedoc@^0.23.24:
   version "0.23.28"
