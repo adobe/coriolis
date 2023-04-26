@@ -2214,7 +2214,7 @@ commander@10.0.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.0.tgz#71797971162cd3cf65f0b9d24eb28f8d303acdf1"
   integrity sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==
 
-commander@^10.0.1:
+commander@10.0.1, commander@^10.0.1:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.1.tgz#881ee46b4f77d1c1dccc5823433aa39b022cbe06"
   integrity sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==
@@ -2406,9 +2406,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^12.1.0:
-  version "12.11.1"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.11.1.tgz#5ea774872831267c6870dc0d8472455c714ff098"
-  integrity sha512-AP2ob+0oFJNGoh3QwrmqMxlmey/XjP/g/YJ1USUq6JotmAKlTGwUzRYvbHdFIdQT7IkyQI4D21hCZpU36oL8/Q==
+  version "12.11.3"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.11.3.tgz#748b8f9deeaef31b58db0f20edb5ffa1d19781f8"
+  integrity sha512-SNKCgV5+QE3S0zLjezmEKEkOzHNz/dgiX1p9gDgudmdYJkpNJYOA0E8l5o+LvjYxguM534i55gfrNpZ6RjwzBQ==
   dependencies:
     acorn "8.8.2"
     acorn-jsx "5.3.2"
@@ -2417,8 +2417,8 @@ dependency-cruiser@^12.1.0:
     acorn-walk "8.2.0"
     ajv "8.12.0"
     chalk "^4.1.2"
-    commander "10.0.0"
-    enhanced-resolve "5.12.0"
+    commander "10.0.1"
+    enhanced-resolve "5.13.0"
     figures "^3.2.0"
     get-stream "^6.0.1"
     glob "7.2.0"
@@ -2433,10 +2433,10 @@ dependency-cruiser@^12.1.0:
     rechoir "^0.8.0"
     safe-regex "2.1.1"
     semver "^7.3.7"
-    semver-try-require "6.2.0"
+    semver-try-require "6.2.2"
     teamcity-service-messages "0.1.14"
     tsconfig-paths-webpack-plugin "4.0.1"
-    watskeburt "0.10.1"
+    watskeburt "0.10.2"
     wrap-ansi "^7.0.0"
 
 destroy@1.2.0:
@@ -2541,15 +2541,7 @@ engine.io@~6.2.0:
     engine.io-parser "~5.0.3"
     ws "~8.2.3"
 
-enhanced-resolve@5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.12.0.tgz#300e1c90228f5b570c4d35babf263f6da7155634"
-  integrity sha512-QHTXI/sZQmko1cbDoNAa3mJ5qhWUUNAq3vR0/YiD379fWQrcfuoX1+HW2S0MTt7XmoPLapdaDKUtelUSPic7hQ==
-  dependencies:
-    graceful-fs "^4.2.4"
-    tapable "^2.2.0"
-
-enhanced-resolve@^5.0.0, enhanced-resolve@^5.13.0, enhanced-resolve@^5.7.0:
+enhanced-resolve@5.13.0, enhanced-resolve@^5.0.0, enhanced-resolve@^5.13.0, enhanced-resolve@^5.7.0:
   version "5.13.0"
   resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.13.0.tgz#26d1ecc448c02de997133217b5c1053f34a0a275"
   integrity sha512-eyV8f0y1+bzyfh8xAwW/WTSZpLbjhqc4ne9eGSH4Zo2ejdyiNG9pU6mf9DG8a7+Auk6MFTlNOT4Y2y/9k8GKVg==
@@ -4837,10 +4829,10 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
-semver-try-require@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.2.0.tgz#46f5a55cb25ad9a022dc6c8696d16b2cc1e7ff0b"
-  integrity sha512-Aa6Hl6yxXc9Xf8fUhMJW4IRWrBx/yXHUE/ge59anZqdRteub1iljCCkKee9pkXakHXUsUNlz518iQpjF5ovlKA==
+semver-try-require@6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/semver-try-require/-/semver-try-require-6.2.2.tgz#58e3d736dd10ecb494ba66c8f297ddbcadf7909f"
+  integrity sha512-Pyr1mG/kyBxL2+hNfU/VPRhBRdm/+EJAyWlusn7t9NDRkZEvsbwPjlocZ4ji0TD4ALPmW9ZkrzMQADjrRCDQ5w==
   dependencies:
     semver "^7.3.8"
 
@@ -5536,10 +5528,10 @@ watchpack@^2.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-watskeburt@0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-0.10.1.tgz#29884bedb5428182a1c891bcac85d0870f27d429"
-  integrity sha512-3ZN+kLvFwrOBV3wAEb+FRBI8BRWGXxDMmwPMxAJaBi4WbWzSrZ1OcYEYwwCFoPmjw3O13LgoND1Pnut1nMXYnw==
+watskeburt@0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-0.10.2.tgz#16630d862b6c002045361894e04af8aa25c8bb13"
+  integrity sha512-tM1gGD4hbof1m7VgnISerjTuoW+wdfQ53swyPKhf0/v/03OPKoQ8qhCrqdARk/EvpWI7WXDQJ5AhyCLFC0rkqA==
   dependencies:
     commander "10.0.0"
 
