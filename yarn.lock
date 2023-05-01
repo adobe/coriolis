@@ -2243,11 +2243,6 @@ colorette@^2.0.10, colorette@^2.0.14:
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
   integrity sha512-hUewv7oMjCp+wkBv5Rm0v87eJhq4woh5rSR+42YSQJKecCqgIqNkZ6lAlQms/BwHPJA5NKMRlpxPRv0n8HQW6g==
 
-commander@10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.0.tgz#71797971162cd3cf65f0b9d24eb28f8d303acdf1"
-  integrity sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==
-
 commander@10.0.1, commander@^10.0.1:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.1.tgz#881ee46b4f77d1c1dccc5823433aa39b022cbe06"
@@ -2440,9 +2435,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^12.1.0:
-  version "12.11.3"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.11.3.tgz#748b8f9deeaef31b58db0f20edb5ffa1d19781f8"
-  integrity sha512-SNKCgV5+QE3S0zLjezmEKEkOzHNz/dgiX1p9gDgudmdYJkpNJYOA0E8l5o+LvjYxguM534i55gfrNpZ6RjwzBQ==
+  version "12.12.0"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-12.12.0.tgz#99810305b444a94d18dd07550f4e4f84e6366aee"
+  integrity sha512-3DB6m6bVVR50o8CZWa4yBklm2SxfDi5gHPlDmS9v4Vdng2uJxPFezM2yH9PlsJ6GlQ7tpOiiYp/gOXUr/R+KGQ==
   dependencies:
     acorn "8.8.2"
     acorn-jsx "5.3.2"
@@ -2470,7 +2465,7 @@ dependency-cruiser@^12.1.0:
     semver-try-require "6.2.2"
     teamcity-service-messages "0.1.14"
     tsconfig-paths-webpack-plugin "4.0.1"
-    watskeburt "0.10.2"
+    watskeburt "0.11.1"
     wrap-ansi "^7.0.0"
 
 destroy@1.2.0:
@@ -5562,12 +5557,12 @@ watchpack@^2.4.0:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-watskeburt@0.10.2:
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-0.10.2.tgz#16630d862b6c002045361894e04af8aa25c8bb13"
-  integrity sha512-tM1gGD4hbof1m7VgnISerjTuoW+wdfQ53swyPKhf0/v/03OPKoQ8qhCrqdARk/EvpWI7WXDQJ5AhyCLFC0rkqA==
+watskeburt@0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-0.11.1.tgz#9ef63cdcd5f8345442c3888438b041fd5b3a285d"
+  integrity sha512-pRg7lw1R5kazren0jhcWSWNNfv3HE5Mzggj9MaruziQYMpxLJL1BrcwJWFSDwgOVbQrmtUZNgbbkKSv6SIyLew==
   dependencies:
-    commander "10.0.0"
+    commander "10.0.1"
 
 webpack-bundle-analyzer@^4.5.0:
   version "4.8.0"
