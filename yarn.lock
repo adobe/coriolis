@@ -5591,10 +5591,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typedoc-plugin-merge-modules@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/typedoc-plugin-merge-modules/-/typedoc-plugin-merge-modules-4.1.0.tgz#4b125e3d2b195ff544bee7eafa393cd5ccc3cc03"
-  integrity sha512-0Qax5eSaiP86zX9LlQQWANjtgkMfSHt6/LRDsWXfK45Ifc3lrgjZG4ieE87BMi3p12r/F0qW9sHQRB18tIs0fg==
+typedoc-plugin-merge-modules@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-merge-modules/-/typedoc-plugin-merge-modules-5.0.0.tgz#04c3d7c3ac2f613867a3b3e874fc54a6cc2471ab"
+  integrity sha512-vNg6PnkSE3HNiIcEKMLL93FAYPQZ3Ljf1E2I/z2vU4LTpdUqhmtNuwjq+5A1lpjf/aPlxIwTxpo9iCnRkvbGvA==
 
 typedoc@^0.24.6:
   version "0.24.6"
