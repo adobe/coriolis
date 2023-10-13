@@ -1466,10 +1466,12 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node@*", "@types/node@>=10.0.0", "@types/node@^18.11.18":
-  version "18.16.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.16.3.tgz#6bda7819aae6ea0b386ebc5b24bdf602f1b42b01"
-  integrity sha512-OPs5WnnT1xkCBiuQrZA4+YAV4HEJejmHneyraIaxsbev5yCEr6KMwINNFP9wQeFIw8FWcoTqF3vQsa5CDaI+8Q==
+"@types/node@*", "@types/node@>=10.0.0", "@types/node@^20.8.5":
+  version "20.8.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.8.5.tgz#13352ae1f80032171616910e8aba2e3e52e57d96"
+  integrity sha512-SPlobFgbidfIeOYlzXiEjSYeIJiOCthv+9tSQVpvk4PAdIIc+2SmjNVzWXk9t0Y7dl73Zdf+OgXKHX9XtkqUpw==
+  dependencies:
+    undici-types "~5.25.1"
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -5640,6 +5642,11 @@ uglify-js@^3.1.4:
   version "3.15.0"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.15.0.tgz#2d6a689d94783cab43975721977a13c2afec28f1"
   integrity sha512-x+xdeDWq7FiORDvyIJ0q/waWd4PhjBNOm5dQUOq2AKC0IEjxOS66Ha9tctiVDGcRQuh69K7fgU5oRuTK4cysSg==
+
+undici-types@~5.25.1:
+  version "5.25.3"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.25.3.tgz#e044115914c85f0bcbb229f346ab739f064998c3"
+  integrity sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"
