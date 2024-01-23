@@ -27,18 +27,20 @@ type DataSerializer = {
  * This have dataSerializer feature, auto-connect feature (with defer), ensure url of the target (security),
  * send (with wait connect), listener on messages, and events for lisfecycle of postmessageChannel status
  */
-export class PostMessageChannel extends EventEmitter {
+export class PostMessageChannel extends EventEmitter<
+  'connected' | 'reconnected' | 'disconnected'
+> {
   /**
    * The socket used to directly send PostMessage
    * @type {Window}
    */
-  private readonly _socket: Window | false = false;
+  private _socket: Window | false = false;
 
   /**
    * The domElement which contains socket to send PostMessage (in contentWindow)
    * @type {HTMLIFrameElement}
    */
-  private readonly _domElement: HTMLIFrameElement | false = false;
+  private _domElement: HTMLIFrameElement | false = false;
 
   /**
    * The allowed URL for PostMessage communication
@@ -86,7 +88,7 @@ export class PostMessageChannel extends EventEmitter {
    * @param  {Boolean}                    [options.autoConnect]     If we try or not to connect autoatically when instance is created
    */
   constructor(
-    target: HTMLIFrameElement | Window,
+    target: HTMLIFrameElement | Window | 'defer',
     targetUrl: URL | string,
     {
       dataSerializer = window.JSON,
@@ -98,7 +100,9 @@ export class PostMessageChannel extends EventEmitter {
     this.dataSerializer = dataSerializer;
 
     // Set the target into correct property
-    if (target instanceof HTMLIFrameElement) {
+    if (target === 'defer') {
+      autoConnect = false;
+    } else if (target instanceof HTMLIFrameElement) {
       this._domElement = target;
     } else if (target && typeof target.postMessage === 'function') {
       this._socket = target;
@@ -176,11 +180,33 @@ export class PostMessageChannel extends EventEmitter {
     }
   }
 
+  setTarget(target: HTMLIFrameElement | Window) {
+    if (this.isConnected) {
+      throw new Error('Can not change target when connected.');
+    }
+
+    if (target instanceof HTMLIFrameElement) {
+      this._domElement = target;
+      this._socket = false;
+    } else if (target && typeof target.postMessage === 'function') {
+      this._socket = target;
+      this._domElement = false;
+    } else {
+      throw new TypeError(
+        'Excepted to have a Window or HTMLIFrameElement object.'
+      );
+    }
+  }
+
   /**
    * Try to connect to postMessageChannel
    * @return {boolean} return false if we are already connected or true if the request is handled
    */
   connect() {
+    if (!this._domElement && !this._socket) {
+      throw new Error('Set a target before connect.');
+    }
+
     if (!this._listenerReference) {
       this.addListeners();
     }

@@ -30,10 +30,10 @@ export class StoreModule extends ModuleBase {
     this._attachToChannel();
   }
 
-  get(name: string) {
-    return this._store.get(name);
+  get<T1 = unknown>(name: string) {
+    return this._store.get(name) as T1;
   }
-  set(arg: Record<string, unknown> | string, value?: unknown) {
+  set<T1 = unknown>(arg: Record<string, T1> | string, value?: T1) {
     if (typeof arg === 'string') {
       return this._set(arg, value);
     } else {
