@@ -82,10 +82,10 @@ export class PostMessageChannel extends EventEmitter<
 
   /**
    * Constructor of PostMessageChannel
-   * @param  {HTMLIFrameElement|Window}   target                    Target of the PostMessageChannel
-   * @param  {URL|string}                 targetUrl                 Url allowed to communicate
-   * @param  {Object}                     [options.dataSerializer]  Object used to serialized and deserialized (need parse and stringify methods)
-   * @param  {Boolean}                    [options.autoConnect]     If we try or not to connect autoatically when instance is created
+   * @param  {HTMLIFrameElement|Window|'defer'}   target                    Target of the PostMessageChannel
+   * @param  {URL|string}                         targetUrl                 Url allowed to communicate
+   * @param  {Object}                             [options.dataSerializer]  Object used to serialized and deserialized (need parse and stringify methods)
+   * @param  {Boolean}                            [options.autoConnect]     If we try or not to connect autoatically when instance is created
    */
   constructor(
     target: HTMLIFrameElement | Window | 'defer',
@@ -180,12 +180,15 @@ export class PostMessageChannel extends EventEmitter<
     }
   }
 
-  setTarget(target: HTMLIFrameElement | Window) {
+  setTarget(target: HTMLIFrameElement | Window | 'defer') {
     if (this.isConnected) {
       throw new Error('Can not change target when connected.');
     }
 
-    if (target instanceof HTMLIFrameElement) {
+    if (target === 'defer') {
+      this._socket = false;
+      this._domElement = false;
+    } else if (target instanceof HTMLIFrameElement) {
       this._domElement = target;
       this._socket = false;
     } else if (target && typeof target.postMessage === 'function') {

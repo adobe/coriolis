@@ -17,13 +17,22 @@
 import EventEmitter from 'eventemitter3';
 import {ModuleBase} from '../ModuleBase';
 
+export type StoreModuleConfig = {
+  handleReconnect?: boolean;
+};
+
 export class StoreModule extends ModuleBase {
   private _store = new Map<string, unknown>();
   private _storeListener = new EventEmitter();
+  private _handleReconnect: StoreModuleConfig['handleReconnect'] = true;
 
-  constructor(baseArgs: ConstructorParameters<typeof ModuleBase>[0]) {
+  constructor(
+    baseArgs: ConstructorParameters<typeof ModuleBase>[0],
+    conf: StoreModuleConfig = {}
+  ) {
     super(baseArgs);
 
+    this._handleReconnect = conf.handleReconnect ?? true;
     this._store = new Map();
     this._storeListener = new EventEmitter();
 
@@ -32,6 +41,9 @@ export class StoreModule extends ModuleBase {
 
   get<T1 = unknown>(name: string) {
     return this._store.get(name) as T1;
+  }
+  getAll(): Record<string, unknown> {
+    return Object.fromEntries(this._store.entries());
   }
   set<T1 = unknown>(arg: Record<string, T1> | string, value?: T1) {
     if (typeof arg === 'string') {
@@ -50,7 +62,7 @@ export class StoreModule extends ModuleBase {
     return this._storeListener.off(...arg);
   }
 
-  private _setBulk(obj: Record<string, unknown>) {
+  private _setBulk(obj: Record<string, unknown>, forceUpdate: boolean = false) {
     let needSet = false;
     const setObj: Record<string, unknown> = {};
     for (const name in obj) {
@@ -58,6 +70,7 @@ export class StoreModule extends ModuleBase {
         continue;
       }
       if (
+        forceUpdate === false &&
         typeof obj[name] !== 'object' &&
         obj[name] === this._store.get(name)
       ) {
@@ -104,5 +117,12 @@ export class StoreModule extends ModuleBase {
         this._storeListener.emit(name, this._store.get(name), 'external');
       }
     });
+    if (this._postMessage.isParentFrame) {
+      this._postMessage.on('reconnected', () => {
+        if (this._handleReconnect === true) {
+          this._setBulk(this.getAll(), true);
+        }
+      });
+    }
   }
 }
