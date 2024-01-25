@@ -16,10 +16,14 @@ jobs:
           cache: 'yarn'
       - name: install
         run: yarn install
-      # - run: (cd demo-react/app; yarn install)
-      # - run: (cd demo-react/iframe; yarn install)
+      - run: (cd demo-react/app; yarn install)
+      - run: (cd demo-react/iframe; yarn install)
       - run: yarn run test -- --headless
-      - uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-          access: 'public'
+      - name: Publish package on NPM 📦
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+      # - uses: JS-DevTools/npm-publish@v3
+      #   with:
+      #     token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+      #     access: 'public'
