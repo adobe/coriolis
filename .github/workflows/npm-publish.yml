@@ -20,6 +20,10 @@ jobs:
       - run: (cd demo-react/app; yarn install)
       - run: (cd demo-react/iframe; yarn install)
       - run: yarn run test -- --headless
+      - name: Check what user is logged in
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish package on NPM 📦
         run: npm publish --verbose
         env:
