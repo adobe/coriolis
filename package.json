@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:adobe/coriolis.git"
+    "url": "git+ssh://git@github.com/adobe/coriolis.git"
   },
   "author": {
     "name": "Jean-Philippe Zolesio",
