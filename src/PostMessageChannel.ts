@@ -240,7 +240,7 @@ export class PostMessageChannel extends EventEmitter<
     if (!this._isConnected) {
       return false;
     }
-    this.socketSend('_socket:FIN', {}, false);
+    this.socketSend('_socket:FIN', {api: true, unload: false}, false);
     this.emit('disconnected');
     this._previouslyConnected = false;
     return true;
@@ -280,9 +280,11 @@ export class PostMessageChannel extends EventEmitter<
       this.emit('reconnected');
       this._previouslyConnected = true;
     });
-    this.socketOn('_socket:FIN', () => {
+    this.socketOn('_socket:FIN', data => {
       this.emit('disconnected');
-      this._previouslyConnected = false;
+      if (data.api) {
+        this._previouslyConnected = false;
+      }
     });
   }
 
@@ -297,6 +299,10 @@ export class PostMessageChannel extends EventEmitter<
 
     this._listenerReference = e => this._messageListenerCallback(e);
     window.addEventListener('message', this._listenerReference, false);
+
+    window.addEventListener('beforeunload', () => {
+      this.socketSend('_socket:FIN', {api: false, unload: true}, false);
+    });
   }
 
   /**

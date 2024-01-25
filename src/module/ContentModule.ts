@@ -63,7 +63,6 @@ export class ContentModule extends ModuleBase {
     } else {
       this._childAttachToChannel();
 
-      // TODO: make it optionnal
       window.addEventListener('beforeunload', () => {
         const html = this._contentGetHtml();
         this._postMessage.socketSend('_beforeunload', {html: html});

@@ -52,7 +52,7 @@ export class Coriolis extends PostMessageChannel {
 
   // called once when we create it
   constructor(
-    target: HTMLIFrameElement | Window,
+    target: HTMLIFrameElement | Window | 'defer',
     targetUrl: URL | string,
     options: {
       autoConnect?: boolean;
