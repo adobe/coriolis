@@ -25,7 +25,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish package on NPM 📦
-        run: npm publish --verbose
+        run: npm whoami && npm publish --verbose
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # - uses: JS-DevTools/npm-publish@v3
