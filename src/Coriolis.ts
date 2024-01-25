@@ -30,7 +30,7 @@ import {ModuleLoader} from './ModuleLoader';
 
 import {QueryModule} from './module/QueryModule';
 import {EventModule} from './module/EventModule';
-import {StoreModule} from './module/StoreModule';
+import {StoreModule, StoreModuleConfig} from './module/StoreModule';
 import {PluginModule, PluginModuleConfig} from './module/PluginModule';
 import {ContentModule, ContentModuleConfig} from './module/ContentModule';
 import {LoaderUtilModule} from './module/LoaderUtilModule';
@@ -52,12 +52,13 @@ export class Coriolis extends PostMessageChannel {
 
   // called once when we create it
   constructor(
-    target: HTMLIFrameElement | Window,
+    target: HTMLIFrameElement | Window | 'defer',
     targetUrl: URL | string,
     options: {
       autoConnect?: boolean;
       pluginModule?: PluginModuleConfig;
       contentModule?: ContentModuleConfig;
+      storeModule?: StoreModuleConfig;
     } = {
       autoConnect: true,
     }
@@ -99,7 +100,11 @@ export class Coriolis extends PostMessageChannel {
 
     this.query = this.module.load('query', QueryModule, {}) as QueryModule;
     this.event = this.module.load('event', EventModule, {}) as EventModule;
-    this.store = this.module.load('store', StoreModule, {}) as StoreModule;
+    this.store = this.module.load(
+      'store',
+      StoreModule,
+      options.storeModule
+    ) as StoreModule;
     this.plugin = this.module.load(
       'plugin',
       PluginModule,

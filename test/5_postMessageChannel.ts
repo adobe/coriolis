@@ -299,7 +299,7 @@ describe('test PostMessageChannel class', () => {
       const listenerSpy = sinon.spy(pmc._channelListener, 'emit');
 
       // Check is registered
-      assert.isTrue(eventListenerSpy.calledOnce);
+      assert.deepEqual(eventListenerSpy.callCount, 2);
 
       // And the registration works as expected
       window.dispatchEvent(

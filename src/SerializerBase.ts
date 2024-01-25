@@ -17,8 +17,10 @@
 export abstract class SerializerBase<
   ClassName = Object,
   SerializedData = Object,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ClassConstructor = (new () => ClassName) | (new (...args: any[]) => ClassName)
+  ClassConstructor =
+    | (new () => ClassName)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    | (new (...args: any[]) => ClassName),
 > {
   /**
    * Getter to overload which return the Class to serialize

@@ -38,6 +38,7 @@ const CoriolisIframe = ({html, coriolisUrl, setRef}: Props) => {
       autoConnect: false,
       contentModule: { initialContent: html, keepInitialCss: true },
     });
+
     if (setRef) {
       setRef(coriolisRef.current);
     }

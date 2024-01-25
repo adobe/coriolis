@@ -134,6 +134,14 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 
 ## Changelog
 
+### Version 2.1.0
+
+* Allow to defer the target of PostMessage (create coriolis object before the iframe)
+* Fix contentModule that rewrite the content even when not used
+* Allow contentModule and StoreModule to handle reconnect or not
+* Send a disconnect event if the connection is lost (eventlistener for unload)
+* Improve typescript definition
+
 ### Version 2.0.0
 
 * Drop support of Internet Explorer

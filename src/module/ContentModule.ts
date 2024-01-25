@@ -29,6 +29,7 @@ export type ContentModuleConfig = {
   keepInitialCss?: boolean;
   initialCssAttribute?: string;
   executeScriptTags?: boolean;
+  handleReconnect?: boolean | 'auto';
 };
 
 export class ContentModule extends ModuleBase {
@@ -37,6 +38,7 @@ export class ContentModule extends ModuleBase {
   private _keepInitialCss = true;
   private _initialCssAttribute = 'importInit';
   private _executeScriptTags = true; // TODO: check with ie double execute
+  private _handleReconnect: ContentModuleConfig['handleReconnect'] = false;
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
@@ -50,15 +52,17 @@ export class ContentModule extends ModuleBase {
       this._keepInitialCss = conf.keepInitialCss ?? true;
       this._initialCssAttribute = conf.initialCssAttribute || 'importInit';
       this._executeScriptTags = conf.executeScriptTags ?? true; // TODO: check with ie double execute
-
+      this._handleReconnect = conf.handleReconnect ?? 'auto';
       this._savedUnloadHtml = conf.initialContent || false;
+      if (conf.initialContent && this._handleReconnect === 'auto') {
+        this._handleReconnect = true;
+      }
 
       this._postMessage.on('connected', () => this._onChildConnection());
       this._postMessage.on('reconnected', () => this._onChildConnection());
     } else {
       this._childAttachToChannel();
 
-      // TODO: make it optionnal
       window.addEventListener('beforeunload', () => {
         const html = this._contentGetHtml();
         this._postMessage.socketSend('_beforeunload', {html: html});
@@ -72,7 +76,7 @@ export class ContentModule extends ModuleBase {
   private _onChildConnection() {
     this._postMessage.parentFrameCheck();
 
-    if (this._savedUnloadHtml) {
+    if (this._savedUnloadHtml && this._handleReconnect === true) {
       this._postMessage.socketSend('_initialContent', {
         html: this._savedUnloadHtml,
         keepInitialCss: this._keepInitialCss,
@@ -98,6 +102,10 @@ export class ContentModule extends ModuleBase {
 
   replaceHtml(html: string, {keepCss = true, executeScriptTags = true} = {}) {
     this._postMessage.parentFrameCheck();
+
+    if (this._handleReconnect === 'auto') {
+      this._handleReconnect = true;
+    }
 
     return this._query.call(
       '_contentReplaceHtml',
