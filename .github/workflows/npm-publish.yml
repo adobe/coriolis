@@ -20,17 +20,18 @@ jobs:
       - run: (cd demo-react/app; yarn install)
       - run: (cd demo-react/iframe; yarn install)
       - run: yarn run test -- --headless
-      - name: Check what user is logged in
-        run: npm whoami
-        env:
-          # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-      - name: Publish package on NPM 📦
-        run: npm whoami && npm whoami && npm publish --dry-run && npm publish --verbose
-        env:
-          # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-      # - uses: JS-DevTools/npm-publish@v3
-      #   with:
-      #     token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
-      #     access: 'public'
+      # - name: Check what user is logged in
+      #   run: npm whoami
+      #   env:
+      #     # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+      # - name: Publish package on NPM 📦
+      #   run: npm whoami && npm whoami && npm publish --dry-run && npm publish --verbose
+      #   env:
+      #     # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+      - run: yarn run build
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
+          access: 'public'
