@@ -21,7 +21,7 @@ jobs:
       - run: (cd demo-react/iframe; yarn install)
       - run: yarn run test -- --headless
       - name: Publish package on NPM 📦
-        run: npm publish
+        run: npm publish --verbose
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
       # - uses: JS-DevTools/npm-publish@v3
