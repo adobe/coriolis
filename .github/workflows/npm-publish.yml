@@ -26,7 +26,7 @@ jobs:
           # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
       - name: Publish package on NPM 📦
-        run: npm whoami && npm whoami && npm publish --verbose
+        run: npm whoami && npm whoami && npm publish --dry-run && npm publish --verbose
         env:
           # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
