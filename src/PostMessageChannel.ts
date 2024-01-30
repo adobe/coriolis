@@ -223,10 +223,10 @@ export class PostMessageChannel extends EventEmitter<
         const domElement = this._domElement;
         domElement.addEventListener('load', () => {
           domElement.setAttribute('defer', '');
-          this.socketSend('_socket:SYN', {}, false);
+          this.socketSend('_socket:SYN', {version: this.version}, false);
         });
       } else {
-        this.socketSend('_socket:SYN', {}, false);
+        this.socketSend('_socket:SYN', {version: this.version}, false);
       }
       return true;
     }
@@ -262,7 +262,12 @@ export class PostMessageChannel extends EventEmitter<
       this.connect();
     }
 
-    this.socketOn('_socket:SYN', () => {
+    this.socketOn('_socket:SYN', data => {
+      if (data.version !== this.version) {
+        console.error(
+          `Coriolis version mismatch, it's highly recommended to update. local version: ${this.version} remote version: ${data.version ?? 'unknown (probably < 2.1.0)'}`
+        );
+      }
       if (!this._previouslyConnected) {
         this.socketSend('_socket:ACK', {}, false);
         this.emit('connected');
@@ -341,12 +346,18 @@ export class PostMessageChannel extends EventEmitter<
 
   /**
    * Send a message into the postMessageChannel
-   * @param  {string}  eventName     The identifier of the message
-   * @param  {Object}  [data]          Associated data with the message
-   * @param  {Boolean} [waitConnected] If we delay communication and wait we are connected or not
+   * @param  {string}  eventName          The identifier of the message
+   * @param  {Object}  [data]             Associated data with the message
+   * @param  {Boolean} [waitConnected]    If we delay communication and wait we are connected or not
+   * @param  {Boolean} [skipDisconnected] If we skip that socketSend if the connection is not established
    * @return {void}
    */
-  socketSend(eventName: string, data = {}, waitConnected = true) {
+  socketSend(
+    eventName: string,
+    data = {},
+    waitConnected = true,
+    skipDisconnected = false
+  ) {
     const cb = () => {
       const socket =
         this._socket || (this._domElement && this._domElement.contentWindow);
@@ -362,7 +373,7 @@ export class PostMessageChannel extends EventEmitter<
     };
     if (waitConnected && !this._isConnected) {
       this.once('connected', cb);
-    } else {
+    } else if (!skipDisconnected || this._isConnected) {
       cb();
     }
   }
@@ -385,5 +396,9 @@ export class PostMessageChannel extends EventEmitter<
    */
   socketOnce(...args: Parameters<EventEmitter['once']>) {
     return this._channelListener.once(...args);
+  }
+
+  get version() {
+    return 'v' + __CORIOLIS_VERSION__;
   }
 }

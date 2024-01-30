@@ -19,12 +19,14 @@ import {ModuleBase} from '../ModuleBase';
 
 export type StoreModuleConfig = {
   handleReconnect?: boolean;
+  mergeFunction?: (local: unknown, remote: unknown) => unknown;
 };
 
 export class StoreModule extends ModuleBase {
   private _store = new Map<string, unknown>();
   private _storeListener = new EventEmitter();
   private _handleReconnect: StoreModuleConfig['handleReconnect'] = true;
+  private _mergeFunction: StoreModuleConfig['mergeFunction'] = undefined;
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
@@ -33,9 +35,11 @@ export class StoreModule extends ModuleBase {
     super(baseArgs);
 
     this._handleReconnect = conf.handleReconnect ?? true;
+    this._mergeFunction = conf.mergeFunction;
     this._store = new Map();
     this._storeListener = new EventEmitter();
 
+    this._attachToEvents();
     this._attachToChannel();
   }
 
@@ -78,14 +82,19 @@ export class StoreModule extends ModuleBase {
       }
       this._store.set(name, obj[name]);
       this._storeListener.emit(name, this._store.get(name), 'internal');
-      setObj[name] = {
-        value: obj[name],
-      };
+      setObj[name] = obj[name];
       needSet = true;
     }
     if (needSet) {
-      this._postMessage.socketSend('<=> bulkStore', setObj);
+      this._postMessage.socketSend('<=> bulkStore', setObj, true, true);
     }
+  }
+
+  private _storeSync() {
+    const setObj: Record<string, unknown> = Object.fromEntries(
+      this._store.entries()
+    );
+    this._postMessage.socketSend('<=> syncStore', setObj, true, true);
   }
 
   private _set(name: string, value: unknown) {
@@ -93,12 +102,32 @@ export class StoreModule extends ModuleBase {
       return;
     }
 
-    this._postMessage.socketSend('<=> store', {
-      name,
-      value: value,
-    });
+    this._postMessage.socketSend(
+      '<=> store',
+      {
+        name,
+        value: value,
+      },
+      true,
+      true
+    );
     this._store.set(name, value);
     this._storeListener.emit(name, this._store.get(name), 'internal');
+  }
+
+  private _attachToEvents() {
+    if (this._postMessage.isParentFrame) {
+      this._postMessage.on('reconnected', () => {
+        if (this._handleReconnect === true) {
+          this._storeSync();
+        }
+      });
+    }
+    this._postMessage.on('connected', () => {
+      if (this._handleReconnect === true) {
+        this._storeSync();
+      }
+    });
   }
 
   private _attachToChannel() {
@@ -113,16 +142,41 @@ export class StoreModule extends ModuleBase {
         if (!Object.prototype.hasOwnProperty.call(obj, name)) {
           continue;
         }
-        this._store.set(name, obj[name].value);
+        this._store.set(name, obj[name]);
         this._storeListener.emit(name, this._store.get(name), 'external');
       }
     });
-    if (this._postMessage.isParentFrame) {
-      this._postMessage.on('reconnected', () => {
-        if (this._handleReconnect === true) {
-          this._setBulk(this.getAll(), true);
+
+    this._postMessage.socketOn('<=> syncStore', obj => {
+      for (const name in obj) {
+        if (
+          !Object.prototype.hasOwnProperty.call(obj, name) ||
+          obj[name] === undefined
+        ) {
+          continue;
         }
-      });
-    }
+
+        const localValue = this._store.get(name);
+        const remoteValue = obj[name];
+
+        if (localValue === remoteValue) {
+          continue;
+        }
+
+        let newValue = remoteValue;
+        if (localValue !== undefined) {
+          if (this._mergeFunction) {
+            newValue = this._mergeFunction(localValue, remoteValue);
+          } else if (this._postMessage.isParentFrame) {
+            continue;
+          }
+        }
+
+        if (newValue !== localValue) {
+          this._store.set(name, newValue);
+          this._storeListener.emit(name, newValue, 'external');
+        }
+      }
+    });
   }
 }
