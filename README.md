@@ -139,8 +139,10 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 * Allow to defer the target of PostMessage (create coriolis object before the iframe)
 * Fix contentModule that rewrite the content even when not used
 * Allow contentModule and StoreModule to handle reconnect or not
+* Make StoreModule sync the store at connection with mergeCallback in conflict or use parent value if mergeCallback was not defined.
 * Send a disconnect event if the connection is lost (eventlistener for unload)
 * Improve typescript definition
+* Update connection system to alert in version mismatch
 
 ### Version 2.0.0
 
