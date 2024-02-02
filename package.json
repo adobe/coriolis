@@ -1,6 +1,6 @@
 {
   "name": "@adobe/coriolis",
-  "version": "2.1.0-beta.2",
+  "version": "2.1.0-beta.3",
   "description": "A library for cross iframe communication with high level API and features.",
   "keywords": [
     "iframe",
@@ -98,8 +98,5 @@
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-middleware": "^7.0.0"
-  },
-  "dependencies": {
-    "react": "^18.2.0"
   }
 }
