@@ -26,9 +26,17 @@ export class MouseEventSerializer extends SerializerBase<
   MouseEvent,
   SerializedData
 > {
-  private _domElement: false | HTMLIFrameElement = false;
+  private _domElement:
+    | false
+    | HTMLIFrameElement
+    | (() => HTMLIFrameElement | false);
 
-  constructor(domElement: false | HTMLIFrameElement = false) {
+  constructor(
+    domElement:
+      | false
+      | HTMLIFrameElement
+      | (() => HTMLIFrameElement | false) = false
+  ) {
     super();
     this._domElement = domElement;
   }
@@ -75,9 +83,14 @@ export class MouseEventSerializer extends SerializerBase<
   }
 
   private _serializeClientXY(xLeft: number, yTop: number) {
-    if (this._domElement) {
-      const rect = this._domElement.getBoundingClientRect();
-      const style = window.getComputedStyle(this._domElement);
+    const domElement =
+      this._domElement instanceof Function
+        ? this._domElement()
+        : this._domElement;
+
+    if (domElement) {
+      const rect = domElement.getBoundingClientRect();
+      const style = window.getComputedStyle(domElement);
       const borderLeft = parseFloat(
         style.getPropertyValue('border-left-width').replace('px', '')
       );
@@ -98,9 +111,14 @@ export class MouseEventSerializer extends SerializerBase<
   }
 
   private _deserializeClientXY(xLeft: number, yTop: number) {
-    if (this._domElement) {
-      const rect = this._domElement.getBoundingClientRect();
-      const style = window.getComputedStyle(this._domElement);
+    const domElement =
+      this._domElement instanceof Function
+        ? this._domElement()
+        : this._domElement;
+
+    if (domElement) {
+      const rect = domElement.getBoundingClientRect();
+      const style = window.getComputedStyle(domElement);
       const borderLeft = parseFloat(
         style.getPropertyValue('border-left-width').replace('px', '')
       );

@@ -64,9 +64,16 @@ export class Coriolis extends PostMessageChannel {
     }
   ) {
     const dataSerializer = new DataSerializer();
-    let domElement: false | HTMLIFrameElement = false;
+    let domElement:
+      | false
+      | HTMLIFrameElement
+      | (() => HTMLIFrameElement | false) = false;
     if (target instanceof HTMLIFrameElement) {
       domElement = target;
+    } else if (target === 'defer') {
+      domElement = () => {
+        return this.domElement;
+      };
     }
 
     dataSerializer.addSerializer(

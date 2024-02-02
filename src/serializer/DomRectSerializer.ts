@@ -24,11 +24,17 @@ type SerializedData = {
 };
 
 export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
-  private _domElement: false | HTMLIFrameElement;
+  private _domElement:
+    | false
+    | HTMLIFrameElement
+    | (() => HTMLIFrameElement | false);
   private _target: HTMLElement;
 
   constructor(
-    domElement: false | HTMLIFrameElement = false,
+    domElement:
+      | false
+      | HTMLIFrameElement
+      | (() => HTMLIFrameElement | false) = false,
     target = window.document.body
   ) {
     super();
@@ -65,15 +71,17 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
   }
 
   private _serializeXY(xLeft: number, yTop: number) {
-    if (this._domElement) {
-      const rect = this._domElement.getBoundingClientRect();
+    const domElement =
+      this._domElement instanceof Function
+        ? this._domElement()
+        : this._domElement;
+    if (domElement) {
+      const rect = domElement.getBoundingClientRect();
       let borderLeft = 0;
       let borderTop = 0;
-      if (this._domElement.ownerDocument?.defaultView) {
+      if (domElement.ownerDocument?.defaultView) {
         const style =
-          this._domElement.ownerDocument.defaultView.getComputedStyle(
-            this._domElement
-          );
+          domElement.ownerDocument.defaultView.getComputedStyle(domElement);
         borderLeft = parseFloat(
           style.getPropertyValue('border-left-width').replace('px', '')
         );
@@ -110,15 +118,18 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
       );
     }
 
-    if (this._domElement) {
-      const iframeRect = this._domElement.getBoundingClientRect();
+    const domElement =
+      this._domElement instanceof Function
+        ? this._domElement()
+        : this._domElement;
+
+    if (domElement) {
+      const iframeRect = domElement.getBoundingClientRect();
       let iframeBorderLeft = 0;
       let iframeBorderTop = 0;
-      if (this._domElement.ownerDocument?.defaultView) {
+      if (domElement.ownerDocument?.defaultView) {
         const ifraneStyle =
-          this._domElement.ownerDocument.defaultView.getComputedStyle(
-            this._domElement
-          );
+          domElement.ownerDocument.defaultView.getComputedStyle(domElement);
         iframeBorderLeft = parseFloat(
           ifraneStyle.getPropertyValue('border-left-width').replace('px', '')
         );

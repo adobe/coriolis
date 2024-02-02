@@ -201,6 +201,10 @@ export class PostMessageChannel extends EventEmitter<
     }
   }
 
+  get domElement() {
+    return this._domElement;
+  }
+
   /**
    * Try to connect to postMessageChannel
    * @return {boolean} return false if we are already connected or true if the request is handled
