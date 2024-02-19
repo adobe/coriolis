@@ -2565,9 +2565,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^16.0.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.2.0.tgz#d4cbedaeeb30d8be03db2ce27fac662abfa10bf6"
-  integrity sha512-ud6xsI7h3T5zFhGjEYg7rtBizA9kKe+uR6ynuOLftnj55nCFp1g7kgbTX/zypCUkmZnkiEvFl9C/BC2kNVvSPQ==
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.2.1.tgz#b681d8e08d568f2270da8ae820490100fa776aa4"
+  integrity sha512-Pb3u+MrxLW0wn8xB+0FIqJwZcuuxB52++nVjGyCjRhc7Rk4NUv7NMvpdc7XFW03oSH/JNmh9+pdkzMglcdbqVg==
   dependencies:
     acorn "8.11.3"
     acorn-jsx "5.3.2"
@@ -2585,11 +2585,11 @@ dependency-cruiser@^16.0.0:
     is-installed-globally "1.0.0"
     json5 "2.2.3"
     lodash "4.17.21"
-    picomatch "3.0.1"
+    picomatch "4.0.1"
     prompts "2.4.2"
     rechoir "^0.8.0"
     safe-regex "2.1.1"
-    semver "^7.5.4"
+    semver "^7.6.0"
     semver-try-require "6.2.3"
     teamcity-service-messages "0.1.14"
     tsconfig-paths-webpack-plugin "4.1.0"
@@ -4662,10 +4662,10 @@ picocolors@^1.0.0:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
   integrity sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==
 
-picomatch@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-3.0.1.tgz#817033161def55ec9638567a2f3bbc876b3e7516"
-  integrity sha512-I3EurrIQMlRc9IaAZnqRR044Phh2DXY+55o7uJ0V+hYZAcQYSuFWsc9q5PvyDHUSCe1Qxn/iBz+78s86zWnGag==
+picomatch@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.1.tgz#68c26c8837399e5819edce48590412ea07f17a07"
+  integrity sha512-xUXwsxNjwTQ8K3GnT4pCJm+xq3RUPQbmkYJTP5aFIfNIvbcc/4MUxgBaaRSZJ6yGJZiGSyYlM6MzwTsRk8SYCg==
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.3.1"
@@ -5123,10 +5123,10 @@ semver@^6.0.0, semver@^6.1.0, semver@^6.3.0, semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.3.4, semver@^7.3.7, semver@^7.5.3, semver@^7.5.4:
-  version "7.5.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
-  integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
+semver@^7.3.4, semver@^7.3.7, semver@^7.5.3, semver@^7.5.4, semver@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.0.tgz#1a46a4db4bffcccd97b743b5005c8325f23d4e2d"
+  integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
   dependencies:
     lru-cache "^6.0.0"
 
