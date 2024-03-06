@@ -2553,9 +2553,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^16.0.0:
-  version "16.2.2"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.2.2.tgz#667bb598084825bcadd4d09228afa57e027f5286"
-  integrity sha512-h4jPGhELJLXdX7Ka+K9ydIvKLqjgSej/So5k/0BICGgVqsHqUekjOk7FogcEGDFTgoDZkyBY6qkGvHSaytlPRg==
+  version "16.2.3"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.2.3.tgz#a8a96d4aa8b8d40eae57d3e2354fcb1752c9d1cb"
+  integrity sha512-Zxf9i577VF7NbLaiCmMUnItskrehfNKogH39YtuDJfiLNF94FqTuAoWeFFx3WPAGclUZBMBT5HyL8cgoQn6jiw==
   dependencies:
     acorn "8.11.3"
     acorn-jsx "5.3.2"
@@ -2566,7 +2566,7 @@ dependency-cruiser@^16.0.0:
     chalk "5.3.0"
     commander "12.0.0"
     enhanced-resolve "5.15.1"
-    figures "6.0.1"
+    figures "6.1.0"
     ignore "5.3.1"
     indent-string "5.0.0"
     interpret "^3.1.1"
@@ -3110,10 +3110,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-figures@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/figures/-/figures-6.0.1.tgz#75a2baf3ca8c63e2ea253179e9f1157833587ea4"
-  integrity sha512-0oY/olScYD4IhQ8u//gCPA4F3mlTn2dacYmiDm/mbDQvpmLjV4uH+zhsQ5IyXRyvqkvtUkXkNdGvg5OFJTCsuQ==
+figures@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/figures/-/figures-6.1.0.tgz#935479f51865fa7479f6fa94fc6fc7ac14e62c4a"
+  integrity sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==
   dependencies:
     is-unicode-supported "^2.0.0"
 
