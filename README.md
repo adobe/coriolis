@@ -61,7 +61,7 @@ In your main domain (Asset domain):
 	);
 
 	coriolis.query.call('addition', 12, 30).then(function(result) {
-		console.log(42);
+		console.log(result);
 	});
 </script>
 ```
