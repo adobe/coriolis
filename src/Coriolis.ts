@@ -29,7 +29,7 @@ import {PostMessageChannel} from './PostMessageChannel';
 import {ModuleLoader} from './ModuleLoader';
 
 import {QueryModule} from './module/QueryModule';
-import {EventModule} from './module/EventModule';
+import {EventModule, EventModuleConfig} from './module/EventModule';
 import {StoreModule, StoreModuleConfig} from './module/StoreModule';
 import {PluginModule, PluginModuleConfig} from './module/PluginModule';
 import {ContentModule, ContentModuleConfig} from './module/ContentModule';
@@ -59,6 +59,7 @@ export class Coriolis extends PostMessageChannel {
       pluginModule?: PluginModuleConfig;
       contentModule?: ContentModuleConfig;
       storeModule?: StoreModuleConfig;
+      eventModule?: EventModuleConfig;
     } = {
       autoConnect: true,
     }
@@ -105,28 +106,20 @@ export class Coriolis extends PostMessageChannel {
 
     this.module = new ModuleLoader(this);
 
-    this.query = this.module.load('query', QueryModule, {}) as QueryModule;
-    this.event = this.module.load('event', EventModule, {}) as EventModule;
-    this.store = this.module.load(
-      'store',
-      StoreModule,
-      options.storeModule
-    ) as StoreModule;
+    this.query = this.module.load('query', QueryModule, {});
+    this.event = this.module.load('event', EventModule, options.eventModule);
+    this.store = this.module.load('store', StoreModule, options.storeModule);
     this.plugin = this.module.load(
       'plugin',
       PluginModule,
       options.pluginModule
-    ) as PluginModule;
+    );
     this.content = this.module.load(
       'content',
       ContentModule,
       options.contentModule
-    ) as ContentModule;
-    this.loaderUtil = this.module.load(
-      'loaderUtil',
-      LoaderUtilModule,
-      {}
-    ) as LoaderUtilModule;
+    );
+    this.loaderUtil = this.module.load('loaderUtil', LoaderUtilModule, {});
   }
 
   static get version() {

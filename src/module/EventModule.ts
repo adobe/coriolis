@@ -17,17 +17,53 @@
 import EventEmitter from 'eventemitter3';
 import {ModuleBase} from '../ModuleBase';
 
+export type EventModuleConfig = {
+  channelSeparator?: string | false;
+  globalListener?: boolean;
+};
 export class EventModule extends ModuleBase {
   private _eventListener = new EventEmitter();
+  private _channelSeparator: EventModuleConfig['channelSeparator'] = ':';
+  private _globalListener: EventModuleConfig['globalListener'] = true;
 
-  constructor(baseArgs: ConstructorParameters<typeof ModuleBase>[0]) {
+  constructor(
+    baseArgs: ConstructorParameters<typeof ModuleBase>[0],
+    conf: EventModuleConfig = {}
+  ) {
     super(baseArgs);
+
+    this._channelSeparator = conf.channelSeparator ?? ':';
+    this._globalListener = conf.globalListener ?? true;
+
     this._attachToChannel();
+  }
+
+  _emitWithChannelAndGlobalSupport(
+    name: string,
+    direction: 'internal' | 'external',
+    ...args: unknown[]
+  ) {
+    if (this._channelSeparator) {
+      const chunks = name.split(this._channelSeparator);
+      if (chunks.length > 1) {
+        for (let i = 0; i < chunks.length - 1; i++) {
+          const globName = [...chunks.slice(0, i + 1), '*'].join(
+            this._channelSeparator
+          );
+          this._eventListener.emit(globName, name, ...args, direction);
+        }
+      }
+    }
+
+    if (this._globalListener) {
+      this._eventListener.emit('*', name, ...args, direction);
+    }
+    this._eventListener.emit(name, ...args, direction);
   }
 
   emit(name: string, ...args: unknown[]) {
     this._postMessage.socketSend('<=> event', {name, args});
-    this._eventListener.emit(name, ...args, 'internal');
+    this._emitWithChannelAndGlobalSupport(name, 'internal', ...args);
   }
   on(...arg: Parameters<EventEmitter['on']>) {
     return this._eventListener.on(...arg);
@@ -40,7 +76,7 @@ export class EventModule extends ModuleBase {
   }
   private _attachToChannel() {
     this._postMessage.socketOn('<=> event', d => {
-      this._eventListener.emit(d.name, ...d.args, 'external');
+      this._emitWithChannelAndGlobalSupport(d.name, 'external', ...d.args);
     });
   }
 }
