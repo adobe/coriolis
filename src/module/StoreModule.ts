@@ -20,6 +20,8 @@ import {ModuleBase} from '../ModuleBase';
 export type StoreModuleConfig = {
   handleReconnect?: boolean;
   mergeFunction?: (local: unknown, remote: unknown) => unknown;
+  channelSeparator?: string | false;
+  globalListener?: boolean;
 };
 
 export class StoreModule extends ModuleBase {
@@ -27,6 +29,8 @@ export class StoreModule extends ModuleBase {
   private _storeListener = new EventEmitter();
   private _handleReconnect: StoreModuleConfig['handleReconnect'] = true;
   private _mergeFunction: StoreModuleConfig['mergeFunction'] = undefined;
+  private _channelSeparator: StoreModuleConfig['channelSeparator'] = ':';
+  private _globalListener: StoreModuleConfig['globalListener'] = true;
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
@@ -38,9 +42,34 @@ export class StoreModule extends ModuleBase {
     this._mergeFunction = conf.mergeFunction;
     this._store = new Map();
     this._storeListener = new EventEmitter();
+    this._channelSeparator = conf.channelSeparator ?? ':';
+    this._globalListener = conf.globalListener ?? true;
 
     this._attachToEvents();
     this._attachToChannel();
+  }
+
+  _emitWithChannelAndGlobalSupport(
+    name: string,
+    direction: 'internal' | 'external',
+    ...args: unknown[]
+  ) {
+    if (this._channelSeparator) {
+      const chunks = name.split(this._channelSeparator);
+      if (chunks.length > 1) {
+        for (let i = 0; i < chunks.length - 1; i++) {
+          const globName = [...chunks.slice(0, i + 1), '*'].join(
+            this._channelSeparator
+          );
+          this._storeListener.emit(globName, name, ...args, direction);
+        }
+      }
+    }
+
+    if (this._globalListener) {
+      this._storeListener.emit('*', name, ...args, direction);
+    }
+    this._storeListener.emit(name, ...args, direction);
   }
 
   get<T1 = unknown>(name: string) {
@@ -112,7 +141,11 @@ export class StoreModule extends ModuleBase {
       true
     );
     this._store.set(name, value);
-    this._storeListener.emit(name, this._store.get(name), 'internal');
+    this._emitWithChannelAndGlobalSupport(
+      name,
+      'internal',
+      this._store.get(name)
+    );
   }
 
   private _attachToEvents() {
@@ -134,7 +167,11 @@ export class StoreModule extends ModuleBase {
     this._postMessage.socketOn('<=> store', d => {
       const name = d.name;
       this._store.set(name, d.value);
-      this._storeListener.emit(name, this._store.get(name), 'external');
+      this._emitWithChannelAndGlobalSupport(
+        name,
+        'external',
+        this._store.get(name)
+      );
     });
 
     this._postMessage.socketOn('<=> bulkStore', obj => {
@@ -143,7 +180,11 @@ export class StoreModule extends ModuleBase {
           continue;
         }
         this._store.set(name, obj[name]);
-        this._storeListener.emit(name, this._store.get(name), 'external');
+        this._emitWithChannelAndGlobalSupport(
+          name,
+          'external',
+          this._store.get(name)
+        );
       }
     });
 
@@ -174,7 +215,7 @@ export class StoreModule extends ModuleBase {
 
         if (newValue !== localValue) {
           this._store.set(name, newValue);
-          this._storeListener.emit(name, newValue, 'external');
+          this._emitWithChannelAndGlobalSupport(name, 'external', newValue);
         }
       }
     });
