@@ -86,7 +86,7 @@ export class DataSerializer {
     if (obj instanceof Object) {
       for (const [serializerName, s] of this._serializers) {
         if (obj instanceof s.classToSerialize) {
-          return {...s.serialize(obj), _serializerKey: serializerName};
+          return {value: s.serialize(obj), _serializerKey: serializerName};
         }
       }
     }
@@ -117,13 +117,15 @@ export class DataSerializer {
    * @return {any}    The value after the custom parse or the input obj
    */
   private _serializerParse(
-    obj: unknown | (Object & {_serializerKey?: string})
+    obj: unknown | {_serializerKey?: string; value: unknown}
   ) {
-    const key = (obj as Object & {_serializerKey?: string})?._serializerKey;
+    const key = (obj as {_serializerKey?: string; value: unknown})
+      ?._serializerKey;
     if (key) {
+      const value = (obj as {_serializerKey?: string; value: unknown})?.value;
       for (const [serializerName, s] of this._serializers) {
         if (key === serializerName) {
-          return s.deserialize(obj as Object);
+          return s.deserialize(value);
         }
       }
       return undefined;
