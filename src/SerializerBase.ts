@@ -16,7 +16,7 @@
 
 export abstract class SerializerBase<
   ClassName = Object,
-  SerializedData = Object,
+  SerializedData = unknown,
   ClassConstructor =
     | (new () => ClassName)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

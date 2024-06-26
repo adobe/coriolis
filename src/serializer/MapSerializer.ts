@@ -16,7 +16,7 @@
 
 import {SerializerBase} from '../SerializerBase';
 
-type SerializedData = Array<Array<unknown>>;
+type SerializedData = Array<[unknown, unknown]>;
 
 export class MapSerializer extends SerializerBase<
   Map<unknown, unknown>,
@@ -27,8 +27,8 @@ export class MapSerializer extends SerializerBase<
   }
 
   serialize(e: Map<unknown, unknown>) {
-    const newMap = [];
-    for (const [k, v] of e) {
+    const newMap: SerializedData = [];
+    for (const [k, v] of e.entries()) {
       newMap.push([k, v]);
     }
     return newMap;

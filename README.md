@@ -136,6 +136,7 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 
 ### Version 2.1.0
 
+* Fix Map and Set serializer
 * Allow to defer the target of PostMessage (create coriolis object before the iframe)
 * Fix contentModule that rewrite the content even when not used
 * Allow contentModule and StoreModule to handle reconnect or not

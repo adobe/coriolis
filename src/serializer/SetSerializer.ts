@@ -28,7 +28,7 @@ export class SetSerializer extends SerializerBase<
 
   serialize(e: Set<unknown>) {
     const newSet = [];
-    for (const v of e) {
+    for (const v of e.values()) {
       newSet.push(v);
     }
     return newSet;
