@@ -60,7 +60,11 @@ export class ModuleLoader
    * @param {Boolean} alias If the module is directly available in postMessage class
    * @return {boolean} return if the module is correctly added
    */
-  load(name: string, Module: ModuleBaseConstructable, config = {}) {
+  load<T extends ModuleBase = ModuleBase>(
+    name: string,
+    Module: ModuleBaseConstructable,
+    config = {}
+  ) {
     if (this._loadedModules.has(name)) {
       throw new Error('This module is already registered');
     }
@@ -72,7 +76,7 @@ export class ModuleLoader
 
     this.emit('add', {name});
 
-    return this.get(name) as ModuleBase;
+    return this.get(name) as T;
   }
 
   has(name: string) {

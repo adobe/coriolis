@@ -136,6 +136,7 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 
 ### Version 2.1.0
 
+* Fix Map and Set serializer
 * Allow to defer the target of PostMessage (create coriolis object before the iframe)
 * Fix contentModule that rewrite the content even when not used
 * Allow contentModule and StoreModule to handle reconnect or not
@@ -143,6 +144,7 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 * Send a disconnect event if the connection is lost (eventlistener for unload)
 * Improve typescript definition
 * Update connection system to alert in version mismatch
+* Add channel listener support and global listener support in store and event module
 
 ### Version 2.0.0
 

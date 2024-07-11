@@ -121,8 +121,7 @@ describe('test DataSerializer class', () => {
       }
 
       serialize(object) {
-        object.serialize = true;
-        return object;
+        return {serialize: true, ...object};
       }
 
       deserialize(object) {
@@ -194,7 +193,7 @@ describe('test DataSerializer class', () => {
     obj.addSerializer('simpleSeiralizerKey', new SimpleSerializer());
 
     const serialize =
-      '{"key":{"serialize":true,"_serializerKey":"simpleSeiralizerKey", "_privateKey": "myPrivateValue"},"key2":{"key3":"value"}}';
+      '{"key":{"value":{"serialize":true},"_serializerKey":"simpleSeiralizerKey", "_privateKey": "myPrivateValue"},"key2":{"key3":"value"}}';
     const deserialize = obj.parse(serialize) as {
       key: ClassToSerialize & {
         serialize: boolean;
