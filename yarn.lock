@@ -2536,9 +2536,9 @@ depd@2.0.0:
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
 dependency-cruiser@^16.0.0:
-  version "16.3.7"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.3.7.tgz#65cfa7e0e734da45050e072ebd44a51f00b898d7"
-  integrity sha512-3ovyh0WjmIJO/UaapVWFJAQKJ/7F46EtMrsmpHp7tV7dge3j/3MJG55K5EdEYqKL6z6G8wBbbjcmarD98uwjZQ==
+  version "16.3.9"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.3.9.tgz#157c73655ac9e6ceb62efa3e73e4a9347359d0da"
+  integrity sha512-rtYBXmwYGcuwvGHI+gqXMyXXKjJ3d8nfg6hdwOtgm3Z7VHczuDwUJTg1PDQNzhWLWjMKzV5igAIpuxXOhslyZA==
   dependencies:
     acorn "8.12.1"
     acorn-jsx "5.3.2"
@@ -2559,7 +2559,7 @@ dependency-cruiser@^16.0.0:
     prompts "2.4.2"
     rechoir "^0.8.0"
     safe-regex "2.1.1"
-    semver "^7.6.2"
+    semver "^7.6.3"
     teamcity-service-messages "0.1.14"
     tsconfig-paths-webpack-plugin "4.1.0"
     watskeburt "4.1.0"
@@ -5065,10 +5065,10 @@ semver@^6.0.0, semver@^6.3.0, semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.0.0, semver@^7.3.4, semver@^7.3.7, semver@^7.3.8, semver@^7.6.0, semver@^7.6.2:
-  version "7.6.2"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
-  integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
+semver@^7.0.0, semver@^7.3.4, semver@^7.3.7, semver@^7.3.8, semver@^7.6.0, semver@^7.6.3:
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.3.tgz#980f7b5550bc175fb4dc09403085627f9eb33143"
+  integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
 
 send@0.18.0:
   version "0.18.0"
