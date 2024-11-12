@@ -1,0 +1,94 @@
+{
+  "name": "@adobe/coriolis",
+  "version": "2.1.0",
+  "description": "A library for cross iframe communication with high level API and features.",
+  "keywords": [
+    "iframe",
+    "postMessage",
+    "security"
+  ],
+  "main": "dist/umd/coriolis.js",
+  "module": "dist/cjs/coriolis.js",
+  "types": "dist/cjs/Coriolis.d.ts",
+  "scripts": {
+    "start": "NODE_ENV=dev node tool/watch.js",
+    "build": "npm run compile",
+    "test": "NODE_ENV=test webpack --mode development && NODE_ENV=test karma start",
+    "lint": "gts lint",
+    "doc": "npx typedoc src/*.ts src/**/*.ts --out reporting/doc --sort visibility --readme none",
+    "graph": "npm run graph:archi && npm run graph:dependency",
+    "graph:archi": "mkdir -p reporting/archi &&  depcruise --config .dependency-cruiser.js --output-type archi src/Coriolis.ts | dot -T svg | depcruise-wrap-stream-in-html > reporting/archi/archi-graph.html",
+    "graph:dependency": "mkdir -p reporting/archi &&  depcruise --config .dependency-cruiser.js --output-type dot src/index.ts | dot -T svg | depcruise-wrap-stream-in-html > reporting/archi/dependency-graph.html",
+    "deploy-doc": "npm run doc && npx gh-pages -d reporting/doc",
+    "clean": "gts clean",
+    "fix": "gts fix",
+    "compile": "NODE_ENV=prod webpack --mode production",
+    "prepack": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adobe/coriolis.git"
+  },
+  "author": {
+    "name": "Jean-Philippe Zolesio",
+    "email": "holblin@gmail.com"
+  },
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "eventemitter3": "^5.0.0"
+  },
+  "files": [
+    "dist/cjs",
+    "dist/umd",
+    "src"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/chai": "^5.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "@types/sinon": "^17.0.3",
+    "@types/webpack-env": "^1.18.4",
+    "babel-loader": "^9.2.1",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "chai": "^5.1.2",
+    "dependency-cruiser": "^16.6.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eventemitter3": "^5.0.0",
+    "express": "^4.21.1",
+    "gts": "^6.0.2",
+    "karma": "^6.3.20",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-coverage": "^2.2.1",
+    "karma-junit-reporter": "^2.0.1",
+    "karma-mocha": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sinon": "^1.0.5",
+    "karma-sourcemap-loader": "^0.4.0",
+    "karma-webpack": "^5.0.0",
+    "mocha": "^10.8.2",
+    "pre-commit": "^1.2.2",
+    "sinon": "^19.0.2",
+    "ts-loader": "^9.5.1",
+    "typedoc": "^0.26.11",
+    "typedoc-plugin-merge-modules": "^6.0.3",
+    "typescript": "^5.6.3",
+    "webpack": "^5.96.1",
+    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-middleware": "^7.0.0"
+  }
+}

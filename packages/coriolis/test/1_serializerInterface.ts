@@ -22,10 +22,10 @@ describe('test SerializerBase class', () => {
       get classToSerialize() {
         return A;
       }
-      serialize(object) {
+      serialize(object: any) {
         return object;
       }
-      deserialize(object) {
+      deserialize(object: any) {
         return object;
       }
     }

@@ -17,7 +17,7 @@ import {ModuleLoader} from '../src/ModuleLoader';
 import {PostMessageChannel} from '../src/PostMessageChannel';
 
 export default class {
-  static nextTick(nb = 1) {
+  static nextTick(nb = 1): Promise<void> {
     if (nb === 0) {
       return Promise.resolve();
     }
@@ -37,7 +37,7 @@ export default class {
 
     let _isConnected = false;
 
-    const objs = [];
+    const objs: Array<BaseCommon> = [];
 
     // Create two classes to emulate postMessageChannel class and link them with eventEmitter instead of postMessage
     class BaseCommon extends EventEmitterPolyfill {
@@ -45,7 +45,12 @@ export default class {
       receivedSocket: EventEmitterPolyfill;
       emitSocket: EventEmitterPolyfill;
       parent: boolean;
-      constructor(receivedSocket, emitSocket, timing, parent) {
+      constructor(
+        receivedSocket: EventEmitterPolyfill<string | symbol, any>,
+        emitSocket: EventEmitterPolyfill<string | symbol, any>,
+        timing: number,
+        parent: boolean,
+      ) {
         super();
         objs.push(this);
         this.receivedSocket = receivedSocket;
@@ -70,13 +75,13 @@ export default class {
       get isConnected() {
         return _isConnected;
       }
-      _allEmit(...arg) {
+      _allEmit(...arg: [string, ...any[]]) {
         for (const obj of objs) {
           obj.emit(...arg);
         }
       }
 
-      socketSend(name, data) {
+      socketSend(name: any, data: any) {
         const doFx = () => {
           this.emitSocket.emit(name, data, {
             data: {
@@ -93,10 +98,10 @@ export default class {
           doFx();
         }
       }
-      socketOn(name, cb) {
+      socketOn(name: any, cb: (...args: any[]) => void) {
         return this.receivedSocket.on(name, cb);
       }
-      socketOnce(name, cb) {
+      socketOnce(name: any, cb: (...args: any[]) => void) {
         return this.receivedSocket.once(name, cb);
       }
 

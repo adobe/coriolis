@@ -80,7 +80,7 @@ describe('test PostMessageChannel class', () => {
 
       const iframePostMessageSpy = sinon.spy(
         iframe.contentWindow!,
-        'postMessage'
+        'postMessage',
       );
       pmc.socketSend('eventName', {}, false);
       assert.isTrue(iframePostMessageSpy.calledOnce);
@@ -94,7 +94,7 @@ describe('test PostMessageChannel class', () => {
       const pmc = new PostMessageChannel(
         window.parent,
         window.location.origin,
-        {autoConnect: false}
+        {autoConnect: false},
       );
 
       const windowPostMessageSpy = sinon.spy(window.parent, 'postMessage');
@@ -139,7 +139,7 @@ describe('test PostMessageChannel class', () => {
       const pmc = new PostMessageChannel(
         window.parent,
         `${window.location.origin}/path?arg=value#hash`,
-        {autoConnect: false}
+        {autoConnect: false},
       );
 
       const windowPostMessageSpy = sinon.spy(window.parent, 'postMessage');
@@ -147,7 +147,7 @@ describe('test PostMessageChannel class', () => {
       assert.isTrue(windowPostMessageSpy.calledOnce);
       assert.deepEqual(
         windowPostMessageSpy.firstCall.args[1],
-        window.location.origin as unknown
+        window.location.origin as unknown,
       );
 
       windowPostMessageSpy.restore();
@@ -165,7 +165,7 @@ describe('test PostMessageChannel class', () => {
       assert.isTrue(windowPostMessageSpy.calledOnce);
       assert.deepEqual(
         windowPostMessageSpy.firstCall.args[1],
-        window.location.origin as unknown
+        window.location.origin as unknown,
       );
 
       windowPostMessageSpy.restore();
@@ -181,7 +181,7 @@ describe('test PostMessageChannel class', () => {
       // Mock with the correct origin url
       const eventListenerSpy = sinon.spy(
         PostMessageChannel.prototype,
-        'connect'
+        'connect',
       );
       new PostMessageChannel(iframe, window.location as unknown as URL, {
         autoConnect: false,
@@ -204,7 +204,7 @@ describe('test PostMessageChannel class', () => {
       // Mock with the correct origin url
       const eventListenerSpy = sinon.spy(
         PostMessageChannel.prototype,
-        'connect'
+        'connect',
       );
       new PostMessageChannel(iframe, window.location as unknown as URL, {
         autoConnect: true,
@@ -228,7 +228,7 @@ describe('test PostMessageChannel class', () => {
       // Mock with the correct origin url
       const eventListenerSpy = sinon.spy(
         PostMessageChannel.prototype,
-        'connect'
+        'connect',
       );
       new PostMessageChannel(iframe, window.location as unknown as URL);
 
@@ -296,7 +296,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const listenerSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -312,7 +312,7 @@ describe('test PostMessageChannel class', () => {
             eventName: 'myName',
             eventData: '{"toto": "tata"}',
           },
-        })
+        }),
       );
       assert.isTrue(listenerSpy.called);
 
@@ -336,7 +336,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const listenerSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -353,7 +353,7 @@ describe('test PostMessageChannel class', () => {
             eventName: 'myName',
             eventData: '{"toto": "tata"}',
           },
-        })
+        }),
       );
       assert.isFalse(listenerSpy.called);
 
@@ -377,7 +377,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const listenerSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -395,7 +395,7 @@ describe('test PostMessageChannel class', () => {
             eventName: 'myName',
             eventData: '{"toto": "tata"}',
           },
-        })
+        }),
       );
       assert.isTrue(listenerSpy.calledOnce);
 
@@ -425,7 +425,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const iframePostMessageSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -434,7 +434,7 @@ describe('test PostMessageChannel class', () => {
         new MessageEvent('message', {
           source: iframe2.contentWindow,
           origin: window.location.origin,
-        })
+        }),
       );
       assert.isFalse(iframePostMessageSpy.called);
       iframePostMessageSpy.restore();
@@ -457,7 +457,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const iframePostMessageSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -472,7 +472,7 @@ describe('test PostMessageChannel class', () => {
             source: iframe.contentWindow,
             origin: 'http://perdu.com',
             data: 'toto',
-          })
+          }),
         );
       });
 
@@ -494,7 +494,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const iframePostMessageSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -504,7 +504,7 @@ describe('test PostMessageChannel class', () => {
           source: iframe.contentWindow,
           origin: window.location.origin,
           data: 'toto',
-        })
+        }),
       );
 
       assert.isFalse(iframePostMessageSpy.called);
@@ -527,7 +527,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       const iframePostMessageSpy = sinon.spy(pmc._channelListener, 'emit');
 
@@ -540,7 +540,7 @@ describe('test PostMessageChannel class', () => {
             eventName: 'myName',
             eventData: '{"toto": "tata"}',
           },
-        })
+        }),
       );
       assert.isTrue(iframePostMessageSpy.calledOnce);
       iframePostMessageSpy.restore();
@@ -564,7 +564,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -590,7 +590,7 @@ describe('test PostMessageChannel class', () => {
           window.location as unknown as URL,
           {
             autoConnect: true,
-          }
+          },
         );
         assert.isFalse(pmc.isConnected);
 
@@ -614,7 +614,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -644,7 +644,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -674,7 +674,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       pmc.removeListeners();
 
@@ -707,7 +707,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       pmc.removeListeners();
 
@@ -744,7 +744,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -786,7 +786,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -822,7 +822,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: false,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -853,7 +853,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -868,7 +868,7 @@ describe('test PostMessageChannel class', () => {
           window.location as unknown as URL,
           {
             autoConnect: false,
-          }
+          },
         );
 
         pmc2.once('connected', () => {
@@ -905,7 +905,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
       assert.isFalse(pmc.isConnected);
 
@@ -939,7 +939,7 @@ describe('test PostMessageChannel class', () => {
         iframe.contentWindow!.coriolis2 = new iframe.contentWindow!.Coriolis(
           iframe.contentWindow!.parent,
           window.location as unknown as URL,
-          {autoConnect: true}
+          {autoConnect: true},
         );
       });
     });
@@ -958,7 +958,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
 
       // Wait page load and Coriolis is ready
@@ -987,7 +987,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
 
       // Wait page load and Coriolis is ready
@@ -996,7 +996,7 @@ describe('test PostMessageChannel class', () => {
           // Be sure expected value take also into account the poluate property
           assert.deepEqual(
             data,
-            Object.assign(Object.create(null), {toto: 'titi'})
+            Object.assign(Object.create(null), {toto: 'titi'}),
           );
           // cleanup
           document.body.removeChild(iframe);
@@ -1019,7 +1019,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
 
       // Wait page load and Coriolis is ready
@@ -1055,7 +1055,7 @@ describe('test PostMessageChannel class', () => {
         window.location as unknown as URL,
         {
           autoConnect: true,
-        }
+        },
       );
 
       // Wait page load and Coriolis is ready

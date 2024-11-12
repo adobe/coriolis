@@ -15,6 +15,7 @@ import {assert} from 'chai';
 import {PluginModule} from '../src/module/PluginModule';
 
 import Util from './0_util';
+import {PostMessageChannel} from '../src/PostMessageChannel';
 
 describe('test pluginDecorator class', () => {
   it('check public api.', done => {
@@ -45,8 +46,14 @@ describe('test pluginDecorator class', () => {
     obj1.register({
       pluginA: class {
         coriolis: typeof pmc1Plugin;
-        constructor(coriolis) {
-          coriolis.plugin.get('pluginB');
+        constructor(
+          coriolis: PostMessageChannel & {
+            fakeConnected: Function;
+            fakeDisconnected: Function;
+            fakeReconnected: Function;
+          } & {plugin?: PluginModule},
+        ) {
+          coriolis.plugin!.get('pluginB');
           assert.deepEqual(coriolis, pmc1);
           this.coriolis = coriolis;
         }
@@ -54,7 +61,7 @@ describe('test pluginDecorator class', () => {
           return 'pluginA';
         }
         get nameB() {
-          return this.coriolis.plugin.get('pluginB').name;
+          return this.coriolis.plugin!.get('pluginB').name;
         }
       },
       pluginB: class {
@@ -95,8 +102,14 @@ describe('test pluginDecorator class', () => {
       'pluginA',
       class {
         coriolis: typeof pmc1Plugin;
-        constructor(coriolis) {
-          coriolis.plugin.get('pluginB');
+        constructor(
+          coriolis: PostMessageChannel & {
+            fakeConnected: Function;
+            fakeDisconnected: Function;
+            fakeReconnected: Function;
+          } & {plugin?: PluginModule},
+        ) {
+          coriolis.plugin!.get('pluginB');
           assert.deepEqual(coriolis, pmc1);
           this.coriolis = coriolis;
         }
@@ -104,7 +117,7 @@ describe('test pluginDecorator class', () => {
           return 'pluginA';
         }
         get nameB() {
-          return this.coriolis.plugin.get('pluginB').name;
+          return this.coriolis.plugin!.get('pluginB').name;
         }
       },
     );
@@ -148,8 +161,15 @@ describe('test pluginDecorator class', () => {
       class {
         coriolis: typeof pmc1Plugin;
         _name: string;
-        constructor(name, coriolis) {
-          coriolis.plugin.get('pluginB');
+        constructor(
+          name: string,
+          coriolis: PostMessageChannel & {
+            fakeConnected: Function;
+            fakeDisconnected: Function;
+            fakeReconnected: Function;
+          } & {plugin?: PluginModule},
+        ) {
+          coriolis.plugin!.get('pluginB');
           this.coriolis = coriolis;
           this._name = name;
         }
@@ -157,7 +177,7 @@ describe('test pluginDecorator class', () => {
           return this._name;
         }
         get nameB() {
-          return this.coriolis.plugin.get('pluginB').name;
+          return this.coriolis.plugin!.get('pluginB').name;
         }
       },
     );

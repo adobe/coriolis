@@ -13,13 +13,17 @@
 
 import {assert} from 'chai';
 import {ModuleLoader} from '../src/ModuleLoader';
-import {ModuleBase} from '../src/ModuleBase';
+import {ModuleBase, ModuleLoaderInterface} from '../src/ModuleBase';
 
 import Util from './0_util';
+import {PostMessageChannel} from '../src/PostMessageChannel';
 
 describe('test ModuleLoader class', () => {
   const ModuleBaseMock = class extends ModuleBase {
-    constructor(postMessage) {
+    constructor(postMessage: {
+      postMessage: PostMessageChannel;
+      moduleLoader: ModuleLoaderInterface;
+    }) {
       super(postMessage);
     }
   };

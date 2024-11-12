@@ -14,13 +14,17 @@
 import {assert} from 'chai';
 import sinon from 'sinon';
 import {LoaderUtilModule} from '../src/module/LoaderUtilModule';
-import {ModuleBase} from '../src/ModuleBase';
+import {ModuleBase, ModuleLoaderInterface} from '../src/ModuleBase';
 
 import Util from './0_util';
+import {PostMessageChannel} from '../src/PostMessageChannel';
 
 describe('test LoaderUtilModule class', () => {
   const ModuleBaseMock = class extends ModuleBase {
-    constructor(arg) {
+    constructor(arg: {
+      postMessage: PostMessageChannel;
+      moduleLoader: ModuleLoaderInterface;
+    }) {
       super(arg);
     }
   };

@@ -36,8 +36,11 @@ describe('test ErrorSerializer class', () => {
   });
 
   describe('Check all error type', () => {
-    const checkErrorType = (ErrorType, done) => {
-      const d = new ErrorType('Test' + Math.random());
+    const checkErrorType = (
+      ErrorType: Chai.Constructor<unknown>,
+      done: jest.DoneCallback,
+    ) => {
+      const d = new ErrorType('Test' + Math.random()) as Error;
 
       const s = new ErrorSerializer();
       const r = s.deserialize(s.serialize(d));
@@ -60,14 +63,14 @@ describe('test ErrorSerializer class', () => {
 
     for (const v of nativeErrorType) {
       it(`check type: ${v}`, done => {
-        const ErrorType = global[v];
+        const ErrorType = (global as any)[v];
         checkErrorType(ErrorType, done);
       });
     }
 
     it('Check custome Error class', done => {
       class MyCustomError extends Error {
-        constructor(...args) {
+        constructor(...args: string[]) {
           super(...args);
           this.name = 'MyCustomError';
         }

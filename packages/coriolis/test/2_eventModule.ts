@@ -48,7 +48,7 @@ describe('test eventModule class', () => {
     const obj2 = new EventModule(Util.createModuleBaseArg(pmc2));
 
     // register event listener for one time only
-    const internalOnce = (...args) => {
+    const internalOnce = (...args: any[]) => {
       called.onceInternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'internal'); // check it's internal event
@@ -56,7 +56,7 @@ describe('test eventModule class', () => {
     };
     obj1.once('event1', internalOnce);
 
-    const externalOnce = (...args) => {
+    const externalOnce = (...args: any[]) => {
       called.onceExternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'external'); // check it's external event
@@ -65,7 +65,7 @@ describe('test eventModule class', () => {
     obj2.once('event1', externalOnce);
 
     // register event listener
-    const internalOn = (...args) => {
+    const internalOn = (...args: any[]) => {
       called.onInternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'internal'); // check it's internal event
@@ -73,7 +73,7 @@ describe('test eventModule class', () => {
     };
     obj1.on('event1', internalOn);
 
-    const externalOn = (...args) => {
+    const externalOn = (...args: any[]) => {
       called.onExternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'external'); // check it's external event

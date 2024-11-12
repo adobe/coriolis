@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
+  "extends": "../../node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist/cjs",
@@ -14,5 +14,6 @@
     "src/*.ts",
     "src/**/*.ts",
     "test/**/*.ts",
-  ]
+  ],
+  "exclude": ["dist", "node_modules", "../../node_modules"],
 }

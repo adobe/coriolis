@@ -42,7 +42,7 @@ export class ContentModule extends ModuleBase {
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
-    conf: ContentModuleConfig = {}
+    conf: ContentModuleConfig = {},
   ) {
     super(baseArgs);
 
@@ -111,7 +111,7 @@ export class ContentModule extends ModuleBase {
       '_contentReplaceHtml',
       html,
       keepCss,
-      executeScriptTags
+      executeScriptTags,
     ) as Promise<void>;
   }
 
@@ -157,7 +157,7 @@ export class ContentModule extends ModuleBase {
         }
 
         this._event.emit('initialContentLoaded');
-      }
+      },
     );
 
     this._query.register(
@@ -177,7 +177,7 @@ export class ContentModule extends ModuleBase {
 
         this._event.emit('contentReplaceHtml');
         return Promise.resolve();
-      }
+      },
     );
 
     this._query.register('_contentGetHtml', () => {
@@ -242,7 +242,7 @@ export class ContentModule extends ModuleBase {
       const dt = document.implementation.createDocumentType(
         parsedDt.name,
         parsedDt.publicId,
-        parsedDt.systemId
+        parsedDt.systemId,
       );
       if (document.doctype) {
         document.replaceChild(dt, document.doctype);
@@ -287,7 +287,7 @@ export class ContentModule extends ModuleBase {
 
     const attrCssExpr = `[${this._initialCssAttribute}=true]`;
     const coriolisElements = document.querySelectorAll(
-      `style${attrCssExpr}, link[rel=stylesheet]${attrCssExpr}`
+      `style${attrCssExpr}, link[rel=stylesheet]${attrCssExpr}`,
     );
     for (const el of coriolisElements) {
       el.remove();
@@ -310,7 +310,7 @@ export class ContentModule extends ModuleBase {
       for (const [name, value] of item.attributes) {
         try {
           newEl.setAttribute(name, value);
-          // eslint-disable-next-line no-empty
+          // eslint-disable-next-line no-empty, @typescript-eslint/no-unused-vars
         } catch (e) {}
       }
 
@@ -327,7 +327,7 @@ export class ContentModule extends ModuleBase {
       for (const attr of el.attributes) {
         try {
           script.setAttribute(attr.name, attr.value);
-          // eslint-disable-next-line no-empty
+          // eslint-disable-next-line no-empty, @typescript-eslint/no-unused-vars
         } catch (e) {}
       }
       script.textContent = el.textContent;

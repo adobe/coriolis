@@ -249,7 +249,7 @@ describe('test contentDecorator class', () => {
     </html>`.replace(/\n\s+/gm, '');
     assert.deepEqual(
       context.iframe.contentDocument!.documentElement.outerHTML,
-      html
+      html,
     );
 
     done();

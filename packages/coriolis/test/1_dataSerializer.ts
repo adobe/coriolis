@@ -120,11 +120,11 @@ describe('test DataSerializer class', () => {
         return ClassToSerialize;
       }
 
-      serialize(object) {
+      serialize(object: any) {
         return {serialize: true, ...object};
       }
 
-      deserialize(object) {
+      deserialize(object: any) {
         assert.deepEqual(object.serialize, true);
         object = Object.assign(new ClassToSerialize(), object);
         object.deserialize = true;
@@ -167,7 +167,7 @@ describe('test DataSerializer class', () => {
   it('test deserialize something which is crafted by hand with private inside.', done => {
     const obj = new DataSerializer();
     class ClassToSerialize {}
-    class SimpleSerializer extends SerializerBase<ClassToSerialize, Object> {
+    class SimpleSerializer extends SerializerBase<ClassToSerialize, object> {
       constructor() {
         super();
       }
@@ -175,12 +175,12 @@ describe('test DataSerializer class', () => {
         return ClassToSerialize;
       }
 
-      serialize(object) {
+      serialize(object: any) {
         object.serialize = true;
         return object;
       }
 
-      deserialize(object) {
+      deserialize(object: any) {
         assert.deepEqual(object.serialize, true);
         // private key is already removed here
         assert.deepEqual(object._privateKey, undefined);

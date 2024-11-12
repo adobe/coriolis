@@ -133,7 +133,7 @@ describe('test storeDecorator class', () => {
     const obj2 = new StoreModule(Util.createModuleBaseArg(pmc2));
 
     // register store listener for one time only
-    const internalOnce = (...args) => {
+    const internalOnce = (...args: any[]) => {
       called.onceInternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'internal'); // check it's internal store
@@ -141,7 +141,7 @@ describe('test storeDecorator class', () => {
     };
     obj1.once('var1', internalOnce);
 
-    const externalOnce = (...args) => {
+    const externalOnce = (...args: any[]) => {
       called.onceExternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'external'); // check it's external store
@@ -150,7 +150,7 @@ describe('test storeDecorator class', () => {
     obj2.once('var1', externalOnce);
 
     // register store listener
-    const internalOn = (...args) => {
+    const internalOn = (...args: any[]) => {
       called.onInternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'internal'); // check it's internal store
@@ -158,7 +158,7 @@ describe('test storeDecorator class', () => {
     };
     obj1.on('var1', internalOn);
 
-    const externalOn = (...args) => {
+    const externalOn = (...args: any[]) => {
       called.onExternal++; // increment counter of called callback
       const type = args.pop(); // take last arg (origin arg)
       assert.deepEqual(type, 'external'); // check it's external store

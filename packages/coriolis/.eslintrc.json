@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/gts/",
+  "extends": "../../node_modules/gts/",
   "env": {
     "browser": true,
     "jest": true,

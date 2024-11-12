@@ -29,15 +29,15 @@ describe('test DomRectSerializer class', () => {
     const iframe1 = window.document.createElement('iframe');
     const iframe2 = window.document.createElement('iframe');
     window.document.body.appendChild(iframe1);
-    iframe1.contentDocument.body.appendChild(iframe2);
+    iframe1.contentDocument!.body.appendChild(iframe2);
 
     // shortcuts
-    const iframe1Html = iframe1.contentDocument.querySelector('html');
-    const iframe2Html = iframe2.contentDocument.querySelector('html');
+    const iframe1Html = iframe1.contentDocument!.querySelector('html')!;
+    const iframe2Html = iframe2.contentDocument!.querySelector('html')!;
 
     // shortcuts
-    const iframe1Body = iframe1.contentDocument.body;
-    const iframe2Body = iframe2.contentDocument.body;
+    const iframe1Body = iframe1.contentDocument!.body;
+    const iframe2Body = iframe2.contentDocument!.body;
 
     // Try to mess up the results
     iframe1Html.style.margin = '11px';
@@ -127,8 +127,8 @@ describe('test DomRectSerializer class', () => {
     assert.deepEqual(d3, d1);
 
     // creanup the dom
-    iframe2.parentNode.removeChild(iframe2);
-    iframe1.parentNode.removeChild(iframe1);
+    iframe2.parentNode?.removeChild(iframe2);
+    iframe1.parentNode?.removeChild(iframe1);
 
     done();
   });
