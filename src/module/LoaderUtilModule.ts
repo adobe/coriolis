@@ -89,7 +89,7 @@ export class LoaderUtilModule extends ModuleBase {
       if (!this._moduleAreSame()) {
         console.error(
           'Module are not in sync between the two frames.',
-          this.loaded()
+          this.loaded(),
         );
       }
     });

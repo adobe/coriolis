@@ -21,7 +21,7 @@ export interface ModuleLoaderInterface extends EventEmitter {
   load(
     name: string,
     Module: ModuleBaseConstructable,
-    config?: Record<string, unknown>
+    config?: Record<string, unknown>,
   ): ModuleBase;
   has(name: string): boolean;
   get(name: string): undefined | ModuleBase;
@@ -33,7 +33,7 @@ export interface ModuleLoaderInterface extends EventEmitter {
 export interface ModuleBaseConstructable {
   new (
     moduleBaseArgs: ConstructorParameters<typeof ModuleBase>[0],
-    config: {}
+    config: {},
   ): ModuleBase;
 }
 

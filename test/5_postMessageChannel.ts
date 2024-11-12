@@ -17,7 +17,7 @@ import {PostMessageChannel as PostMessageChannelOriginal} from '../src/PostMessa
 import {Coriolis} from '../src/index';
 
 class PostMessageChannel extends PostMessageChannelOriginal {
-  public _channelListener;
+  public declare _channelListener: PostMessageChannelOriginal['_channelListener'];
 }
 
 declare global {
@@ -79,7 +79,7 @@ describe('test PostMessageChannel class', () => {
       });
 
       const iframePostMessageSpy = sinon.spy(
-        iframe.contentWindow,
+        iframe.contentWindow!,
         'postMessage'
       );
       pmc.socketSend('eventName', {}, false);
@@ -114,7 +114,9 @@ describe('test PostMessageChannel class', () => {
       });
       assert.equal(consoleErrorSpy.callCount, 1);
       assert.throws(() => {
-        new PostMessageChannel(window.parent, undefined, {autoConnect: false});
+        new PostMessageChannel(window.parent, undefined as unknown as string, {
+          autoConnect: false,
+        });
       });
       assert.equal(consoleErrorSpy.callCount, 2);
       assert.throws(() => {
@@ -145,7 +147,7 @@ describe('test PostMessageChannel class', () => {
       assert.isTrue(windowPostMessageSpy.calledOnce);
       assert.deepEqual(
         windowPostMessageSpy.firstCall.args[1],
-        window.location.origin
+        window.location.origin as unknown
       );
 
       windowPostMessageSpy.restore();
@@ -163,7 +165,7 @@ describe('test PostMessageChannel class', () => {
       assert.isTrue(windowPostMessageSpy.calledOnce);
       assert.deepEqual(
         windowPostMessageSpy.firstCall.args[1],
-        window.location.origin
+        window.location.origin as unknown
       );
 
       windowPostMessageSpy.restore();
@@ -569,7 +571,7 @@ describe('test PostMessageChannel class', () => {
       // Wait page load and Coriolis is ready
       pmc.on('connected', () => {
         assert.isTrue(pmc.isConnected);
-        assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+        assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
         document.body.removeChild(iframe);
         done();
       });
@@ -594,7 +596,7 @@ describe('test PostMessageChannel class', () => {
 
         pmc.on('connected', () => {
           assert.isTrue(pmc.isConnected);
-          assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+          assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
           document.body.removeChild(iframe);
           done();
         });
@@ -624,7 +626,7 @@ describe('test PostMessageChannel class', () => {
 
         pmc.on('connected', () => {
           assert.isTrue(pmc.isConnected);
-          assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+          assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
           document.body.removeChild(iframe);
           done();
         });
@@ -650,11 +652,11 @@ describe('test PostMessageChannel class', () => {
       iframe.addEventListener('load', () => {
         assert.isFalse(pmc.isConnected);
 
-        assert.isTrue(iframe.contentWindow.coriolis.connect());
+        assert.isTrue(iframe.contentWindow!.coriolis.connect());
 
-        iframe.contentWindow.coriolis.on('connected', () => {
+        iframe.contentWindow!.coriolis.on('connected', () => {
           assert.isTrue(pmc.isConnected);
-          assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+          assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
           document.body.removeChild(iframe);
           done();
         });
@@ -686,7 +688,7 @@ describe('test PostMessageChannel class', () => {
 
         pmc.on('connected', () => {
           assert.isTrue(pmc.isConnected);
-          assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+          assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
           document.body.removeChild(iframe);
           attachListenerSpy.restore();
           done();
@@ -749,7 +751,7 @@ describe('test PostMessageChannel class', () => {
       // Wait page load and Coriolis is ready
       pmc.on('connected', () => {
         assert.isTrue(pmc.isConnected);
-        assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+        assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
 
         // Register callback for local disconnection
         pmc.on('disconnected', () => {
@@ -757,9 +759,9 @@ describe('test PostMessageChannel class', () => {
           assert.isFalse(pmc.isConnected);
 
           // Register callback for remote disconnection
-          iframe.contentWindow.coriolis.on('disconnected', () => {
+          iframe.contentWindow!.coriolis.on('disconnected', () => {
             // check remote disconnection
-            assert.isFalse(iframe.contentWindow.coriolis.isConnected);
+            assert.isFalse(iframe.contentWindow!.coriolis.isConnected);
 
             // cleanup
             document.body.removeChild(iframe);
@@ -791,7 +793,7 @@ describe('test PostMessageChannel class', () => {
       // Wait page load and Coriolis is ready
       pmc.on('connected', () => {
         assert.isTrue(pmc.isConnected);
-        assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+        assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
 
         // Register callback for local disconnection
         pmc.on('disconnected', () => {
@@ -799,7 +801,7 @@ describe('test PostMessageChannel class', () => {
           assert.isFalse(pmc.isConnected);
 
           // check remote disconnection
-          assert.isFalse(iframe.contentWindow.coriolis.isConnected);
+          assert.isFalse(iframe.contentWindow!.coriolis.isConnected);
 
           // cleanup
           document.body.removeChild(iframe);
@@ -807,7 +809,7 @@ describe('test PostMessageChannel class', () => {
         });
 
         // launch remote disconnect
-        assert.isTrue(iframe.contentWindow.coriolis.disconnect());
+        assert.isTrue(iframe.contentWindow!.coriolis.disconnect());
       });
     });
 
@@ -858,7 +860,7 @@ describe('test PostMessageChannel class', () => {
       // Wait page load and Coriolis is ready
       pmc.once('connected', () => {
         assert.isTrue(pmc.isConnected);
-        assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+        assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
 
         pmc.removeListeners();
         const pmc2 = new PostMessageChannel(
@@ -910,7 +912,7 @@ describe('test PostMessageChannel class', () => {
       // Wait page load and Coriolis is ready
       pmc.once('connected', () => {
         assert.isTrue(pmc.isConnected);
-        assert.isTrue(iframe.contentWindow.coriolis.isConnected);
+        assert.isTrue(iframe.contentWindow!.coriolis.isConnected);
 
         pmc.once('connected', () => {
           // should not send connected event when reconnected
@@ -923,9 +925,9 @@ describe('test PostMessageChannel class', () => {
           assert.isTrue(pmc.isConnected);
 
           // Register callback for remote disconnection
-          iframe.contentWindow.coriolis2.on('reconnected', () => {
+          iframe.contentWindow!.coriolis2.on('reconnected', () => {
             // check remote disconnection
-            assert.isTrue(iframe.contentWindow.coriolis2.isConnected);
+            assert.isTrue(iframe.contentWindow!.coriolis2.isConnected);
 
             // cleanup
             document.body.removeChild(iframe);
@@ -933,9 +935,9 @@ describe('test PostMessageChannel class', () => {
           });
         });
 
-        iframe.contentWindow.coriolis.removeListeners();
-        iframe.contentWindow.coriolis2 = new iframe.contentWindow.Coriolis(
-          iframe.contentWindow.parent,
+        iframe.contentWindow!.coriolis.removeListeners();
+        iframe.contentWindow!.coriolis2 = new iframe.contentWindow!.Coriolis(
+          iframe.contentWindow!.parent,
           window.location as unknown as URL,
           {autoConnect: true}
         );
@@ -961,7 +963,7 @@ describe('test PostMessageChannel class', () => {
 
       // Wait page load and Coriolis is ready
       pmc.once('connected', () => {
-        iframe.contentWindow.coriolis.socketOn('test-ABC', data => {
+        iframe.contentWindow!.coriolis.socketOn('test-ABC', data => {
           // Be sure expected value take also into account the poluate property
           assert.deepEqual(data, Object.assign(Object.create(null), {}));
           // cleanup
@@ -990,7 +992,7 @@ describe('test PostMessageChannel class', () => {
 
       // Wait page load and Coriolis is ready
       pmc.once('connected', () => {
-        iframe.contentWindow.coriolis.socketOn('test-ABC', data => {
+        iframe.contentWindow!.coriolis.socketOn('test-ABC', data => {
           // Be sure expected value take also into account the poluate property
           assert.deepEqual(
             data,
@@ -1036,8 +1038,8 @@ describe('test PostMessageChannel class', () => {
           }
         });
 
-        iframe.contentWindow.coriolis.socketSend('test-ABC');
-        iframe.contentWindow.coriolis.socketSend('test-ABC', {toto: 'titi'});
+        iframe.contentWindow!.coriolis.socketSend('test-ABC');
+        iframe.contentWindow!.coriolis.socketSend('test-ABC', {toto: 'titi'});
       });
     });
 
@@ -1076,9 +1078,9 @@ describe('test PostMessageChannel class', () => {
           done();
         });
 
-        iframe.contentWindow.coriolis.socketSend('test-ABC');
-        iframe.contentWindow.coriolis.socketSend('test-ABC', {toto: 'titi'});
-        iframe.contentWindow.coriolis.socketSend('test-end', {toto: 'titi'});
+        iframe.contentWindow!.coriolis.socketSend('test-ABC');
+        iframe.contentWindow!.coriolis.socketSend('test-ABC', {toto: 'titi'});
+        iframe.contentWindow!.coriolis.socketSend('test-end', {toto: 'titi'});
       });
     });
   });

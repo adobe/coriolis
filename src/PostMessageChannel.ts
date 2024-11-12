@@ -93,7 +93,7 @@ export class PostMessageChannel extends EventEmitter<
     {
       dataSerializer = window.JSON,
       autoConnect = true,
-    }: {dataSerializer?: DataSerializer; autoConnect?: boolean} = {}
+    }: {dataSerializer?: DataSerializer; autoConnect?: boolean} = {},
   ) {
     super();
 
@@ -108,7 +108,7 @@ export class PostMessageChannel extends EventEmitter<
       this._socket = target;
     } else {
       throw new TypeError(
-        'Excepted to have a Window or HTMLIFrameElement object.'
+        'Excepted to have a Window or HTMLIFrameElement object.',
       );
     }
 
@@ -196,7 +196,7 @@ export class PostMessageChannel extends EventEmitter<
       this._domElement = false;
     } else {
       throw new TypeError(
-        'Excepted to have a Window or HTMLIFrameElement object.'
+        'Excepted to have a Window or HTMLIFrameElement object.',
       );
     }
   }
@@ -269,7 +269,7 @@ export class PostMessageChannel extends EventEmitter<
     this.socketOn('_socket:SYN', data => {
       if (data.version !== this.version) {
         console.error(
-          `Coriolis version mismatch, it's highly recommended to update. local version: ${this.version} remote version: ${data.version ?? 'unknown (probably < 2.1.0)'}`
+          `Coriolis version mismatch, it's highly recommended to update. local version: ${this.version} remote version: ${data.version ?? 'unknown (probably < 2.1.0)'}`,
         );
       }
       if (!this._previouslyConnected) {
@@ -334,7 +334,7 @@ export class PostMessageChannel extends EventEmitter<
     }
     if (e.origin !== this.url.origin) {
       throw new Error(
-        `Security: Bad message origin: ${e.origin} != ${this.url.origin}`
+        `Security: Bad message origin: ${e.origin} != ${this.url.origin}`,
       );
     }
     if (!e.data || !e.data.eventName) {
@@ -344,7 +344,7 @@ export class PostMessageChannel extends EventEmitter<
     this._channelListener.emit(
       e.data.eventName,
       this.dataSerializer.parse(e.data.eventData),
-      e
+      e,
     );
   }
 
@@ -360,7 +360,7 @@ export class PostMessageChannel extends EventEmitter<
     eventName: string,
     data = {},
     waitConnected = true,
-    skipDisconnected = false
+    skipDisconnected = false,
   ) {
     const cb = () => {
       const socket =
@@ -372,7 +372,7 @@ export class PostMessageChannel extends EventEmitter<
             eventData: this.dataSerializer.stringify(data),
             sentAt: Date.now(),
           },
-          this.url.origin
+          this.url.origin,
         );
     };
     if (waitConnected && !this._isConnected) {

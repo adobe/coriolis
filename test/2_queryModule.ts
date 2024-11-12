@@ -153,7 +153,7 @@ describe('test queryDecorator class', () => {
       assert.deepEqual(consoleStub.calledOnce, true);
       assert.deepEqual(
         consoleStub.getCall(0).args[0],
-        'Query "query1" doesn\'t return a Promise.'
+        'Query "query1" doesn\'t return a Promise.',
       );
       consoleStub.restore();
       done();

@@ -77,7 +77,7 @@ const baseConfig = {
   plugins: [
     new webpack.DefinePlugin({
       __CORIOLIS_VERSION__: JSON.stringify(
-        require(path.resolve(__dirname, './package.json')).version
+        require(path.resolve(__dirname, './package.json')).version,
       ),
     }),
     // new BundleAnalyzerPlugin(),

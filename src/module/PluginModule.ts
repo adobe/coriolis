@@ -21,7 +21,7 @@ type Factory =
   | ((
       name: string,
       classObject: Object,
-      postMessage: ModuleBase['_postMessage']
+      postMessage: ModuleBase['_postMessage'],
     ) => Object);
 
 export type PluginModuleConfig = {factory?: Factory};
@@ -32,7 +32,7 @@ export class PluginModule extends ModuleBase {
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
-    conf: PluginModuleConfig = {}
+    conf: PluginModuleConfig = {},
   ) {
     super(baseArgs);
 

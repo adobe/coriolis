@@ -60,15 +60,15 @@ describe('test DataSerializer class', () => {
 
     assert.deepEqual(
       obj.parse(obj.stringify({key: 'value', _private: 'null'})),
-      {key: 'value'}
+      {key: 'value'},
     );
     assert.deepEqual(
       obj.parse(obj.stringify({key: 'value', _private: {key2: 'null'}})),
-      {key: 'value'}
+      {key: 'value'},
     );
     assert.deepEqual(
       obj.parse(obj.stringify({key: 'value', obj2: {_private: 'null'}})),
-      {key: 'value', obj2: {}}
+      {key: 'value', obj2: {}},
     );
 
     done();
@@ -137,7 +137,7 @@ describe('test DataSerializer class', () => {
     // test normal use
     assert.deepEqual(
       obj.parse(obj.stringify({key: 'value', _private: 'null'})),
-      {key: 'value'}
+      {key: 'value'},
     );
 
     // test with serializer at different levels
@@ -147,7 +147,7 @@ describe('test DataSerializer class', () => {
       _private: 'null',
     };
     const deserialize = obj.parse(
-      obj.stringify(serialize)
+      obj.stringify(serialize),
     ) as typeof serialize & {key: {serialize: boolean; deserialize: boolean}};
     assert.instanceOf(deserialize.key, ClassToSerialize);
     assert.deepEqual(deserialize.key.serialize, true);
@@ -157,7 +157,7 @@ describe('test DataSerializer class', () => {
 
     const serialize2 = new ClassToSerialize();
     const deserialize2 = obj.parse(
-      obj.stringify(serialize2)
+      obj.stringify(serialize2),
     ) as ClassToSerialize;
     assert.instanceOf(deserialize2, ClassToSerialize);
 

@@ -142,7 +142,7 @@ describe('test ModuleLoader class', () => {
     obj1.load('test', ModuleBaseMock);
     assert.throws(
       () => obj1.load('test', ModuleBaseMock),
-      'This module is already registered'
+      'This module is already registered',
     );
 
     done();

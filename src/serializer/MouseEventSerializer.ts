@@ -35,7 +35,7 @@ export class MouseEventSerializer extends SerializerBase<
     domElement:
       | false
       | HTMLIFrameElement
-      | (() => HTMLIFrameElement | false) = false
+      | (() => HTMLIFrameElement | false) = false,
   ) {
     super();
     this._domElement = domElement;
@@ -92,10 +92,10 @@ export class MouseEventSerializer extends SerializerBase<
       const rect = domElement.getBoundingClientRect();
       const style = window.getComputedStyle(domElement);
       const borderLeft = parseFloat(
-        style.getPropertyValue('border-left-width').replace('px', '')
+        style.getPropertyValue('border-left-width').replace('px', ''),
       );
       const borderTop = parseFloat(
-        style.getPropertyValue('border-top-width').replace('px', '')
+        style.getPropertyValue('border-top-width').replace('px', ''),
       );
 
       return {
@@ -120,10 +120,10 @@ export class MouseEventSerializer extends SerializerBase<
       const rect = domElement.getBoundingClientRect();
       const style = window.getComputedStyle(domElement);
       const borderLeft = parseFloat(
-        style.getPropertyValue('border-left-width').replace('px', '')
+        style.getPropertyValue('border-left-width').replace('px', ''),
       );
       const borderTop = parseFloat(
-        style.getPropertyValue('border-top-width').replace('px', '')
+        style.getPropertyValue('border-top-width').replace('px', ''),
       );
       return {
         x: xLeft + rect.left + borderLeft,

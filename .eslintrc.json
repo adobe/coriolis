@@ -1,36 +1,16 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier",
-    "header"
-  ],
+  "extends": "./node_modules/gts/",
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true,
+    "node": false
+  },
+  "plugins": ["header"],
   "rules": {
-    "prettier/prettier": "error",
-    "block-scoped-var": "error",
-    "eqeqeq": "error",
-    "no-var": "error",
-    "prefer-const": "error",
-    "eol-last": "error",
-    "prefer-arrow-callback": "error",
-    "no-trailing-spaces": "error",
-    "quotes": ["warn", "single", { "avoidEscape": true }],
-    "no-restricted-properties": [
-      "error",
-      {
-        "object": "describe",
-        "property": "only"
-      },
-      {
-        "object": "it",
-        "property": "only"
-      }
-    ],
     "header/header": ["error", "block", [
       "",
-      {"pattern": " \\* Copyright \\d{4} Adobe. All rights reserved.", "template": " * Copyright 2022 Adobe. All rights reserved."},
+      {"pattern": " \\* Copyright \\d{4} Adobe. All rights reserved.", "template": " * Copyright 2024 Adobe. All rights reserved."},
       " * This file is licensed to you under the Apache License, Version 2.0 (the \"License\");",
       " * you may not use this file except in compliance with the License. You may obtain a copy",
       " * of the License at http://www.apache.org/licenses/LICENSE-2.0",
@@ -43,42 +23,14 @@
       ]
     ]
   },
-  "env": {
-    "browser": true,
-    "jest": true,
-    "es6": true,
-    "node": false
-  },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
-      "parser": "@typescript-eslint/parser",
-      "extends": [
-        "plugin:@typescript-eslint/recommended"
-      ],
+      "files": ["test/**/*.ts"],
       "rules": {
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-use-before-define": "off",
-        "@typescript-eslint/no-warning-comments": "off",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/ban-types": "off",
-        "@typescript-eslint/camelcase": "off",
-        "node/no-missing-import": "off",
-        "node/no-empty-function": "off",
-        "node/no-unsupported-features/es-syntax": "off",
-        "node/no-missing-require": "off",
-        "node/shebang": "off",
-        "no-dupe-class-members": "off",
-        "require-atomic-updates": "off"
-      },
-      "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "@typescript-eslint/no-floating-promises": "off"
       }
-    }, {
+    },
+    {
       "files": ["conf/*.js", "tool/*.js", "*.js"],
       "excludedFiles": "demo/*.js",
       "env": {

@@ -28,7 +28,7 @@ export class EventModule extends ModuleBase {
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
-    conf: EventModuleConfig = {}
+    conf: EventModuleConfig = {},
   ) {
     super(baseArgs);
 
@@ -48,7 +48,7 @@ export class EventModule extends ModuleBase {
       if (chunks.length > 1) {
         for (let i = 0; i < chunks.length - 1; i++) {
           const globName = [...chunks.slice(0, i + 1), '*'].join(
-            this._channelSeparator
+            this._channelSeparator,
           );
           this._eventListener.emit(globName, name, ...args, direction);
         }

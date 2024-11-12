@@ -88,7 +88,7 @@ describe('test pluginDecorator class', () => {
         get name() {
           return 'pluginB';
         }
-      }
+      },
     );
 
     obj1.add(
@@ -106,7 +106,7 @@ describe('test pluginDecorator class', () => {
         get nameB() {
           return this.coriolis.plugin.get('pluginB').name;
         }
-      }
+      },
     );
 
     assert.deepEqual(obj1.get('pluginA').name, 'pluginA');
@@ -140,7 +140,7 @@ describe('test pluginDecorator class', () => {
         get name() {
           return 'pluginB';
         }
-      }
+      },
     );
 
     obj1.add(
@@ -159,7 +159,7 @@ describe('test pluginDecorator class', () => {
         get nameB() {
           return this.coriolis.plugin.get('pluginB').name;
         }
-      }
+      },
     );
 
     assert.deepEqual(obj1.get('pluginA').name, 'pluginA');
@@ -183,7 +183,7 @@ describe('test pluginDecorator class', () => {
         get name() {
           return 'pluginB';
         }
-      }
+      },
     );
 
     assert.deepEqual(obj1.get('pluginB').name, 'pluginB');
@@ -196,7 +196,7 @@ describe('test pluginDecorator class', () => {
         get name() {
           return 'pluginB';
         }
-      }
+      },
     );
 
     assert.deepEqual(obj1.get('pluginB').name, 'pluginB');

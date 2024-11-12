@@ -30,7 +30,7 @@ export class ErrorSerializer extends SerializerBase<Error, SerializedData> {
   }
 
   serialize(
-    e: Error & {fileName?: string; lineNumber?: string}
+    e: Error & {fileName?: string; lineNumber?: string},
   ): SerializedData {
     return {
       name: e.name,
@@ -55,7 +55,7 @@ export class ErrorSerializer extends SerializerBase<Error, SerializedData> {
         error = new (window[e.name as keyof Window] as unknown as new (
           message: string,
           fileName: string,
-          lineNumber: string
+          lineNumber: string,
         ) => Error)(e.message, e.fileName, e.lineNumber);
         break;
       default:

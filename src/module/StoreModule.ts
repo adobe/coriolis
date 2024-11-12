@@ -34,7 +34,7 @@ export class StoreModule extends ModuleBase {
 
   constructor(
     baseArgs: ConstructorParameters<typeof ModuleBase>[0],
-    conf: StoreModuleConfig = {}
+    conf: StoreModuleConfig = {},
   ) {
     super(baseArgs);
 
@@ -59,7 +59,7 @@ export class StoreModule extends ModuleBase {
       if (chunks.length > 1) {
         for (let i = 0; i < chunks.length - 1; i++) {
           const globName = [...chunks.slice(0, i + 1), '*'].join(
-            this._channelSeparator
+            this._channelSeparator,
           );
           this._storeListener.emit(globName, name, ...args, direction);
         }
@@ -95,7 +95,7 @@ export class StoreModule extends ModuleBase {
     return this._storeListener.off(...arg);
   }
 
-  private _setBulk(obj: Record<string, unknown>, forceUpdate: boolean = false) {
+  private _setBulk(obj: Record<string, unknown>, forceUpdate = false) {
     let needSet = false;
     const setObj: Record<string, unknown> = {};
     for (const name in obj) {
@@ -121,7 +121,7 @@ export class StoreModule extends ModuleBase {
 
   private _storeSync() {
     const setObj: Record<string, unknown> = Object.fromEntries(
-      this._store.entries()
+      this._store.entries(),
     );
     this._postMessage.socketSend('<=> syncStore', setObj, true, true);
   }
@@ -138,13 +138,13 @@ export class StoreModule extends ModuleBase {
         value: value,
       },
       true,
-      true
+      true,
     );
     this._store.set(name, value);
     this._emitWithChannelAndGlobalSupport(
       name,
       'internal',
-      this._store.get(name)
+      this._store.get(name),
     );
   }
 
@@ -170,7 +170,7 @@ export class StoreModule extends ModuleBase {
       this._emitWithChannelAndGlobalSupport(
         name,
         'external',
-        this._store.get(name)
+        this._store.get(name),
       );
     });
 
@@ -183,7 +183,7 @@ export class StoreModule extends ModuleBase {
         this._emitWithChannelAndGlobalSupport(
           name,
           'external',
-          this._store.get(name)
+          this._store.get(name),
         );
       }
     });

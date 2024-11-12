@@ -62,7 +62,7 @@ export class Coriolis extends PostMessageChannel {
       eventModule?: EventModuleConfig;
     } = {
       autoConnect: true,
-    }
+    },
   ) {
     const dataSerializer = new DataSerializer();
     let domElement:
@@ -79,21 +79,21 @@ export class Coriolis extends PostMessageChannel {
 
     dataSerializer.addSerializer(
       'DomRectSerializer',
-      new DomRectSerializer(domElement)
+      new DomRectSerializer(domElement),
     );
     dataSerializer.addSerializer(
       'MouseEventSerializer',
-      new MouseEventSerializer(domElement)
+      new MouseEventSerializer(domElement),
     );
     dataSerializer.addSerializer(
       'KeyboardEventSerializer',
-      new KeyboardEventSerializer()
+      new KeyboardEventSerializer(),
     );
     dataSerializer.addSerializer('SetSerializer', new SetSerializer());
     dataSerializer.addSerializer('MapSerializer', new MapSerializer());
     dataSerializer.addSerializer(
       'ArrayBufferSerializer',
-      new ArrayBufferSerializer()
+      new ArrayBufferSerializer(),
     );
     dataSerializer.addSerializer('ErrorSerializer', new ErrorSerializer());
     dataSerializer.addSerializer('DateSerializer', new DateSerializer());
@@ -112,12 +112,12 @@ export class Coriolis extends PostMessageChannel {
     this.plugin = this.module.load(
       'plugin',
       PluginModule,
-      options.pluginModule
+      options.pluginModule,
     );
     this.content = this.module.load(
       'content',
       ContentModule,
-      options.contentModule
+      options.contentModule,
     );
     this.loaderUtil = this.module.load('loaderUtil', LoaderUtilModule, {});
   }
@@ -129,7 +129,7 @@ export class Coriolis extends PostMessageChannel {
   static createIframe(
     target: HTMLElement,
     targetUrl: URL | string,
-    initialContent: string
+    initialContent: string,
   ) {
     if (!(target instanceof HTMLElement)) {
       throw new TypeError('Excepted to have a HTMLElement object');

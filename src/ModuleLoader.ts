@@ -63,7 +63,7 @@ export class ModuleLoader
   load<T extends ModuleBase = ModuleBase>(
     name: string,
     Module: ModuleBaseConstructable,
-    config = {}
+    config = {},
   ) {
     if (this._loadedModules.has(name)) {
       throw new Error('This module is already registered');
@@ -71,7 +71,7 @@ export class ModuleLoader
     // Add a  module
     this._loadedModules.set(
       name,
-      new Module({postMessage: this._postMessage, moduleLoader: this}, config)
+      new Module({postMessage: this._postMessage, moduleLoader: this}, config),
     );
 
     this.emit('add', {name});

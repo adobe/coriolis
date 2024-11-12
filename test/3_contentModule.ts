@@ -19,11 +19,29 @@ import {QueryModule} from '../src/module/QueryModule';
 import {ModuleBaseConstructable} from '../src/ModuleBase';
 
 import Util from './0_util';
+import Sinon from 'sinon';
+
+declare global {
+  interface Window {
+    stubIframe?: HTMLIFrameElement;
+  }
+}
+
+const global: typeof globalThis & {token?: Record<string, number | null>} =
+  globalThis;
 
 class ContentModule extends ContentModuleOriginal {
-  public _childExecuteScriptTags;
-  public _childGetCss;
-  public _childSetCss;
+  public public_childExecuteScriptTags() {
+    return this._childExecuteScriptTags();
+  }
+  public public_childGetCss() {
+    return this._childGetCss();
+  }
+  public public_childSetCss(
+    ...args: Parameters<ContentModuleOriginal['_childSetCss']>
+  ) {
+    return this._childSetCss(...args);
+  }
 }
 
 const depsModules: Parameters<typeof Util.createModuleBaseArg>[1] = new Map<
@@ -35,27 +53,54 @@ const depsModules: Parameters<typeof Util.createModuleBaseArg>[1] = new Map<
 ]);
 
 describe('test contentDecorator class', () => {
-  const context: {
-    iframe?: HTMLIFrameElement;
-    stubQuery?: typeof document.querySelectorAll & {restore: Function};
-    stubCreate?: typeof document.createElement & {restore: Function};
-    stubAppendChild?: typeof document.appendChild & {restore: Function};
-  } = {};
+  type ContextType = {
+    iframe: HTMLIFrameElement;
+    stubQuery: Sinon.SinonStub<
+      Parameters<typeof document.querySelectorAll>,
+      ReturnType<typeof document.querySelectorAll>
+    >;
+    stubCreate: Sinon.SinonStub<
+      Parameters<typeof document.createElement>,
+      ReturnType<typeof document.createElement>
+    >;
+    stubAppendChild: Sinon.SinonStub<
+      Parameters<typeof document.appendChild>,
+      ReturnType<typeof document.appendChild>
+    >;
+  };
+
+  const createStub = (): ContextType => {
+    if (window.stubIframe) {
+      window.stubIframe.parentNode?.removeChild(window.stubIframe);
+    }
+
+    const iframe = window.document.createElement('iframe');
+    window.stubIframe = iframe;
+    window.document.body.appendChild(iframe);
+
+    return {
+      iframe: iframe,
+      stubQuery: sinon.stub(document, 'querySelectorAll').callsFake(arg => {
+        console.log('test');
+        return iframe.contentDocument!.querySelectorAll(arg);
+      }),
+      stubCreate: sinon
+        .stub(document, 'createElement')
+        .callsFake(arg => iframe.contentDocument!.createElement(arg)),
+      stubAppendChild: sinon
+        .stub(document.head, 'appendChild')
+        .callsFake(arg => iframe.contentDocument!.head.appendChild(arg)),
+    };
+  };
+
+  let context: ContextType;
 
   beforeEach(done => {
-    context.iframe = window.document.createElement('iframe');
+    context = createStub();
+
     context.iframe.style.display = 'none';
     window.document.body.appendChild(context.iframe);
 
-    context.stubQuery = sinon
-      .stub(document, 'querySelectorAll')
-      .callsFake(arg => context.iframe.contentDocument.querySelectorAll(arg));
-    context.stubCreate = sinon
-      .stub(document, 'createElement')
-      .callsFake(arg => context.iframe.contentDocument.createElement(arg));
-    context.stubAppendChild = sinon
-      .stub(document.head, 'appendChild')
-      .callsFake(arg => context.iframe.contentDocument.head.appendChild(arg));
     done();
   });
 
@@ -64,9 +109,7 @@ describe('test contentDecorator class', () => {
     context.stubCreate.restore();
     context.stubAppendChild.restore();
 
-    context.iframe.parentNode.removeChild(context.iframe);
-    context.iframe = null;
-    delete context.iframe;
+    context.iframe.parentNode?.removeChild(context.iframe);
     done();
   });
 
@@ -93,7 +136,7 @@ describe('test contentDecorator class', () => {
 
     context.iframe.src = '/fixture/contentDecoratorCssTestData.html';
     context.iframe.addEventListener('load', () => {
-      const confCss = obj1._childGetCss();
+      const confCss = obj1.public_childGetCss();
 
       assert.deepEqual(confCss, [
         {
@@ -182,16 +225,16 @@ describe('test contentDecorator class', () => {
       },
     ];
 
-    const style = context.iframe.contentDocument.createElement('style');
+    const style = context.iframe.contentDocument!.createElement('style');
     style.setAttribute('importInit', 'true');
-    context.iframe.contentDocument.head.appendChild(style);
+    context.iframe.contentDocument!.head.appendChild(style);
 
-    const link = context.iframe.contentDocument.createElement('link');
+    const link = context.iframe.contentDocument!.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('importInit', 'true');
-    context.iframe.contentDocument.body.appendChild(link);
+    context.iframe.contentDocument!.body.appendChild(link);
 
-    obj1._childSetCss(conf);
+    obj1.public_childSetCss(conf);
 
     const html = `<html>
       <head>
@@ -205,7 +248,7 @@ describe('test contentDecorator class', () => {
       </body>
     </html>`.replace(/\n\s+/gm, '');
     assert.deepEqual(
-      context.iframe.contentDocument.documentElement.outerHTML,
+      context.iframe.contentDocument!.documentElement.outerHTML,
       html
     );
 
@@ -220,15 +263,18 @@ describe('test contentDecorator class', () => {
     const obj1 = new ContentModule(Util.createModuleBaseArg(pmc1, depsModules));
 
     const token = `_nb-${Math.floor(Math.random() * 100000)}`;
-    global[token] = 0;
-    context.iframe.contentDocument.documentElement.innerHTML = `<script attr="test" 1273-invalid-attr style="color: green" data-test="toto" prop>window.parent['${token}']++;</script>`;
+    if (!global.token) {
+      global.token = {};
+    }
+    global.token[token] = 0;
+    context.iframe.contentDocument!.documentElement.innerHTML = `<script attr="test" 1273-invalid-attr style="color: green" data-test="toto" prop>window.parent['token']['${token}']++;</script>`;
 
-    obj1._childExecuteScriptTags();
+    obj1.public_childExecuteScriptTags();
 
-    assert.deepEqual(global[token], 1);
+    assert.deepEqual(global.token[token], 1);
 
-    global[token] = null;
-    delete global[token];
+    global.token[token] = null;
+    delete global.token[token];
 
     done();
   });
@@ -241,15 +287,18 @@ describe('test contentDecorator class', () => {
     const obj1 = new ContentModule(Util.createModuleBaseArg(pmc1, depsModules));
 
     const token = `_nb-${Math.floor(Math.random() * 100000)}`;
-    global[token] = 0;
-    context.iframe.contentDocument.documentElement.innerHTML = `<script 1273-invalid-attr >window.parent['${token}']++;</script>`;
+    if (!global.token) {
+      global.token = {};
+    }
+    global.token[token] = 0;
+    context.iframe.contentDocument!.documentElement.innerHTML = `<script 1273-invalid-attr >window.parent['token']['${token}']++;</script>`;
 
-    obj1._childExecuteScriptTags();
+    obj1.public_childExecuteScriptTags();
 
-    assert.deepEqual(global[token], 1);
+    assert.deepEqual(global.token[token], 1);
 
-    global[token] = null;
-    delete global[token];
+    global.token[token] = null;
+    delete global.token[token];
 
     done();
   });

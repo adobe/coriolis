@@ -35,7 +35,7 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
       | false
       | HTMLIFrameElement
       | (() => HTMLIFrameElement | false) = false,
-    target = window.document.body
+    target = window.document.body,
   ) {
     super();
     this._domElement = domElement;
@@ -83,10 +83,10 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
         const style =
           domElement.ownerDocument.defaultView.getComputedStyle(domElement);
         borderLeft = parseFloat(
-          style.getPropertyValue('border-left-width').replace('px', '')
+          style.getPropertyValue('border-left-width').replace('px', ''),
         );
         borderTop = parseFloat(
-          style.getPropertyValue('border-top-width').replace('px', '')
+          style.getPropertyValue('border-top-width').replace('px', ''),
         );
       }
 
@@ -108,13 +108,13 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
     let bodyBorderTop = 0;
     if (this._target.ownerDocument?.defaultView) {
       const bodyStyle = this._target.ownerDocument.defaultView.getComputedStyle(
-        this._target
+        this._target,
       );
       bodyBorderLeft = parseFloat(
-        bodyStyle.getPropertyValue('border-left-width').replace('px', '')
+        bodyStyle.getPropertyValue('border-left-width').replace('px', ''),
       );
       bodyBorderTop = parseFloat(
-        bodyStyle.getPropertyValue('border-top-width').replace('px', '')
+        bodyStyle.getPropertyValue('border-top-width').replace('px', ''),
       );
     }
 
@@ -131,10 +131,10 @@ export class DomRectSerializer extends SerializerBase<DOMRect, SerializedData> {
         const ifraneStyle =
           domElement.ownerDocument.defaultView.getComputedStyle(domElement);
         iframeBorderLeft = parseFloat(
-          ifraneStyle.getPropertyValue('border-left-width').replace('px', '')
+          ifraneStyle.getPropertyValue('border-left-width').replace('px', ''),
         );
         iframeBorderTop = parseFloat(
-          ifraneStyle.getPropertyValue('border-top-width').replace('px', '')
+          ifraneStyle.getPropertyValue('border-top-width').replace('px', ''),
         );
       }
 

@@ -32,7 +32,7 @@ export class QueryModule extends ModuleBase {
     this._attachToChannel();
 
     this.register('__getQueryList', () =>
-      Promise.resolve([...this._query.keys()])
+      Promise.resolve([...this._query.keys()]),
     );
   }
 
@@ -46,7 +46,7 @@ export class QueryModule extends ModuleBase {
 
   isAvailable(name: string) {
     return this.call('__getQueryList').then(d =>
-      Promise.resolve((d as string[]).includes(name))
+      Promise.resolve((d as string[]).includes(name)),
     );
   }
 

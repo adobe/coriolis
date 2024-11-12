@@ -1,7 +1,7 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist/cjs",
     "noImplicitAny": true,
     "module": "esnext",
@@ -13,5 +13,6 @@
   "include": [
     "src/*.ts",
     "src/**/*.ts",
+    "test/**/*.ts",
   ]
 }

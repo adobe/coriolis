@@ -14,7 +14,7 @@ const path = require('path');
 const config = Object.assign(
   {},
   require(path.join(__dirname, '../webpack.config.js'))[1],
-  {mode: 'development'}
+  {mode: 'development'},
 );
 const webpack = require('webpack');
 const middleware = require('webpack-dev-middleware');
@@ -25,7 +25,7 @@ const app = express();
 app.use(
   middleware(compiler, {
     // webpack-dev-middleware options
-  })
+  }),
 );
 
 if (config.devServer.contentBase && config.devServer.contentBase) {
@@ -35,8 +35,8 @@ if (config.devServer.contentBase && config.devServer.contentBase) {
 }
 
 app.listen(8080, () =>
-  console.log('Example app listening on port http://localhost:8080/')
+  console.log('Example app listening on port http://localhost:8080/'),
 );
 app.listen(8081, () =>
-  console.log('Iframe app listening on port http://localhost:8081/')
+  console.log('Iframe app listening on port http://localhost:8081/'),
 );

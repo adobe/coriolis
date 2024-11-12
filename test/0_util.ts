@@ -110,7 +110,7 @@ export default class {
       childFrameCheck() {
         if (!this.isChildFrame) {
           throw new Error(
-            'This function should be called only in a child frame.'
+            'This function should be called only in a child frame.',
           );
         }
       }
@@ -118,7 +118,7 @@ export default class {
       parentFrameCheck() {
         if (!this.isParentFrame) {
           throw new Error(
-            'This function should be called only in a parent frame.'
+            'This function should be called only in a parent frame.',
           );
         }
       }
@@ -150,7 +150,7 @@ export default class {
 
   static createModuleBaseArg(
     pmc: PostMessageChannel,
-    initModules = new Map<string, ModuleBaseConstructable>()
+    initModules = new Map<string, ModuleBaseConstructable>(),
   ): ConstructorParameters<typeof ModuleBase>[0] {
     const moduleLoader = new ModuleLoader(pmc);
     for (const [name, Module] of initModules) {

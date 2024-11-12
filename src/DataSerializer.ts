@@ -117,7 +117,7 @@ export class DataSerializer {
    * @return {any}    The value after the custom parse or the input obj
    */
   private _serializerParse(
-    obj: unknown | {_serializerKey?: string; value: unknown}
+    obj: unknown | {_serializerKey?: string; value: unknown},
   ) {
     const key = (obj as {_serializerKey?: string; value: unknown})
       ?._serializerKey;
