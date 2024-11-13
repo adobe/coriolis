@@ -34,6 +34,7 @@ import {StoreModule, StoreModuleConfig} from './module/StoreModule';
 import {PluginModule, PluginModuleConfig} from './module/PluginModule';
 import {ContentModule, ContentModuleConfig} from './module/ContentModule';
 import {LoaderUtilModule} from './module/LoaderUtilModule';
+import {getPackageVersion} from './utils.macro' with {type: 'macro'};
 
 type Writable<T> = {
   -readonly [K in keyof T]: T[K];
@@ -123,7 +124,7 @@ export class Coriolis extends PostMessageChannel {
   }
 
   static get version() {
-    return 'v' + __CORIOLIS_VERSION__;
+    return 'v' + getPackageVersion();
   }
 
   static createIframe(

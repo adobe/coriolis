@@ -28,6 +28,8 @@ declare global {
   }
 }
 
+const global = window;
+
 describe('test PostMessageChannel class', () => {
   it('check public api.', done => {
     const iframe = document.createElement('iframe');
@@ -555,7 +557,7 @@ describe('test PostMessageChannel class', () => {
     it('Check auto connect with defer', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -580,7 +582,7 @@ describe('test PostMessageChannel class', () => {
     it('Check auto connect without defer', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       document.body.appendChild(iframe);
 
       // Wait page load and Coriolis is ready
@@ -606,7 +608,7 @@ describe('test PostMessageChannel class', () => {
     it('Check normal connect method usage', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       document.body.appendChild(iframe);
 
       const pmc = new PostMessageChannel(
@@ -636,7 +638,7 @@ describe('test PostMessageChannel class', () => {
     it('Check remote connect method usage', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       document.body.appendChild(iframe);
 
       const pmc = new PostMessageChannel(
@@ -666,7 +668,7 @@ describe('test PostMessageChannel class', () => {
     it('Check connect method auto attach listeners', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       document.body.appendChild(iframe);
 
       const pmc = new PostMessageChannel(
@@ -699,7 +701,7 @@ describe('test PostMessageChannel class', () => {
     it('Check connect method when already connected', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       document.body.appendChild(iframe);
 
       const pmc = new PostMessageChannel(
@@ -735,7 +737,7 @@ describe('test PostMessageChannel class', () => {
     it('Check local disconnect', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -777,7 +779,7 @@ describe('test PostMessageChannel class', () => {
     it('Check remote disconnect', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -844,7 +846,7 @@ describe('test PostMessageChannel class', () => {
     it('Check local reconnect', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -896,7 +898,7 @@ describe('test PostMessageChannel class', () => {
     it('Check remote reconnect', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -949,7 +951,7 @@ describe('test PostMessageChannel class', () => {
     it('Check socketSend without optionnal arguments', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -978,7 +980,7 @@ describe('test PostMessageChannel class', () => {
     it('Check socketSend without data arguments', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -1010,7 +1012,7 @@ describe('test PostMessageChannel class', () => {
     it('Check socketOn', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 
@@ -1046,7 +1048,7 @@ describe('test PostMessageChannel class', () => {
     it('Check socketOnce', done => {
       // Create a true iframe to have a correct origin
       const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', '/fixture/coriolis.html');
+      iframe.setAttribute('src', '/parcel-karma/');
       iframe.setAttribute('defer', 'true');
       document.body.appendChild(iframe);
 

@@ -10,9 +10,6 @@
  * governing permissions and limitations under the License.
  */
 
-const testsContext = require.context('.', false, /\d_/);
-testsContext.keys().forEach(testsContext);
-
 // For testing global object pollution doesn't make a mess
 beforeEach(done => {
   // eslint-disable-next-line no-extend-native

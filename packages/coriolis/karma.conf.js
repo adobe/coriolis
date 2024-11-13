@@ -10,39 +10,43 @@
  * governing permissions and limitations under the License.
  */
 
-const path = require('path');
-const webpackConfig = require(path.join(__dirname, 'webpack.config.js'))[1];
-
 module.exports = function (config) {
   config.set({
-    webpack: Object.assign(webpackConfig, {
-      devtool: 'inline-source-map',
-      mode: 'development',
-      resolve: Object.assign(webpackConfig.resolve, {
-        fallback: {
-          //     util: require.resolve('util/'),
-          util: false,
-        },
-      }),
-    }),
     basePath: './',
     files: [
-      'test/index.ts',
       {
-        pattern: './test/fixture/*',
+        pattern: './test/*.ts',
         watched: false,
         served: true,
         included: false,
       },
-      {pattern: './dist/umd/*', watched: true, served: true, included: false},
+      {
+        pattern: './src/*.ts',
+        watched: false,
+        served: false,
+        included: false,
+      },
+      {
+        pattern: './test/fixture/*',
+        watched: true,
+        served: true,
+        included: false,
+      },
+      {
+        pattern: './dist/*',
+        watched: true,
+        served: true,
+        included: false,
+      },
     ],
     preprocessors: {
-      'test/index.ts': ['webpack', 'sourcemap'],
-      'src/**/*.*': ['coverage'],
+      'test/**/*.ts': ['parcel', 'sourcemap'],
+      'src/**/*.*': ['parcel', 'coverage'],
     },
     proxies: {
+      '/parcel-karma/': 'http://localhost:1234/parcel-karma/',
       '/fixture/': '/base/test/fixture/',
-      '/dist/': '/base/dist/umd/',
+      '/dist/': '/base/dist/',
     },
     coverageReporter: {
       // specify a common output directory
@@ -62,30 +66,21 @@ module.exports = function (config) {
       ],
     },
     singleRun: true,
-    autoWatch: false,
-    reporters: ['mocha', 'coverage', 'junit'],
-    frameworks: ['mocha', 'sinon'],
+    autoWatch: true,
+    reporters: ['mocha', 'coverage'],
+    frameworks: ['mocha', 'sinon', 'parcel'],
     browsers:
       process.argv.indexOf('--headless') !== -1
         ? ['ChromeHeadless']
         : ['Chrome'],
-    junitReporter: {
-      outputDir: 'reporting/test',
-      outputFile: 'test-results.xml',
-      useBrowserName: false,
-    },
     plugins: [
       'karma-sourcemap-loader',
       'karma-coverage',
-      'karma-junit-reporter',
       'karma-chrome-launcher',
       'karma-mocha-reporter',
       'karma-mocha',
       'karma-sinon',
-      'karma-webpack',
+      'karma-parcel',
     ],
-    webpackMiddleware: {
-      stats: 'errors-only',
-    },
   });
 };

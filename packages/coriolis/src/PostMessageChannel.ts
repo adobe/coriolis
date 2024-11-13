@@ -15,6 +15,7 @@
  */
 
 import EventEmitter from 'eventemitter3';
+import {getPackageVersion} from './utils.macro' with {type: 'macro'};
 
 type DataSerializer = {
   parse: (serializeString: string) => unknown;
@@ -403,6 +404,6 @@ export class PostMessageChannel extends EventEmitter<
   }
 
   get version() {
-    return 'v' + __CORIOLIS_VERSION__;
+    return 'v' + getPackageVersion();
   }
 }
