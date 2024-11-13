@@ -2,30 +2,19 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "source": "src/index.html",
   "dependencies": {
     "@adobe/coriolis": "^2.1.0",
     "@adobe/react-spectrum": "^3.35.1",
-    "@types/node": "^22.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^5.4.5"
+    "react-dom": "^18.3.1"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start"
+    "start": "parcel --port 8080"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "parcel": "^2.13.0"
   }
 }

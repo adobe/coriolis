@@ -46,3 +46,5 @@ dist
 .scannerwork
 
 build
+
+.parcel-cache

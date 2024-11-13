@@ -1,4 +1,10 @@
 {
     "private": true,
-    "workspaces": ["packages/coriolis", "packages/*"]
-  }
+    "workspaces": [
+        "packages/coriolis",
+        "packages/*"
+    ],
+    "devDependencies": {
+        "process": "^0.11.10"
+    }
+}
