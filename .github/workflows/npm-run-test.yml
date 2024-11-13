@@ -27,7 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn install
-    - run: (cd demo-react/app; yarn install)
-    - run: (cd demo-react/iframe; yarn install)
-    - run: yarn run build
-    - run: yarn run test -- --headless
+    - run: (cd packages/coriolis; yarn run build)
+    - run: (cd packages/coriolis; yarn run test -- --headless)

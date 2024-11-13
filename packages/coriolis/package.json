@@ -9,7 +9,7 @@
   ],
   "main": "dist/umd/coriolis.js",
   "module": "dist/cjs/coriolis.js",
-  "types": "dist/cjs/Coriolis.d.ts",
+  "types": "dist/cjs/src/Coriolis.d.ts",
   "scripts": {
     "start": "NODE_ENV=dev node tool/watch.js",
     "build": "npm run compile",

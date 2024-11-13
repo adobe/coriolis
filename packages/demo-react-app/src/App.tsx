@@ -3,7 +3,6 @@ import './App.css';
 import { ActionButton, defaultTheme, Flex, Heading, Provider, Radio, RadioGroup, Switch, TextArea} from '@adobe/react-spectrum';
 import CoriolisIframe from './CoriolisIframe';
 import { Coriolis } from '@adobe/coriolis';
-
 const demo1 = `<h1 id="title">Click on me</h1>
 <script>
 var h1 = document.querySelector("#title");
