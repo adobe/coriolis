@@ -4,7 +4,7 @@ on:
     branches:
       - "main" # Change this if not your default branch
     paths:
-      - 'package.json'
+      - 'packages/coriolis/package.json'
       - '.github/workflows/npm-publish.yml'
 jobs:
   publish:
@@ -17,11 +17,10 @@ jobs:
           cache: 'yarn'
       - name: install
         run: yarn install
-      - run: (cd demo-react/app; yarn install)
-      - run: (cd demo-react/iframe; yarn install)
-      - run: yarn run test -- --headless
-      - run: yarn run build
+      - run: (cd packages/coriolis; yarn run test -- --headless)
+      - run: (cd packages/coriolis; yarn run build)
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
           access: 'public'
+          package: 'packages/coriolis'
