@@ -68,7 +68,7 @@
     "dependency-cruiser": "^16.7.0",
     "eslint-plugin-header": "^3.1.1",
     "eventemitter3": "^5.0.0",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "gts": "^6.0.2",
     "karma": "^6.3.20",
     "karma-chrome-launcher": "^3.1.1",
