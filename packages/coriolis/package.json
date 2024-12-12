@@ -1,6 +1,6 @@
 {
   "name": "@adobe/coriolis",
-  "version": "2.1.0",
+  "version": "2.1.1-beta.0",
   "description": "A library for cross iframe communication with high level API and features.",
   "keywords": [
     "iframe",

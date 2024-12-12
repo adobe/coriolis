@@ -46,7 +46,7 @@ export class PostMessageChannel extends EventEmitter<
    * The allowed URL for PostMessage communication
    * @type {URL}
    */
-  readonly url: URL;
+  readonly url: URL | '*';
 
   /**
    * The dataserializer to use for parse and stringify object into PostMessage
@@ -115,6 +115,8 @@ export class PostMessageChannel extends EventEmitter<
     // Set correctly targetUrl
     if (targetUrl instanceof URL) {
       this.url = targetUrl;
+    } else if (targetUrl === '*') {
+      this.url = '*';
     } else {
       try {
         this.url = new URL(targetUrl);
@@ -332,7 +334,7 @@ export class PostMessageChannel extends EventEmitter<
     if (e.source !== socket) {
       return; // Message not for me!
     }
-    if (e.origin !== this.url.origin) {
+    if (this.url !== '*' && e.origin !== this.url.origin) {
       throw new Error(
         `Security: Bad message origin: ${e.origin} != ${this.url.origin}`,
       );
@@ -372,7 +374,7 @@ export class PostMessageChannel extends EventEmitter<
             eventData: this.dataSerializer.stringify(data),
             sentAt: Date.now(),
           },
-          this.url.origin,
+          this.url === '*' ? '*' : this.url.origin,
         );
     };
     if (waitConnected && !this._isConnected) {
