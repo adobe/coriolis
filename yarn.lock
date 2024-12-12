@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
+"@adobe/coriolis@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@adobe/coriolis/-/coriolis-2.1.0.tgz#2723d6b7cfe60b5c1975b5692083a6cab1ed56b3"
+  integrity sha512-iJXzmWJCZaLULBYx/2xHcp9lY0fBr4UoxFXH/+/8vjBHkv+KU0e7zar5i32P0XbSb6Ng6Nf/OWf6+YQwsf+j2g==
+
 "@adobe/react-spectrum-ui@1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@adobe/react-spectrum-ui/-/react-spectrum-ui-1.2.1.tgz#31651a1c664b014bd7b4f8a2265e26ae418aecec"
@@ -5757,10 +5762,10 @@ depd@2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^16.7.0:
-  version "16.7.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.7.0.tgz#efe594d94eae6358c6e5f7dbfb4ef034d2812415"
-  integrity sha512-522LLjHINl9r0RIZ8/6s6TqIHTuEJG3XDU2WPSm9dG0rvLUYVyQwE9ID31tDFs4OOyEhdOPaqAaAG1jRv/Zwbg==
+dependency-cruiser@^16.8.0:
+  version "16.8.0"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.8.0.tgz#75c21b568cd797773f23b1a1ac5d9036898a3adf"
+  integrity sha512-VyBzIrLHfG7rT36URln+CTy8VSjrLB7YDlMx5vtBSHRHCOXgLUCcP4n5ZoD+s166T0i5LN33q1CvBkEOGsDTSg==
   dependencies:
     acorn "^8.14.0"
     acorn-jsx "^5.3.2"
@@ -5783,7 +5788,7 @@ dependency-cruiser@^16.7.0:
     semver "^7.6.3"
     teamcity-service-messages "^0.1.14"
     tsconfig-paths-webpack-plugin "^4.2.0"
-    watskeburt "^4.1.1"
+    watskeburt "^4.2.2"
 
 destroy@1.2.0:
   version "1.2.0"
@@ -9589,10 +9594,10 @@ watchpack@^2.4.1:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-watskeburt@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-4.1.1.tgz#3e2fb2ac5ba7db00af47e5ec1ff2f1ee4b719a21"
-  integrity sha512-6eghVVn6VlfYnlg23I2wABhXQFNdVdDzbXRTj0PKnDAgYJMuBcDt4fiHNAFMoBzLqM/fjFYj9QxTDfFskB3+Xg==
+watskeburt@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-4.2.2.tgz#e24f0afc40b7ecf511bf24c285b91dee2df4f4a5"
+  integrity sha512-AOCg1UYxWpiHW1tUwqpJau8vzarZYTtzl2uu99UptBmbzx6kOzCGMfRLF6KIRX4PYekmryn89MzxlRNkL66YyA==
 
 weak-lru-cache@^1.2.2:
   version "1.2.2"
