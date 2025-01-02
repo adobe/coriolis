@@ -57,7 +57,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@types/chai": "^5.0.1",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.3",
+    "@types/node": "^22.10.4",
     "@types/sinon": "^17.0.3",
     "@types/webpack-env": "^1.18.4",
     "babel-loader": "^9.2.1",
