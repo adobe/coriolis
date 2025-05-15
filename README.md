@@ -134,6 +134,10 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 
 ## Changelog
 
+### Version 2.1.1
+
+* Allow to bypass origin verification with the '*' as input URL.
+
 ### Version 2.1.0
 
 * Fix Map and Set serializer
