@@ -134,6 +134,10 @@ This project is licensed under the Apache V2 License. See [LICENSE](LICENSE) for
 
 ## Changelog
 
+### Version 2.1.2
+
+* Fix missing Readme on npmjs package
+
 ### Version 2.1.1
 
 * Allow to bypass origin verification with the '*' as input URL.

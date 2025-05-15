@@ -19,6 +19,7 @@ jobs:
         run: yarn install
       - run: (cd packages/coriolis; yarn run test -- --headless)
       - run: (cd packages/coriolis; yarn run build)
+      - run: (cp ./README.md packages/coriolis/README.md)
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}

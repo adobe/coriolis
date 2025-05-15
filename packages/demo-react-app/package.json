@@ -4,7 +4,7 @@
   "private": true,
   "source": "src/index.html",
   "dependencies": {
-    "@adobe/coriolis": "^2.1.1",
+    "@adobe/coriolis": "^2.1.2",
     "@adobe/react-spectrum": "^3.35.1",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
