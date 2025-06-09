@@ -7,7 +7,7 @@
     "@adobe/coriolis": "^2.1.2",
     "@adobe/react-spectrum": "^3.35.1",
     "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
+    "@types/react-dom": "^19.1.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
