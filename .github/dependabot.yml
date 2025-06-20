@@ -14,6 +14,45 @@ updates:
         patterns:
           - "parcel"
           - "@parcel/*"
+      react-packages:
+        patterns:
+          - "@types/react"
+          - "@types/react-dom"
+          - "react"
+          - "react-dom"
+      babel-packages:
+        patterns:
+          - "@babel/*"
+          - "babel-loader"
+          - "babel-polyfill"
+          - "babel-register"
+      webpack-packages:
+        patterns:
+          - "webpack"
+          - "webpack-*"
+          - "@types/webpack-env"
+          - "karma-webpack"
+      sinon-packages:
+        patterns:
+          - "sinon"
+          - "karma-sinon"
+          - "@types/sinon"
+      mocha-packages:
+        patterns:
+          - "karma-mocha"
+          - "karma-mocha-reporter"
+          - "mocha"
+      chai-packages:
+        patterns:
+          - "@types/chai"
+          - "chai"
+      karma-packages:
+        patterns:
+          - "karma"
+          - "karma-chrome-launcher"
+          - "karma-coverage"
+          - "karma-junit-reporter"
+          - "karma-sourcemap-loader"
       jest-packages:
         patterns:
           - "jest"
