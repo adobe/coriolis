@@ -4917,12 +4917,12 @@ acorn-jsx@^5.3.2:
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
   integrity sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==
 
-acorn-loose@^8.5.1:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/acorn-loose/-/acorn-loose-8.5.1.tgz#bbe91de1648bf3652b84b490d65417879683ce81"
-  integrity sha512-H68u/wiI8PAsSBclEIWwUg3dqEaDZXQHCovulbedgp78zJstjn7gDjfGgwUtW0BHi+KasryFLreHAGX/iXU85A==
+acorn-loose@^8.5.2:
+  version "8.5.2"
+  resolved "https://registry.yarnpkg.com/acorn-loose/-/acorn-loose-8.5.2.tgz#a7cc7dfbb7c8f3c2e55b055db640dc657e278d26"
+  integrity sha512-PPvV6g8UGMGgjrMu+n/f9E/tCSkNQ2Y97eFvuVdJfG11+xdIeDcLyNdC8SHcrHbRqkfwLASdplyR6B6sKM1U4A==
   dependencies:
-    acorn "^8.14.0"
+    acorn "^8.15.0"
 
 acorn-walk@^8.0.0, acorn-walk@^8.3.4:
   version "8.3.4"
@@ -5774,19 +5774,19 @@ depd@2.0.0, depd@^2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^16.10.3:
-  version "16.10.3"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.10.3.tgz#4372e2287bb437d9e8109f6359e33de5b7bfb28b"
-  integrity sha512-5fUuitVV6yFe6xSbFTMF1DH8vBvjxbYVUaOa4lowQyC5SwiR3oGQwlMryMbADtfVHscgFnOj2WtF3j+xQMTkSg==
+dependency-cruiser@^16.10.4:
+  version "16.10.4"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-16.10.4.tgz#ce14cbb6c473deb9c571298aee82bb2da2bd28de"
+  integrity sha512-hrxVOjIm8idZ9ZVDGSyyG3SHiNcEUPhL6RTEmO/3wfQWLepH5pA3nuDMMrcJ1DkZztFA7xg3tk8OVO+MmwwH9w==
   dependencies:
     acorn "^8.15.0"
     acorn-jsx "^5.3.2"
     acorn-jsx-walk "^2.0.0"
-    acorn-loose "^8.5.1"
+    acorn-loose "^8.5.2"
     acorn-walk "^8.3.4"
     ajv "^8.17.1"
     commander "^13.1.0"
-    enhanced-resolve "^5.18.1"
+    enhanced-resolve "^5.18.2"
     ignore "^7.0.5"
     interpret "^3.1.1"
     is-installed-globally "^1.0.0"
@@ -5952,10 +5952,10 @@ engine.io@~6.6.0:
     engine.io-parser "~5.2.1"
     ws "~8.17.1"
 
-enhanced-resolve@^5.0.0, enhanced-resolve@^5.17.1, enhanced-resolve@^5.18.1, enhanced-resolve@^5.7.0:
-  version "5.18.1"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.18.1.tgz#728ab082f8b7b6836de51f1637aab5d3b9568faf"
-  integrity sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==
+enhanced-resolve@^5.0.0, enhanced-resolve@^5.17.1, enhanced-resolve@^5.18.2, enhanced-resolve@^5.7.0:
+  version "5.18.2"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.18.2.tgz#7903c5b32ffd4b2143eeb4b92472bd68effd5464"
+  integrity sha512-6Jw4sE1maoRJo3q8MsSIn2onJFbLTOjY9hlx4DZXmOKvLRd1Ok2kXmAGXaafL2+ijsJZ1ClYbl/pmqr9+k4iUQ==
   dependencies:
     graceful-fs "^4.2.4"
     tapable "^2.2.0"
