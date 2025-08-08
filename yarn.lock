@@ -5765,10 +5765,10 @@ depd@2.0.0, depd@^2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^17.0.0:
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.0.0.tgz#9aed443a9b104a2dbeeeab7da6a8bd9936320335"
-  integrity sha512-GlGBPwAoY3dUERyH2yNjEmZt3qDBj+R3ukcN7RJrgIsPrb5xfmjRs/XfzyMwvWMtG+3DPzlHPuaRuJUk0FA+bA==
+dependency-cruiser@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.0.1.tgz#b3fc88f8c71d9fe98ba364368b04ddad159c55f3"
+  integrity sha512-4clZ8EPsOVoxGA8NMjaE95aJEO118Cd9D7gT5rysx5azij9cPiCSrnjYlZtV+90PFazlD2lZvjzBHkD1ZqGqlw==
   dependencies:
     acorn "^8.15.0"
     acorn-jsx "^5.3.2"
@@ -5788,7 +5788,6 @@ dependency-cruiser@^17.0.0:
     rechoir "^0.8.0"
     safe-regex "^2.1.1"
     semver "^7.7.2"
-    teamcity-service-messages "^0.1.14"
     tsconfig-paths-webpack-plugin "^4.2.0"
     watskeburt "^4.2.3"
 
@@ -9115,11 +9114,6 @@ tapable@^2.1.1, tapable@^2.2.0, tapable@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
-
-teamcity-service-messages@^0.1.14:
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/teamcity-service-messages/-/teamcity-service-messages-0.1.14.tgz#193d420a5e4aef8e5e50b8c39e7865e08fbb5d8a"
-  integrity sha512-29aQwaHqm8RMX74u2o/h1KbMLP89FjNiMxD9wbF2BbWOnbM+q+d1sCEC+MqCc4QW3NJykn77OMpTFw/xTHIc0w==
 
 term-size@^2.2.1:
   version "2.2.1"
