@@ -82,7 +82,7 @@
     "mocha": "^11.7.1",
     "pre-commit": "^1.2.2",
     "sinon": "^21.0.0",
-    "ts-loader": "^9.5.2",
+    "ts-loader": "^9.5.4",
     "typedoc": "^0.28.10",
     "typedoc-plugin-merge-modules": "^7.0.0",
     "typescript": "^5.9.2",
