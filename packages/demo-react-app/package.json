@@ -5,7 +5,7 @@
   "source": "src/index.html",
   "dependencies": {
     "@adobe/coriolis": "^2.1.2",
-    "@adobe/react-spectrum": "^3.44.0",
+    "@adobe/react-spectrum": "^3.44.1",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "react": "^19.1.1",
