@@ -64,7 +64,7 @@
     "babel-plugin-istanbul": "^7.0.1",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
-    "chai": "^6.0.1",
+    "chai": "^6.2.0",
     "dependency-cruiser": "^17.0.1",
     "eslint-plugin-header": "^3.1.1",
     "eventemitter3": "^5.0.0",
