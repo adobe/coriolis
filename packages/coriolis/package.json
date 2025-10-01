@@ -85,7 +85,7 @@
     "ts-loader": "^9.5.4",
     "typedoc": "^0.28.13",
     "typedoc-plugin-merge-modules": "^7.0.0",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "webpack": "^5.102.0",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^6.0.1",
