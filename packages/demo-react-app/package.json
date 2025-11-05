@@ -15,6 +15,6 @@
     "start": "parcel --port 8080"
   },
   "devDependencies": {
-    "parcel": "^2.16.0"
+    "parcel": "^2.16.1"
   }
 }
