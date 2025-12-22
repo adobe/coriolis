@@ -65,7 +65,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "chai": "^6.2.1",
-    "dependency-cruiser": "^17.3.4",
+    "dependency-cruiser": "^17.3.5",
     "eslint-plugin-header": "^3.1.1",
     "eventemitter3": "^5.0.0",
     "express": "^5.2.1",
