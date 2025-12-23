@@ -5471,10 +5471,10 @@ caniuse-lite@^1.0.30001759:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001760.tgz#bdd1960fafedf8d5f04ff16e81460506ff9b798f"
   integrity sha512-7AAMPcueWELt1p3mi13HR/LHH0TJLT11cnwDJEs3xA4+CK/PLKeO9Kl1oru24htkyUKtkGCvAx4ohB0Ttry8Dw==
 
-chai@^6.2.1:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/chai/-/chai-6.2.1.tgz#d1e64bc42433fbee6175ad5346799682060b5b6a"
-  integrity sha512-p4Z49OGG5W/WBCPSS/dH3jQ73kD6tiMmUM+bckNK6Jr5JHMG3k9bg/BvKR8lKmtVBKmOiuVaV2ws8s9oSbwysg==
+chai@^6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/chai/-/chai-6.2.2.tgz#ae41b52c9aca87734505362717f3255facda360e"
+  integrity sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==
 
 chalk@^1.1.3:
   version "1.1.3"
