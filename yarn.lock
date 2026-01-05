@@ -5823,10 +5823,10 @@ depd@2.0.0, depd@^2.0.0, depd@~2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^17.3.5:
-  version "17.3.5"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.3.5.tgz#d6fc2eb89d0d601fb64e15465576cab6b3ebebd4"
-  integrity sha512-eAkyhfopzKfwes9ZZcuTPtrAJrdSRX1ASnRbgCN5Dvf69XshhGspRDUGhO6ugqKZyyVfEm8IF81UFWMTEzGXCw==
+dependency-cruiser@^17.3.6:
+  version "17.3.6"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.3.6.tgz#d4065a4239734e6c0186dcd6076ccef822fc5e86"
+  integrity sha512-k0mXZaNvR2hZC0Dh2y4NGZZGqWLM6AbxQXmKL0T2m+KRE19nK5gAhm+PdV7f1L+AhdwwSOnebok7C6P27l2xXA==
   dependencies:
     acorn "8.15.0"
     acorn-jsx "5.3.2"
@@ -5839,7 +5839,6 @@ dependency-cruiser@^17.3.5:
     interpret "3.1.1"
     is-installed-globally "1.0.0"
     json5 "2.2.3"
-    memoize "10.2.0"
     picomatch "4.0.3"
     prompts "2.4.2"
     rechoir "0.8.0"
@@ -7638,13 +7637,6 @@ memfs@^4.43.1:
     tree-dump "^1.0.3"
     tslib "^2.0.0"
 
-memoize@10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/memoize/-/memoize-10.2.0.tgz#593f8066b922b791390d05e278dbeff163dad956"
-  integrity sha512-DeC6b7QBrZsRs3Y02A6A7lQyzFbsQbqgjI6UW0GigGWV+u1s25TycMr0XHZE4cJce7rY/vyw2ctMQqfDkIhUEA==
-  dependencies:
-    mimic-function "^5.0.1"
-
 meow@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-9.0.0.tgz#cd9510bc5cac9dee7d03c73ee1f9ad959f4ea364"
@@ -7719,11 +7711,6 @@ mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
-
-mimic-function@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/mimic-function/-/mimic-function-5.0.1.tgz#acbe2b3349f99b9deaca7fb70e48b83e94e67076"
-  integrity sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==
 
 min-indent@^1.0.0:
   version "1.0.1"
