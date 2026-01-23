@@ -5823,10 +5823,10 @@ depd@2.0.0, depd@^2.0.0, depd@~2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^17.3.6:
-  version "17.3.6"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.3.6.tgz#d4065a4239734e6c0186dcd6076ccef822fc5e86"
-  integrity sha512-k0mXZaNvR2hZC0Dh2y4NGZZGqWLM6AbxQXmKL0T2m+KRE19nK5gAhm+PdV7f1L+AhdwwSOnebok7C6P27l2xXA==
+dependency-cruiser@^17.3.7:
+  version "17.3.7"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.3.7.tgz#87429fff93722c5d41b7c8947d28758cfe41ee9f"
+  integrity sha512-WEEOrnf0eshNirg4CMWuB7kK+qVZ+fecW6EBJa6AomEFhDDZKi3Zel1Tyl4ihcWtiSDhF+vALQb8NJS+wQiwLA==
   dependencies:
     acorn "8.15.0"
     acorn-jsx "5.3.2"
@@ -5845,7 +5845,7 @@ dependency-cruiser@^17.3.6:
     safe-regex "2.1.1"
     semver "7.7.3"
     tsconfig-paths-webpack-plugin "4.2.0"
-    watskeburt "5.0.0"
+    watskeburt "5.0.2"
 
 destroy@1.2.0:
   version "1.2.0"
@@ -9534,10 +9534,10 @@ watchpack@^2.4.4:
     glob-to-regexp "^0.4.1"
     graceful-fs "^4.1.2"
 
-watskeburt@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-5.0.0.tgz#01cb52e5f26a24300bb7b470de232837c332e134"
-  integrity sha512-fEMhfIzu9WOuAJdDcTT+aPjn0JHI2+UeJ+zWSEs/tgMvc+MFDZVmhlZ8C1uJWXax1ETYc4trUnHFHyx2DrG0jQ==
+watskeburt@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/watskeburt/-/watskeburt-5.0.2.tgz#f7b63d90e0e18cc54746b18e570011e3e22fc8c3"
+  integrity sha512-8xIz2RALjwTA7kYeRtkiQ2uaFyr327T1GXJnVcGOoPuzQX2axpUXqeJPcgOEVemCWB2YveZjhWCcW/eZ3uTkZA==
 
 weak-lru-cache@^1.2.2:
   version "1.2.2"
