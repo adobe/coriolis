@@ -8,8 +8,8 @@
     "@adobe/react-spectrum": "^3.46.0",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "scripts": {
     "start": "parcel --port 8081"
