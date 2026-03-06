@@ -60,7 +60,7 @@
     "@types/node": "^25.3.3",
     "@types/sinon": "^21.0.0",
     "@types/webpack-env": "^1.18.8",
-    "babel-loader": "^10.0.0",
+    "babel-loader": "^10.1.0",
     "babel-plugin-istanbul": "^7.0.1",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
