@@ -9701,10 +9701,10 @@ webpack-cli@^7.0.2:
     rechoir "^0.8.0"
     webpack-merge "^6.0.1"
 
-webpack-dev-middleware@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.0.0.tgz#9bc7bbda2590b977b56b73c05c74ebb2fdbb368c"
-  integrity sha512-X9BPuWeG9PuBcoGAqLrSPShoUVKh0klAhneAyiHo2LbJKZix7gGvmngN5GyQMGqHuoGqzCrYgbC/6s2cauuXUQ==
+webpack-dev-middleware@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.0.1.tgz#9b6e622db1ef49c8ee32b2ac0da2506089b4ba9f"
+  integrity sha512-BuD/GZd3FleB9QQtCR9RLjuYacianU+GyWEGjUvLIJ2pqrJ2lgpdr1zND8Gxvt5ztB06mkWlbI83fqkiPH4z7Q==
   dependencies:
     memfs "^4.56.10"
     mime-types "^3.0.2"
