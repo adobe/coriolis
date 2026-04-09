@@ -61,7 +61,7 @@
     "@types/sinon": "^21.0.1",
     "@types/webpack-env": "^1.18.8",
     "babel-loader": "^10.1.1",
-    "babel-plugin-istanbul": "^7.0.1",
+    "babel-plugin-istanbul": "^8.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "chai": "^6.2.2",
