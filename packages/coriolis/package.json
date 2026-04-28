@@ -80,7 +80,7 @@
     "karma-sourcemap-loader": "^0.4.0",
     "karma-webpack": "^5.0.0",
     "mocha": "^11.7.5",
-    "pre-commit": "^1.2.2",
+    "pre-commit": "^2.0.0",
     "sinon": "^21.1.2",
     "ts-loader": "^9.5.7",
     "typedoc": "^0.28.19",
