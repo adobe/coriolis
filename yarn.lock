@@ -3550,10 +3550,10 @@ depd@2.0.0, depd@^2.0.0, depd@~2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^17.3.10:
-  version "17.3.10"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.3.10.tgz#483aec651b798b12f4e479700cc2e10fd37ac6f8"
-  integrity sha512-jF5WaIb+O+wLabXrQE7iBY2zYBEW8VlnuuL0+iZPvZHGhTaAYdLk31DI0zkwhcGE8CiHcDwGhMnn3PfOAYnVdQ==
+dependency-cruiser@^17.4.0:
+  version "17.4.0"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.4.0.tgz#340368ab432d1531408dfd7b1c2c01a70255ebbf"
+  integrity sha512-+WdFoOb+fT1XNC0iPqOyLpfhLd8xVh7eLXJxPAtiXCS+YmXzGrjqVTte7+L8SZIsnJj0aFhb8LxECIBJY5TTIA==
   dependencies:
     acorn "8.16.0"
     acorn-jsx "5.3.2"
@@ -3561,7 +3561,7 @@ dependency-cruiser@^17.3.10:
     acorn-loose "8.5.2"
     acorn-walk "8.3.5"
     commander "14.0.3"
-    enhanced-resolve "5.20.1"
+    enhanced-resolve "5.21.0"
     ignore "7.0.5"
     interpret "3.1.1"
     is-installed-globally "1.0.0"
@@ -3719,13 +3719,13 @@ engine.io@~6.6.0:
     engine.io-parser "~5.2.1"
     ws "~8.17.1"
 
-enhanced-resolve@5.20.1, enhanced-resolve@^5.0.0, enhanced-resolve@^5.20.0, enhanced-resolve@^5.7.0:
-  version "5.20.1"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.20.1.tgz#eeeb3966bea62c348c40a0cc9e7912e2557d0be0"
-  integrity sha512-Qohcme7V1inbAfvjItgw0EaxVX5q2rdVEZHRBrEQdRZTssLDGsL8Lwrznl8oQ/6kuTJONLaDcGjkNP247XEhcA==
+enhanced-resolve@5.21.0, enhanced-resolve@^5.0.0, enhanced-resolve@^5.20.0, enhanced-resolve@^5.7.0:
+  version "5.21.0"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.21.0.tgz#bb8e6fabaf74930de70e61397798750429e5b1ae"
+  integrity sha512-otxSQPw4lkOZWkHpB3zaEQs6gWYEsmX4xQF68ElXC/TWvGxGMSGOvoNbaLXm6/cS/fSfHtsEdw90y20PCd+sCA==
   dependencies:
     graceful-fs "^4.2.4"
-    tapable "^2.3.0"
+    tapable "^2.3.3"
 
 ent@~2.2.0:
   version "2.2.2"
@@ -6810,6 +6810,11 @@ tapable@^2.2.1, tapable@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.3.0.tgz#7e3ea6d5ca31ba8e078b560f0d83ce9a14aa8be6"
   integrity sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==
+
+tapable@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.3.3.tgz#5da7c9992c46038221267985ab28421a8879f160"
+  integrity sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==
 
 term-size@^2.2.1:
   version "2.2.1"
