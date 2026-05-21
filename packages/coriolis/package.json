@@ -79,7 +79,7 @@
     "karma-sinon": "^1.0.5",
     "karma-sourcemap-loader": "^0.4.0",
     "karma-webpack": "^5.0.0",
-    "mocha": "^11.7.5",
+    "mocha": "^11.7.6",
     "pre-commit": "^2.0.0",
     "sinon": "^22.0.0",
     "ts-loader": "^9.5.7",
