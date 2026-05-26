@@ -3504,10 +3504,10 @@ depd@2.0.0, depd@^2.0.0, depd@~2.0.0:
   resolved "https://registry.yarnpkg.com/depd/-/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-cruiser@^17.4.0:
-  version "17.4.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.4.0.tgz#340368ab432d1531408dfd7b1c2c01a70255ebbf"
-  integrity sha512-+WdFoOb+fT1XNC0iPqOyLpfhLd8xVh7eLXJxPAtiXCS+YmXzGrjqVTte7+L8SZIsnJj0aFhb8LxECIBJY5TTIA==
+dependency-cruiser@^17.4.2:
+  version "17.4.2"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-17.4.2.tgz#69f9af9e89c238dbcb56e3585aa2a684d6b8a8af"
+  integrity sha512-XbrWY2EkIRoqvJL3feRlwHiYrPD2h6iYZ+LaMZgMLpxDBFXKb3+rXGVAli3/fV+yd9rgTBtFpuAYMDt4RjHQUA==
   dependencies:
     acorn "8.16.0"
     acorn-jsx "5.3.2"
@@ -3515,7 +3515,7 @@ dependency-cruiser@^17.4.0:
     acorn-loose "8.5.2"
     acorn-walk "8.3.5"
     commander "14.0.3"
-    enhanced-resolve "5.21.0"
+    enhanced-resolve "5.22.0"
     ignore "7.0.5"
     interpret "3.1.1"
     is-installed-globally "1.0.0"
@@ -3524,7 +3524,7 @@ dependency-cruiser@^17.4.0:
     prompts "2.4.2"
     rechoir "0.8.0"
     safe-regex "2.1.1"
-    semver "7.7.4"
+    semver "7.8.1"
     tsconfig-paths-webpack-plugin "4.2.0"
     watskeburt "5.0.3"
 
@@ -3673,18 +3673,10 @@ engine.io@~6.6.0:
     engine.io-parser "~5.2.1"
     ws "~8.17.1"
 
-enhanced-resolve@5.21.0:
-  version "5.21.0"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.21.0.tgz#bb8e6fabaf74930de70e61397798750429e5b1ae"
-  integrity sha512-otxSQPw4lkOZWkHpB3zaEQs6gWYEsmX4xQF68ElXC/TWvGxGMSGOvoNbaLXm6/cS/fSfHtsEdw90y20PCd+sCA==
-  dependencies:
-    graceful-fs "^4.2.4"
-    tapable "^2.3.3"
-
-enhanced-resolve@^5.0.0, enhanced-resolve@^5.21.4, enhanced-resolve@^5.7.0:
-  version "5.21.6"
-  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.21.6.tgz#aa207b43cf658e6ab3ba06896edc00c13c3127c6"
-  integrity sha512-aNnGCvbJ/RIyWo1IuhNdVjnNF+EjH9wpzpNHt+ci/m9He9LJvUN8wrCcXjp9cWsGNAuvSpVFTx/vraAFQ8qGjQ==
+enhanced-resolve@5.22.0, enhanced-resolve@^5.0.0, enhanced-resolve@^5.21.4, enhanced-resolve@^5.7.0:
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.22.0.tgz#43c5caad657c6fce58fc6142e5ca6fa8528ed460"
+  integrity sha512-xYcDWrpELkFzz9SpZ3PlI6Eu6eD93Yf0WLDRxikGhWJ3MAir2SNZTIVCVZqZ/NUyx8AdMc2gT9C0gPiw18kG+A==
   dependencies:
     graceful-fs "^4.2.4"
     tapable "^2.3.3"
@@ -6355,10 +6347,10 @@ schema-utils@^4.3.0, schema-utils@^4.3.3:
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
-semver@7.7.4, semver@^7.0.0, semver@^7.3.4, semver@^7.3.7, semver@^7.3.8, semver@^7.5.3, semver@^7.5.4, semver@^7.7.1:
-  version "7.7.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.4.tgz#28464e36060e991fa7a11d0279d2d3f3b57a7e8a"
-  integrity sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA==
+semver@7.8.1, semver@^7.0.0, semver@^7.3.4, semver@^7.3.7, semver@^7.3.8, semver@^7.5.3, semver@^7.5.4, semver@^7.7.1:
+  version "7.8.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.1.tgz#bf4970b5e70fda0686363cc18bfe8805d5ed957e"
+  integrity sha512-rkVq3IXh+4FDGch+KwzX3aV9W3kO54GyEgpvBzSyctDA6Xtd7RJQV1xmXbeQp5v7+VzLOfVqiutSE6GICgPFvg==
 
 semver@^6.3.0, semver@^6.3.1:
   version "6.3.1"
