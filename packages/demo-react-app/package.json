@@ -6,7 +6,7 @@
   "dependencies": {
     "@adobe/coriolis": "^2.1.2",
     "@adobe/react-spectrum": "^3.47.1",
-    "@types/react": "^19.2.16",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
