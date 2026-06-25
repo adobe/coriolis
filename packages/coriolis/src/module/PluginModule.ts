@@ -40,7 +40,7 @@ export class PluginModule extends ModuleBase {
   }
 
   /**
-   * Register a set of plugin and solve the dependancy
+   * Register a set of plugin and solve the dependency
    * @param  {Object<Class>} plugins Class of each plugins with their respective names in keys
    * @return {void}
    */
@@ -64,8 +64,8 @@ export class PluginModule extends ModuleBase {
   /**
    * Add one plugin with his name and his class
    * @param  {String}   name    The plugin name/key
-   * @param  {CLass}    plugin  Class of the plugin to instanciate
-   * @return {Boolean}          If the plugin was added and instanciate or false if it's already present
+   * @param  {Class}    plugin  Class of the plugin to instantiate
+   * @return {Boolean}          If the plugin was added and instantiated or false if it's already present
    */
   add(name: string, plugin: Object) {
     if (this._plugins.has(name)) {
@@ -77,7 +77,7 @@ export class PluginModule extends ModuleBase {
   }
 
   /**
-   * Get the in stance of a plugin
+   * Get the instance of a plugin
    * @param  {String} name   The name of the plugin to get
    * @return {Object}        The instance of the plugin
    */
@@ -95,9 +95,9 @@ export class PluginModule extends ModuleBase {
   }
 
   /**
-   * Instanciate the plugin (with custom plugin factory if it was registered)
-   * @param  {String}  name  Plugin name/key to instanciate
-   * @return {Boolean}       If the plugin was instanciate
+   * Instantiate the plugin (with custom plugin factory if it was registered)
+   * @param  {String}  name  Plugin name/key to instantiate
+   * @return {Boolean}       If the plugin was instantiated
    */
   private _init(name: string) {
     const plugin = this._plugins.get(name);
