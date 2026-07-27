@@ -89,6 +89,6 @@
     "webpack": "^5.109.0",
     "webpack-bundle-analyzer": "^5.3.1",
     "webpack-cli": "^7.2.1",
-    "webpack-dev-middleware": "^8.0.4"
+    "webpack-dev-middleware": "^8.1.0"
   }
 }

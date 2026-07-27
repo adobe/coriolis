@@ -7119,10 +7119,10 @@ webpack-cli@^7.2.1:
     rechoir "^0.8.0"
     webpack-merge "^6.0.1"
 
-webpack-dev-middleware@^8.0.4:
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.0.4.tgz#f1d4a8637903fa6419457d1bae633d0369914a77"
-  integrity sha512-9dFzIvIfbdnkOlRjXDHEmEKlY/KPsELNIyKWdoNfK4WaHN9Db+JyVG0gi4/APUPX2UVhnCZ6jp7x0EyM7yTq1Q==
+webpack-dev-middleware@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.1.0.tgz#07aeb371b0acad79d8b60a5d0239859ded5bb2f7"
+  integrity sha512-vIgh3GAIgKFzB1oH5CYecv+4Ak3KEkyVzHvirgybm9B8B0KMZx1zvBaW9c5a4ZwbjXmXDAD0x2o6tVO8dVoVSw==
   dependencies:
     memfs "^4.56.10"
     mime-types "^3.0.2"
