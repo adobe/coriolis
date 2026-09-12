@@ -19,16 +19,16 @@ import {SerializerBase} from './SerializerBase';
 /**
  * A class that handles the stringification and parsing of the data that will be sent through PostMessage.
  * This has two main differences with JSON.parse/JSON.stringify.
- * - It allows loading custom domain serializer that could be loaded dynamically
+ * - It allows loading custom domain serializers that could be loaded dynamically
  * - It excludes from serialization all the property of objects which start with an "_" (underscore)
- * This allows having more than javascript primitive to be serialized and also to keep some property to be
+ * This allows having more than JavaScript primitives to be serialized and also to keep some property to be
  *  transferred because they shouldn't or they technically can't be transferred. For example, a security
  *  token might not be transferred or an HTMLElement reference couldn't be technically transferred. In that
  *  case, it could still be interesting to use it in a store but you never want them to be transferred.
  */
 export class DataSerializer {
   /**
-   * Internal array to save all custom serializer we have register
+   * Internal array to save all custom serializers we have registered
    * @type {Map}
    */
   private _serializers = new Map<string, SerializerBase>();
@@ -66,7 +66,7 @@ export class DataSerializer {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const myThis = this; // can't use closure since we need the JSON.stringify this
     return JSON.stringify(obj, function (k, v) {
-      // typeof => eject number and things that doesn't have match function
+      // typeof => reject number and things that don't have match function
       if (k !== '_serializerKey' && typeof k === 'string' && k.match(/^_/)) {
         return undefined;
       }
@@ -77,7 +77,7 @@ export class DataSerializer {
   }
 
   /**
-   * Call all custom serializer
+   * Call all custom serializers
    * @param  {Object}         obj         Object to serialize
    * @param  {any}            [fallback]  Default value if we can't find a dataSerializer for it
    * @return {Object|any}                 The value after the custom serializer or fallback
@@ -112,7 +112,7 @@ export class DataSerializer {
   }
 
   /**
-   * Call all custom serializer
+   * Call all custom serializers
    * @param  {any}    obj The current parse value
    * @return {any}    The value after the custom parse or the input obj
    */

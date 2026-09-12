@@ -55,7 +55,7 @@ export class ModuleLoader
   /**
    * Add a module
    * @param {string} name The name of the module
-   * @param {Class} Module A module class to instanciate
+   * @param {Class} Module A module class to instantiate
    * @param {Object} config The configuration to pass to the module
    * @param {Boolean} alias If the module is directly available in postMessage class
    * @return {boolean} return if the module is correctly added
