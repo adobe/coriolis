@@ -6102,12 +6102,17 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-rechoir@0.8.0, rechoir@^0.8.0:
+rechoir@0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.8.0.tgz#49f866e0d32146142da3ad8f0eff352b3215ff22"
   integrity sha512-/vxpCXddiX8NGfGO/mTafwjq4aFa/71pvamip0++IQk3zG8cbCj0fifNPrjjF1XMXUne91jL9OoxmdykoEtifQ==
   dependencies:
     resolve "^1.20.0"
+
+rechoir@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-1.0.0.tgz#7302d3ef55a2aae97b0de22ae61147002780870e"
+  integrity sha512-vyBa7bWz11iJRwzJR0nGLt6r45bymWfYXAgd1FmP08BNP/DHAVabgpGPyEXQmBtKvhgxi17SQz2szhvkberQsg==
 
 redent@^3.0.0:
   version "3.0.0"
@@ -7113,10 +7118,10 @@ webpack-bundle-analyzer@^5.4.0:
     sirv "^3.0.2"
     ws "^8.19.0"
 
-webpack-cli@^7.2.3:
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-7.2.3.tgz#becafbd777df5ff3e1a35ec398ad2ad54ec4d456"
-  integrity sha512-vDFU7jrfCctnN7jJQWPl+V26B51GLp11prVZXg50oeonsgeBzSTJEWmXkjHsOjTgMjlPOQM8GWLh33X9RN/0ow==
+webpack-cli@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-7.3.0.tgz#bdcc1ff6ded484822cc04758e6f51024eb6461eb"
+  integrity sha512-roVjyVzEecpl5CnP8YlPZZM8ZIi7OqD3at02/NbGsG+/iRWp6f9OZkaDxIodRIQ7d36AZ/c9qx11L04TpyO9Hw==
   dependencies:
     "@discoveryjs/json-ext" "^1.1.0"
     commander "^14.0.3"
@@ -7124,13 +7129,13 @@ webpack-cli@^7.2.3:
     envinfo "^7.21.0"
     import-local "^3.2.0"
     interpret "^3.1.1"
-    rechoir "^0.8.0"
+    rechoir "^1.0.0"
     webpack-merge "^6.0.1"
 
-webpack-dev-middleware@^8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.5.0.tgz#01e56fa808e0111973a80a05c6471fe9052ec659"
-  integrity sha512-+rXF28E5GKr7VnLH5qJaGIKLNPkthlA0VhqBFp/K6mjjCzOd6q34vYc2/3/ysRTjxmN01S98r1LwTTpWXDzWWA==
+webpack-dev-middleware@^8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-8.6.0.tgz#7d83f6816a6e09534790b20b46d269a98fd3d906"
+  integrity sha512-gDtuNFvzUys4RSkLAjXFCSbKz/MYIrCR9oXcIOnv4vFTmGsArddZoCb9LKlKWZO/JVL0COgK6hFBGPOt6EBg2Q==
   dependencies:
     memfs "^4.68.2"
     mime-db "^1.54.0"
