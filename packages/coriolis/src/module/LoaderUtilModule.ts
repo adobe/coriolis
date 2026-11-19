@@ -23,7 +23,7 @@ import {ModuleBase} from '../ModuleBase';
  */
 export class LoaderUtilModule extends ModuleBase {
   /**
-   * Internal array to save all custom serializer we have register
+   * Internal array to save all custom serializers we have registered
    * @type {Map}
    */
   private _remoteModule = new Set<string>();
@@ -88,7 +88,7 @@ export class LoaderUtilModule extends ModuleBase {
 
       if (!this._moduleAreSame()) {
         console.error(
-          'Module are not in sync between the two frames.',
+          'Modules are not in sync between the two frames.',
           this.loaded(),
         );
       }

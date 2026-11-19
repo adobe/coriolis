@@ -132,7 +132,7 @@ export class Coriolis extends PostMessageChannel {
     initialContent: string,
   ) {
     if (!(target instanceof HTMLElement)) {
-      throw new TypeError('Excepted to have a HTMLElement object');
+      throw new TypeError('Expected to have a HTMLElement object');
     }
 
     let url;
